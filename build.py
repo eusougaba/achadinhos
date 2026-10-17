@@ -157,6 +157,8 @@ def main() -> None:
     for lst in listas:
         render("lista.html", f"lista/{lst['slug']}/", lista=lst)
     render("sobre.html", "sobre/")
+    contagem = {c["slug"]: sum(1 for p in produtos if p.get("categoria") == c["slug"]) for c in site["categorias"]}
+    render("links.html", "links/", listas=listas, total=len(produtos), contagem=contagem)
 
     # admin: config do CMS gerada a partir do site.yml
     (SAIDA / "admin" / "config.yml").write_text(

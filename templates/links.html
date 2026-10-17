@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ site.nome }}: links</title>
+  <meta name="description" content="{{ site.slogan }}. Listas de achadinhos, ofertas do dia e nossos canais.">
+  <link rel="canonical" href="{{ canonico }}">
+  <meta property="og:title" content="{{ site.nome }}: {{ site.slogan }}">
+  <meta property="og:image" content="{{ site.url }}/img/marca/compartilhar.jpg">
+  <link rel="icon" href="{{ raiz }}img/marca/icone-32.png" type="image/png">
+  <link rel="apple-touch-icon" href="{{ raiz }}img/marca/icone-180.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ raiz }}css/style.css?v={{ versao }}">
+  <style>
+    .links { max-width: 520px; margin: 0 auto; padding: 28px 16px 48px; text-align: center; }
+    .links__logo { width: 240px; height: auto; margin: 0 auto; }
+    .links__slogan { color: var(--apagado); margin: 10px 0 24px; }
+    .links__grupo { text-align: left; font-size: .95rem; font-weight: 600; color: var(--apagado); margin: 22px 0 8px; }
+    .links__lista { display: grid; gap: 10px; }
+    .links__lista a {
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      padding: 15px 18px; border-radius: 14px; text-decoration: none; font-weight: 600;
+      background: var(--papel); border: 1.5px solid var(--linha); color: var(--tinta); text-align: left;
+    }
+    .links__lista a:hover { border-color: var(--tinta); }
+    .links__lista a span { font-weight: 400; color: var(--apagado); font-size: .9rem; white-space: nowrap; }
+    .links__lista a.principal { background: var(--ouro-escuro); border-color: var(--ouro-escuro); color: #fff; }
+    .links__lista a.principal span { color: #fff; }
+    .links__lista a.escuro { background: var(--tinta); border-color: var(--tinta); color: #fff; }
+    .links__lista a.escuro span { color: #C9CDD6; }
+    .links__aviso { font-size: .82rem; color: var(--apagado); margin-top: 28px; }
+  </style>
+</head>
+<body>
+  <main class="links">
+    <a href="{{ raiz }}"><img class="links__logo" src="{{ raiz }}img/marca/logo-completo.png" alt="{{ site.nome }}" width="480" height="272"></a>
+    <p class="links__slogan">{{ site.slogan }}</p>
+
+    <div class="links__lista">
+      <a class="principal" href="{{ raiz }}">Todos os achadinhos de hoje <span>{{ total }} produtos</span></a>
+      {% if site.whatsapp %}<a class="escuro" href="{{ site.whatsapp }}" target="_blank" rel="noopener">Canal no WhatsApp <span>receba as ofertas</span></a>{% endif %}
+    </div>
+
+    <p class="links__grupo">Listas</p>
+    <div class="links__lista">
+      {% for l in listas %}<a href="{{ raiz }}lista/{{ l.slug }}/">{{ l.titulo }} <span>{{ l.itens | length }}</span></a>{% endfor %}
+    </div>
+
+    <p class="links__grupo">Categorias</p>
+    <div class="links__lista">
+      {% for c in categorias %}<a href="{{ raiz }}categoria/{{ c.slug }}/">{{ c.nome }} <span>{{ contagem[c.slug] }}</span></a>{% endfor %}
+    </div>
+
+    <p class="links__aviso">Participamos de programas de afiliados. Comprando pelos nossos links você paga o mesmo preço e ajuda a manter o site.</p>
+  </main>
+</body>
+</html>
