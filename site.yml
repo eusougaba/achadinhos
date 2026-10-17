@@ -21,7 +21,7 @@ whatsapp: ""             # link do canal ou grupo, ex.: https://whatsapp.com/cha
 instagram: https://instagram.com/achadoteca.com.br
 
 # Enquanto for true, mostra o aviso de protótipo e pede para o Google não indexar.
-prototipo: true
+prototipo: false
 
 # Lojas com programa de afiliados. "em" é como a loja aparece nas frases
 # ("Ver no Mercado Livre", "Ver na Shopee"). Para adicionar uma loja, copie um bloco.

@@ -243,7 +243,9 @@ def publicar() -> None:
         return
 
     postados = json.loads(REGISTRO.read_text()) if REGISTRO.exists() else {}
-    pendentes = [p for p in sorted(produtos, key=lambda p: (p["data"], p["slug"]))
+    # ordem: destaque primeiro, depois os mais recentes e, entre eles, os de maior desconto
+    ordem = lambda p: (not p.get("destaque"), -p["data"].toordinal(), -(p.get("desconto") or 0), p["slug"])
+    pendentes = [p for p in sorted(produtos, key=ordem)
                  if p["slug"] not in postados and p.get("instagram", True) is not False]
     if not pendentes:
         print("Nenhum produto novo para postar.")
