@@ -1,0 +1,167 @@
+"""Gera o site estático em public/ a partir de content/, templates/ e static/.
+
+Uso: python build.py
+"""
+from __future__ import annotations
+
+import datetime as dt
+import json
+import re
+import shutil
+from pathlib import Path
+
+import markdown
+import yaml
+from jinja2 import Environment, FileSystemLoader, select_autoescape
+
+RAIZ = Path(__file__).parent
+SAIDA = RAIZ / "public"
+
+
+# ---------------------------------------------------------------- leitura
+
+def ler_markdown(caminho: Path) -> dict:
+    texto = caminho.read_text(encoding="utf-8")
+    meta, corpo = {}, texto
+    m = re.match(r"^---\s*\n(.*?)\n---\s*\n?(.*)$", texto, re.S)
+    if m:
+        try:
+            meta = yaml.safe_load(m.group(1)) or {}
+        except yaml.YAMLError as erro:
+            raise SystemExit(f"Erro no cabeçalho de {caminho.name}: {erro}\n"
+                             "Dica: textos com ':' precisam ficar entre aspas.")
+        corpo = m.group(2)
+    meta["slug"] = caminho.stem
+    meta["corpo_html"] = markdown.markdown(corpo.strip(), extensions=["extra"])
+    return meta
+
+
+def ler_pasta(pasta: str) -> list[dict]:
+    p = RAIZ / "content" / pasta
+    return [ler_markdown(f) for f in sorted(p.glob("*.md"))] if p.exists() else []
+
+
+def para_data(valor) -> dt.date | None:
+    if isinstance(valor, dt.datetime):
+        return valor.date()
+    if isinstance(valor, dt.date):
+        return valor
+    if isinstance(valor, str) and valor:
+        return dt.date.fromisoformat(valor[:10])
+    return None
+
+
+# ---------------------------------------------------------------- formatação
+
+def brl(valor) -> str:
+    if valor in (None, ""):
+        return ""
+    s = f"{float(valor):,.2f}"
+    return "R$ " + s.replace(",", "X").replace(".", ",").replace("X", ".")
+
+
+def desconto(p: dict) -> int | None:
+    atual, antigo = p.get("preco"), p.get("preco_antigo")
+    if atual and antigo and float(antigo) > float(atual):
+        return round((1 - float(atual) / float(antigo)) * 100)
+    return None
+
+
+def data_br(d) -> str:
+    d = para_data(d)
+    return d.strftime("%d/%m/%Y") if d else ""
+
+
+# ---------------------------------------------------------------- build
+
+def main() -> None:
+    site = yaml.safe_load((RAIZ / "site.yml").read_text(encoding="utf-8"))
+    site["url"] = site["url"].rstrip("/")
+    categorias = {c["slug"]: c for c in site["categorias"]}
+
+    produtos = ler_pasta("produtos")
+    for p in produtos:
+        p["data"] = para_data(p.get("data")) or dt.date.today()
+        p["desconto"] = desconto(p)
+        p["cat"] = categorias.get(p.get("categoria"), {"slug": "outros", "nome": "Outros"})
+        p["pros"] = p.get("pros") or []
+        p["contras"] = p.get("contras") or []
+    produtos.sort(key=lambda p: (p["data"], p["slug"]), reverse=True)
+    por_slug = {p["slug"]: p for p in produtos}
+
+    listas = ler_pasta("listas")
+    for lst in listas:
+        lst["data"] = para_data(lst.get("data")) or dt.date.today()
+        lst["itens"] = [por_slug[s] for s in (lst.get("produtos") or []) if s in por_slug]
+    listas.sort(key=lambda x: x["data"], reverse=True)
+
+    if SAIDA.exists():
+        shutil.rmtree(SAIDA)
+    shutil.copytree(RAIZ / "static", SAIDA)
+
+    env = Environment(
+        loader=FileSystemLoader(RAIZ / "templates"),
+        autoescape=select_autoescape(["html"]),
+        trim_blocks=True,
+        lstrip_blocks=True,
+    )
+    env.filters.update(brl=brl, data_br=data_br, tojson_safe=lambda v: json.dumps(v, ensure_ascii=False))
+
+    paginas: list[str] = []
+
+    def render(modelo: str, caminho: str, **ctx) -> None:
+        """caminho é a URL da página, ex.: '' ou 'produto/fone/'."""
+        profundidade = caminho.count("/")
+        raiz = "../" * profundidade or "./"
+
+        def img(src: str) -> str:
+            if not src:
+                return raiz + "img/sem-foto.svg"
+            return src if src.startswith("http") else raiz + src.lstrip("/")
+
+        html = env.get_template(modelo).render(
+            site=site, categorias=site["categorias"], raiz=raiz, img=img,
+            canonico=f"{site['url']}/{caminho}", ano=dt.date.today().year, **ctx,
+        )
+        destino = SAIDA / caminho / "index.html"
+        destino.parent.mkdir(parents=True, exist_ok=True)
+        destino.write_text(html, encoding="utf-8")
+        paginas.append(caminho)
+
+    render("index.html", "", produtos=produtos, destaques=[p for p in produtos if p.get("destaque")][:3], listas=listas)
+    for c in site["categorias"]:
+        itens = [p for p in produtos if p.get("categoria") == c["slug"]]
+        render("categoria.html", f"categoria/{c['slug']}/", categoria=c, produtos=itens)
+    for p in produtos:
+        relacionados = [o for o in produtos if o["cat"] is p["cat"] and o is not p][:4]
+        listas_do_produto = [lst for lst in listas if p in lst["itens"]]
+        render("produto.html", f"produto/{p['slug']}/", p=p, relacionados=relacionados, listas_do_produto=listas_do_produto)
+    for lst in listas:
+        render("lista.html", f"lista/{lst['slug']}/", lista=lst)
+    render("sobre.html", "sobre/")
+
+    # admin: config do CMS gerada a partir do site.yml
+    (SAIDA / "admin" / "config.yml").write_text(
+        env.get_template("admin-config.yml").render(site=site), encoding="utf-8"
+    )
+
+    hoje = dt.date.today().isoformat()
+    urls = "\n".join(
+        f"  <url><loc>{site['url']}/{c}</loc><lastmod>{hoje}</lastmod></url>" for c in paginas
+    )
+    (SAIDA / "sitemap.xml").write_text(
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+        f"{urls}\n</urlset>\n",
+        encoding="utf-8",
+    )
+    regras = "Disallow: /\n" if site.get("prototipo") else "Disallow: /admin/\n"
+    (SAIDA / "robots.txt").write_text(
+        f"User-agent: *\n{regras}\nSitemap: {site['url']}/sitemap.xml\n", encoding="utf-8"
+    )
+
+    print(f"Site gerado em {SAIDA}: {len(paginas)} páginas, {len(produtos)} produtos, {len(listas)} listas.")
+
+
+if __name__ == "__main__":
+    main()

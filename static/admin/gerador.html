@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Gerador de oferta: Achadinhos e Mais</title>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .ger { max-width: 760px; margin: 0 auto; padding: 24px 16px 60px; }
+    .ger h1 { font-size: 2.2rem; font-weight: 800; letter-spacing: -0.03em; }
+    .ger > p { color: var(--apagado); margin: 8px 0 20px; }
+    form { display: grid; gap: 14px; background: var(--papel); border: 1px solid var(--linha); border-radius: var(--raio); padding: 18px; }
+    label { display: grid; gap: 6px; font-weight: 600; font-size: .95rem; }
+    label small { font-weight: 400; color: var(--apagado); }
+    input, select, textarea {
+      font: inherit; font-weight: 400; padding: 11px 12px; border-radius: 10px;
+      border: 1.5px solid var(--linha); background: var(--papel); color: var(--tinta); width: 100%;
+    }
+    input:focus, select:focus, textarea:focus { outline: none; border-color: var(--tinta); }
+    .duas { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .check { display: flex; align-items: center; gap: 10px; font-weight: 600; }
+    .check input { width: 22px; height: 22px; }
+    .saida { margin-top: 26px; }
+    .saida h2 { font-size: 1.3rem; margin-bottom: 8px; }
+    .saida textarea { min-height: 170px; font-size: .95rem; line-height: 1.45; background: #FAFBFC; }
+    .acoes { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+    .acoes .botao { min-height: 42px; padding: 8px 16px; }
+    .ok { color: var(--verde); font-weight: 700; align-self: center; }
+    .previa { margin-top: 18px; }
+  </style>
+</head>
+<body>
+  <main class="ger">
+    <a class="marca" href="../">
+      <svg class="marca__pepita" viewBox="0 0 32 32" aria-hidden="true"><path d="M6 19 11 8l10-2 6 9-3 10-12 2z"/><path class="brilho" d="M12 10l5-1-3 5z"/></svg>
+      <span>gerador de oferta</span>
+    </a>
+    <p>Preencha uma vez e copie o texto pronto para o WhatsApp, o Instagram e o site.</p>
+
+    <form id="f" autocomplete="off">
+      <label>Nome do produto
+        <input name="titulo" required placeholder="Ex.: Air fryer 4 litros">
+      </label>
+      <label>Link de afiliado <small>Gerado no painel de afiliados do Mercado Livre</small>
+        <input name="link" type="url" required placeholder="https://meli.la/...">
+      </label>
+      <div class="duas">
+        <label>Preço atual (R$)
+          <input name="preco" inputmode="decimal" required placeholder="299,90">
+        </label>
+        <label>Preço antigo (R$)
+          <input name="antigo" inputmode="decimal" placeholder="399,90">
+        </label>
+      </div>
+      <label>ID do produto <small>(opcional) Aparece junto do link no app de afiliados</small>
+        <input name="idml" placeholder="Ex.: EQMTUP-CQ8E" autocapitalize="characters">
+      </label>
+      <div class="duas">
+        <label>Categoria
+          <select name="categoria">
+            <option value="tecnologia">Tecnologia</option>
+            <option value="casa">Casa e cozinha</option>
+            <option value="ferramentas">Ferramentas</option>
+          </select>
+        </label>
+        <label>Cupom <small>(só se o Mercado Livre ou o vendedor já oferecer)</small>
+          <input name="cupom" placeholder="Ex.: ACHADO10">
+        </label>
+      </div>
+      <label>Por que vale a pena <small>Uma frase, com as suas palavras</small>
+        <textarea name="resumo" rows="2" placeholder="Ex.: Tamanho certo para casal e o cesto vai na lava-louças."></textarea>
+      </label>
+      <label>Endereço da foto <small>(opcional, para o arquivo do site)</small>
+        <input name="imagem" type="url" placeholder="https://...">
+      </label>
+      <label class="check"><input type="checkbox" name="frete"> Frete grátis</label>
+
+      <div class="previa" id="previa" aria-live="polite"></div>
+    </form>
+
+    <section class="saida">
+      <h2>Mensagem para o WhatsApp</h2>
+      <textarea id="zap" readonly></textarea>
+      <div class="acoes">
+        <button class="botao" type="button" data-copiar="zap">Copiar mensagem</button>
+        <a class="botao botao--comprar" id="abrirZap" href="#" target="_blank" rel="noopener">Abrir no WhatsApp</a>
+      </div>
+    </section>
+
+    <section class="saida">
+      <h2>Legenda para o Instagram</h2>
+      <textarea id="insta" readonly></textarea>
+      <div class="acoes"><button class="botao" type="button" data-copiar="insta">Copiar legenda</button></div>
+    </section>
+
+    <section class="saida">
+      <h2>Arquivo para o site</h2>
+      <p style="color:var(--apagado);margin:0 0 8px">Baixe e coloque na pasta <code>content/produtos</code> do repositório, ou cadastre pela <a href="./">área admin</a>.</p>
+      <textarea id="md" readonly></textarea>
+      <div class="acoes">
+        <button class="botao" type="button" data-copiar="md">Copiar</button>
+        <button class="botao botao--leve" type="button" id="baixar">Baixar arquivo .md</button>
+      </div>
+    </section>
+  </main>
+
+<script>
+const f = document.getElementById('f');
+const num = v => {
+  let s = String(v || '').replace(/[^\d.,]/g, '');
+  if (s.includes(',')) s = s.replace(/\./g, '').replace(',', '.');
+  const n = parseFloat(s); return isNaN(n) ? null : n;
+};
+const brl = n => n == null ? '' : n.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+const slug = s => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 70);
+const esc = s => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const yamlStr = s => JSON.stringify(s);
+
+function gerar() {
+  const d = Object.fromEntries(new FormData(f));
+  const titulo = (d.titulo || '').trim();
+  const preco = num(d.preco), antigo = num(d.antigo);
+  const off = preco && antigo && antigo > preco ? Math.round((1 - preco / antigo) * 100) : null;
+  const link = (d.link || '').trim();
+  const resumo = (d.resumo || '').trim();
+  const frete = !!d.frete;
+  const cupom = (d.cupom || '').trim();
+  const idml = (d.idml || '').trim().toUpperCase();
+
+  // WhatsApp (negrito com *, riscado com ~)
+  const z = [];
+  z.push(`🔥 *${titulo || 'Nome do produto'}*`);
+  if (resumo) z.push(resumo);
+  z.push('');
+  if (off) z.push(`De ~${brl(antigo)}~ por *${brl(preco)}* (−${off}%)`);
+  else if (preco) z.push(`Por *${brl(preco)}*`);
+  if (frete) z.push('🚚 Frete grátis');
+  if (cupom) z.push(`🎟️ Cupom: *${cupom}*`);
+  z.push('');
+  z.push(`👉 ${link || 'link de afiliado'}`);
+  if (idml) z.push(`🔍 Ou busque no Mercado Livre: *${idml}*`);
+  z.push('');
+  z.push('_Preço visto agora, pode mudar a qualquer momento._');
+  document.getElementById('zap').value = z.join('\n');
+  document.getElementById('abrirZap').href = 'https://wa.me/?text=' + encodeURIComponent(z.join('\n'));
+
+  // Instagram
+  const i = [];
+  i.push(`${titulo || 'Nome do produto'} 🔥`);
+  if (off) i.push(`De ${brl(antigo)} por ${brl(preco)} (−${off}%)`);
+  else if (preco) i.push(`Por ${brl(preco)}`);
+  if (resumo) { i.push(''); i.push(resumo); }
+  if (frete || cupom) i.push('');
+  if (frete) i.push('🚚 Frete grátis');
+  if (cupom) i.push(`🎟️ Cupom: ${cupom}`);
+  i.push('');
+  if (idml) i.push(`🔍 Busque no app do Mercado Livre: ${idml}`);
+  i.push('🔗 Link na bio e no nosso canal do WhatsApp');
+  i.push('Preço pode mudar a qualquer momento.');
+  i.push('');
+  i.push('#achadinhos #achadinhosmercadolivre #mercadolivre #ofertas #promoção');
+  document.getElementById('insta').value = i.join('\n');
+
+  // Markdown para content/produtos
+  const agora = new Date();
+  const hoje = new Date(agora.getTime() - agora.getTimezoneOffset() * 60000).toISOString().slice(0, 10);
+  const m = ['---',
+    `titulo: ${yamlStr(titulo)}`,
+    `categoria: ${d.categoria}`,
+    d.imagem ? `imagem: ${yamlStr(d.imagem.trim())}` : null,
+    `preco: ${preco ?? 0}`,
+    antigo ? `preco_antigo: ${antigo}` : null,
+    `link_afiliado: ${yamlStr(link)}`,
+    idml ? `id_ml: ${yamlStr(idml)}` : null,
+    `data: ${hoje}`,
+    `resumo: ${yamlStr(resumo)}`,
+    '---',
+    resumo || 'Escreva aqui por que esse produto vale a pena.',
+    ''].filter(x => x !== null);
+  document.getElementById('md').value = m.join('\n');
+
+  // prévia da etiqueta
+  document.getElementById('previa').innerHTML = preco ? `
+    <div class="etiqueta etiqueta--grande">
+      ${off ? `<s class="etiqueta__de">${esc(brl(antigo))}</s>` : ''}
+      <strong class="etiqueta__preco">${esc(brl(preco))}</strong>
+      ${off ? `<span class="etiqueta__off">−${off}%</span>` : ''}
+    </div>` : '';
+}
+
+f.addEventListener('input', gerar);
+gerar();
+
+document.querySelectorAll('[data-copiar]').forEach(b => b.addEventListener('click', async () => {
+  const alvo = document.getElementById(b.dataset.copiar);
+  try { await navigator.clipboard.writeText(alvo.value); }
+  catch { alvo.select(); document.execCommand('copy'); }
+  const t = b.textContent; b.textContent = 'Copiado'; setTimeout(() => b.textContent = t, 1500);
+}));
+
+document.getElementById('baixar').addEventListener('click', () => {
+  const titulo = new FormData(f).get('titulo') || 'produto';
+  const blob = new Blob([document.getElementById('md').value], { type: 'text/markdown' });
+  const a = Object.assign(document.createElement('a'), { href: URL.createObjectURL(blob), download: slug(titulo) + '.md' });
+  a.click(); URL.revokeObjectURL(a.href);
+});
+</script>
+</body>
+</html>

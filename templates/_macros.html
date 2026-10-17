@@ -1,0 +1,20 @@
+{% macro etiqueta(p, grande=false) %}
+<div class="etiqueta{% if grande %} etiqueta--grande{% endif %}">
+  {% if p.preco_antigo and p.desconto %}<s class="etiqueta__de">{{ p.preco_antigo | brl }}</s>{% endif %}
+  <strong class="etiqueta__preco">{{ p.preco | brl }}</strong>
+  {% if p.desconto %}<span class="etiqueta__off">−{{ p.desconto }}%</span>{% endif %}
+</div>
+{% endmacro %}
+
+{% macro card(p, raiz, img) %}
+<article class="card">
+  <a class="card__link" href="{{ raiz }}produto/{{ p.slug }}/">
+    <div class="card__foto"><img src="{{ img(p.imagem) }}" alt="{{ p.titulo }}" loading="lazy" width="400" height="400"></div>
+    <div class="card__info">
+      <span class="card__cat">{{ p.cat.nome }}</span>
+      <h3 class="card__titulo">{{ p.titulo }}</h3>
+      {{ etiqueta(p) }}
+    </div>
+  </a>
+</article>
+{% endmacro %}

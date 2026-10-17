@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block titulo %}Como funciona | {{ site.nome }}{% endblock %}
+{% block descricao %}Como escolhemos os achados do {{ site.nome }} e como o site se mantém.{% endblock %}
+
+{% block conteudo %}
+<article class="abertura abertura--compacta texto">
+  <h1>Como funciona</h1>
+  <p>O {{ site.nome }} reúne produtos do Mercado Livre que a gente olhou de perto: preço, avaliações de quem comprou, reputação do vendedor e se o desconto é de verdade.</p>
+  <h2>Como escolhemos</h2>
+  <p>Só entra aqui o que a gente compraria ou indicaria para alguém de casa. Quando um produto tem algum ponto fraco, a gente fala na página dele.</p>
+  <h2>Como o site se mantém</h2>
+  <p>Somos afiliados do Mercado Livre. Quando você compra por um link daqui, recebemos uma pequena comissão. Você paga o mesmo preço e a compra acontece direto no Mercado Livre, com a mesma garantia e o mesmo suporte de sempre.</p>
+  <h2>Sobre os preços</h2>
+  <p>Cada produto mostra a data em que vimos o preço. Ofertas mudam rápido, então confira o valor final no Mercado Livre antes de comprar.</p>
+</article>
+{% endblock %}

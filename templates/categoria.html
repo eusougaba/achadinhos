@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% from "_macros.html" import card %}
+
+{% block titulo %}{{ categoria.nome }}: achados e ofertas | {{ site.nome }}{% endblock %}
+{% block descricao %}{{ categoria.descricao }}{% endblock %}
+
+{% block conteudo %}
+<section class="abertura abertura--compacta">
+  <h1>{{ categoria.nome }}</h1>
+  <p>{{ categoria.descricao }}</p>
+</section>
+
+{% if produtos %}
+<div class="grade">{% for p in produtos %}{{ card(p, raiz, img) }}{% endfor %}</div>
+{% else %}
+<p class="vazio">Ainda não temos achadinhos aqui. Volte em breve ou veja os <a href="{{ raiz }}">achados recentes</a>.</p>
+{% endif %}
+{% endblock %}

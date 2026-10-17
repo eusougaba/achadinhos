@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% from "_macros.html" import etiqueta %}
+
+{% block titulo %}{{ lista.titulo }} | {{ site.nome }}{% endblock %}
+{% block descricao %}{{ lista.descricao }}{% endblock %}
+{% block og_extra %}<meta property="og:type" content="article">{% endblock %}
+
+{% block schema %}
+{% set itens = [] %}
+{% for p in lista.itens %}{% set _ = itens.append({"@type": "ListItem", "position": loop.index, "name": p.titulo, "url": site.url ~ "/produto/" ~ p.slug ~ "/"}) %}{% endfor %}
+<script type="application/ld+json">{{ {"@context": "https://schema.org", "@type": "ItemList", "name": lista.titulo, "itemListElement": itens} | tojson_safe | safe }}</script>
+{% endblock %}
+
+{% block conteudo %}
+<nav class="trilha" aria-label="Você está em"><a href="{{ raiz }}">Início</a> <span aria-hidden="true">/</span> Listas</nav>
+
+<article class="lista">
+  <header class="abertura abertura--compacta">
+    <h1>{{ lista.titulo }}</h1>
+    <p>{{ lista.descricao }}</p>
+    <p class="lista__data">Atualizada em {{ lista.data | data_br }}</p>
+  </header>
+
+  {% if lista.corpo_html %}<div class="texto lista__intro">{{ lista.corpo_html | safe }}</div>{% endif %}
+
+  <ol class="ranking">
+    {% for p in lista.itens %}
+    <li class="ranking__item">
+      <img src="{{ img(p.imagem) }}" alt="{{ p.titulo }}" width="200" height="200" loading="lazy">
+      <div class="ranking__texto">
+        <h2><a href="{{ raiz }}produto/{{ p.slug }}/">{{ p.titulo }}</a></h2>
+        <p>{{ p.resumo }}</p>
+        {{ etiqueta(p) }}
+        <a class="botao botao--comprar botao--pequeno" href="{{ p.link_afiliado }}" target="_blank" rel="sponsored noopener">Ver no Mercado Livre</a>
+      </div>
+    </li>
+    {% endfor %}
+  </ol>
+</article>
+{% endblock %}

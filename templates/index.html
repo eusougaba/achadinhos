@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% from "_macros.html" import card, etiqueta %}
+
+{% block schema %}
+<script type="application/ld+json">{{ {"@context": "https://schema.org", "@type": "WebSite", "name": site.nome, "url": site.url ~ "/", "description": site.descricao} | tojson_safe | safe }}</script>
+{% endblock %}
+
+{% block conteudo %}
+<section class="abertura">
+  <h1>Os achadinhos de hoje</h1>
+  <p>{{ site.descricao }}</p>
+</section>
+
+{% if destaques %}
+<section class="destaque" aria-labelledby="t-destaque">
+  <h2 id="t-destaque" class="sr">Destaque do dia</h2>
+  {% set d = destaques[0] %}
+  <a class="destaque__card" href="{{ raiz }}produto/{{ d.slug }}/">
+    <img src="{{ img(d.imagem) }}" alt="{{ d.titulo }}" width="400" height="400">
+    <div class="destaque__texto">
+      <span class="destaque__rotulo">Achado do dia</span>
+      <h3>{{ d.titulo }}</h3>
+      <p>{{ d.resumo }}</p>
+      {{ etiqueta(d, grande=true) }}
+    </div>
+  </a>
+</section>
+{% endif %}
+
+<section class="secao" aria-labelledby="t-recentes">
+  <div class="secao__cab">
+    <h2 id="t-recentes">Achados recentes</h2>
+  </div>
+  <div class="grade">
+    {% for p in produtos %}{{ card(p, raiz, img) }}{% endfor %}
+  </div>
+</section>
+
+{% if listas %}
+<section class="secao" aria-labelledby="t-listas">
+  <div class="secao__cab">
+    <h2 id="t-listas">Listas e comparativos</h2>
+  </div>
+  <div class="listas">
+    {% for l in listas %}
+    <a class="lista-link" href="{{ raiz }}lista/{{ l.slug }}/">
+      <strong>{{ l.titulo }}</strong>
+      <span>{{ l.descricao }}</span>
+      <span class="lista-link__qtd">{{ l.itens | length }} produtos</span>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+{% if site.whatsapp %}
+<section class="convite">
+  <h2>Receba os achados no WhatsApp</h2>
+  <p>Um ou dois achados por dia, sem spam. Saia quando quiser.</p>
+  <a class="botao" href="{{ site.whatsapp }}" target="_blank" rel="noopener">Entrar no canal</a>
+</section>
+{% endif %}
+{% endblock %}

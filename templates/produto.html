@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% from "_macros.html" import card, etiqueta %}
+
+{% block titulo %}{{ p.titulo }}: vale a pena? | {{ site.nome }}{% endblock %}
+{% block descricao %}{{ p.resumo or p.titulo }}{% endblock %}
+{% block og_extra %}
+<meta property="og:type" content="product">
+<meta property="og:image" content="{{ p.imagem if p.imagem.startswith('http') else site.url ~ '/' ~ p.imagem.lstrip('/') }}">
+{% endblock %}
+
+{% block schema %}
+<script type="application/ld+json">{{ {
+  "@context": "https://schema.org", "@type": "Product", "name": p.titulo,
+  "description": p.resumo, "category": p.cat.nome,
+  "review": {"@type": "Review", "author": {"@type": "Organization", "name": site.nome},
+             "datePublished": p.data.isoformat(), "reviewBody": p.resumo}
+} | tojson_safe | safe }}</script>
+{% endblock %}
+
+{% block conteudo %}
+<nav class="trilha" aria-label="Você está em">
+  <a href="{{ raiz }}">Início</a> <span aria-hidden="true">/</span>
+  <a href="{{ raiz }}categoria/{{ p.cat.slug }}/">{{ p.cat.nome }}</a>
+</nav>
+
+<article class="produto">
+  <div class="produto__foto">
+    <img src="{{ img(p.imagem) }}" alt="{{ p.titulo }}" width="600" height="600">
+  </div>
+
+  <div class="produto__compra">
+    <h1>{{ p.titulo }}</h1>
+    {% if p.resumo %}<p class="produto__resumo">{{ p.resumo }}</p>{% endif %}
+    {{ etiqueta(p, grande=true) }}
+    <p class="produto__visto">Preço visto em {{ p.data | data_br }}. Pode ter mudado.</p>
+    <a class="botao botao--comprar" href="{{ p.link_afiliado }}" target="_blank" rel="sponsored noopener">Ver no Mercado Livre</a>
+    {% if p.id_ml %}<p class="produto__id">Ou busque no app do Mercado Livre: <strong>{{ p.id_ml }}</strong></p>{% endif %}
+    <a class="botao botao--leve" href="https://wa.me/?text={{ (p.titulo ~ ' por ' ~ (p.preco | brl) ~ ' ' ~ canonico) | urlencode }}" target="_blank" rel="noopener">Mandar para alguém no WhatsApp</a>
+  </div>
+
+  <div class="produto__analise">
+    {% if p.corpo_html %}
+    <h2>Por que escolhemos</h2>
+    <div class="texto">{{ p.corpo_html | safe }}</div>
+    {% endif %}
+
+    {% if p.pros or p.contras %}
+    <div class="pros-contras">
+      {% if p.pros %}
+      <div class="pros">
+        <h3>O que é bom</h3>
+        <ul>{% for x in p.pros %}<li>{{ x }}</li>{% endfor %}</ul>
+      </div>
+      {% endif %}
+      {% if p.contras %}
+      <div class="contras">
+        <h3>Fique de olho</h3>
+        <ul>{% for x in p.contras %}<li>{{ x }}</li>{% endfor %}</ul>
+      </div>
+      {% endif %}
+    </div>
+    {% endif %}
+
+    {% if listas_do_produto %}
+    <p class="produto__listas">Aparece em:
+      {% for l in listas_do_produto %}<a href="{{ raiz }}lista/{{ l.slug }}/">{{ l.titulo }}</a>{% if not loop.last %}, {% endif %}{% endfor %}
+    </p>
+    {% endif %}
+  </div>
+</article>
+
+{% if relacionados %}
+<section class="secao" aria-labelledby="t-rel">
+  <div class="secao__cab"><h2 id="t-rel">Mais em {{ p.cat.nome }}</h2></div>
+  <div class="grade">{% for r in relacionados %}{{ card(r, raiz, img) }}{% endfor %}</div>
+</section>
+{% endif %}
+{% endblock %}

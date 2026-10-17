@@ -1,0 +1,35 @@
+# Configuração geral do site. Trocar o nome ou o endereço é só mudar aqui.
+nome: Achadinhos e Mais
+slogan: Achados do Mercado Livre que a gente olhou de perto
+descricao: >-
+  Ofertas e achados do Mercado Livre selecionados um a um, com o preço que
+  vimos, o que achamos e para quem vale a pena.
+
+# Endereço público do site (sem barra no final).
+# GitHub Pages sem domínio próprio: https://SEU_USUARIO.github.io/achadinhos
+# Com domínio próprio: https://www.seudominio.com.br
+url: https://eusougaba.github.io/achadinhos
+
+# Repositório usado pela área admin (/admin) para salvar produtos.
+repositorio:
+  servico: github        # github ou gitlab
+  nome: eusougaba/achadinhos
+  branch: main
+
+# Redes (deixe vazio o que ainda não existe)
+whatsapp: ""             # link do canal ou grupo, ex.: https://whatsapp.com/channel/...
+instagram: ""            # ex.: https://instagram.com/achadinhosemais
+
+# Enquanto for true, mostra o aviso de protótipo e pede para o Google não indexar.
+prototipo: true
+
+categorias:
+  - slug: tecnologia
+    nome: Tecnologia
+    descricao: Fones, relógios, acessórios e eletrônicos que valem o preço.
+  - slug: casa
+    nome: Casa e cozinha
+    descricao: Utilidades para a casa e a cozinha que fazem diferença no dia a dia.
+  - slug: ferramentas
+    nome: Ferramentas
+    descricao: Ferramentas e acessórios para quem gosta de resolver as coisas sozinho.

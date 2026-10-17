@@ -1,0 +1,62 @@
+# Gerado pelo build.py a partir do site.yml. Não edite aqui.
+backend:
+  name: {{ site.repositorio.servico }}
+  repo: {{ site.repositorio.nome }}
+  branch: {{ site.repositorio.branch }}
+
+media_folder: static/img/produtos
+public_folder: /img/produtos
+
+collections:
+  - name: produtos
+    label: Produtos
+    label_singular: Produto
+    folder: content/produtos
+    create: true
+    slug: "{{ '{{' }}titulo{{ '}}' }}"
+    extension: md
+    format: frontmatter
+    summary: "{{ '{{' }}titulo{{ '}}' }}: R$ {{ '{{' }}preco{{ '}}' }}"
+    sortable_fields: [data, titulo, preco]
+    fields:
+      - { name: titulo, label: Nome do produto, widget: string }
+      - name: categoria
+        label: Categoria
+        widget: select
+        options:
+{% for c in site.categorias %}
+          - { label: "{{ c.nome }}", value: {{ c.slug }} }
+{% endfor %}
+      - { name: link_afiliado, label: Link de afiliado do Mercado Livre, widget: string, hint: "Gere no painel de afiliados ou pela barra de afiliado na página do produto." }
+      - { name: id_ml, label: ID do produto no Mercado Livre, widget: string, required: false, hint: "Ex.: EQMTUP-CQ8E. A pessoa cola no buscador do app." }
+      - { name: imagem, label: Foto, widget: image, required: false, hint: "Pode enviar uma foto ou colar o endereço da imagem." }
+      - { name: preco, label: Preço atual (R$), widget: number, value_type: float }
+      - { name: preco_antigo, label: Preço antigo (R$), widget: number, value_type: float, required: false }
+      - { name: data, label: Data em que viu o preço, widget: datetime, time_format: false, date_format: "DD/MM/YYYY", format: "YYYY-MM-DD" }
+      - { name: destaque, label: Mostrar como achado do dia, widget: boolean, default: false, required: false }
+      - { name: resumo, label: Resumo em uma frase, widget: text, hint: "Aparece no card, no Google e no WhatsApp." }
+      - { name: pros, label: O que é bom, widget: list, required: false }
+      - { name: contras, label: Fique de olho, widget: list, required: false }
+      - { name: body, label: Por que escolhemos, widget: markdown, required: false }
+
+  - name: listas
+    label: Listas e comparativos
+    label_singular: Lista
+    folder: content/listas
+    create: true
+    slug: "{{ '{{' }}titulo{{ '}}' }}"
+    extension: md
+    format: frontmatter
+    fields:
+      - { name: titulo, label: Título, widget: string, hint: "Ex.: Melhores fones até R$ 200" }
+      - { name: descricao, label: Descrição curta, widget: text }
+      - { name: data, label: Atualizada em, widget: datetime, time_format: false, date_format: "DD/MM/YYYY", format: "YYYY-MM-DD" }
+      - name: produtos
+        label: Produtos (na ordem do ranking)
+        widget: relation
+        collection: produtos
+        value_field: "{{ '{{' }}slug{{ '}}' }}"
+        search_fields: [titulo]
+        display_fields: [titulo]
+        multiple: true
+      - { name: body, label: Introdução, widget: markdown, required: false }
