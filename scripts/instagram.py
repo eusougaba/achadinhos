@@ -279,7 +279,14 @@ def chamar(metodo: str, caminho: str, **params) -> dict:
     try:
         return json.load(urllib.request.urlopen(req, timeout=60))
     except urllib.error.HTTPError as erro:
-        raise SystemExit(f"Erro da API do Instagram ({erro.code}): {erro.read().decode()[:500]}")
+        corpo = erro.read().decode()[:500]
+        raise ErroInstagram(f"Erro da API do Instagram ({erro.code}): {corpo}", corpo)
+
+
+class ErroInstagram(SystemExit):
+    def __init__(self, msg: str, corpo: str = ""):
+        super().__init__(msg)
+        self.corpo = corpo
 
 
 def publicar(modo: str = "feed") -> None:
@@ -325,15 +332,54 @@ def publicar(modo: str = "feed") -> None:
         print(f"Publicando no feed {p['slug']} com a imagem {imagem}")
         container = chamar("POST", f"{ig}/media", image_url=imagem, caption=legenda(p, site),
                            alt_text=f"{p['titulo']} por {brl(p['preco'])}")["id"]
-    for _ in range(10):
-        if chamar("GET", container, fields="status_code").get("status_code") == "FINISHED":
+    # espera o Instagram processar a imagem (até ~5 min) e tenta publicar com novas tentativas
+    for _ in range(30):
+        time.sleep(10)
+        estado = chamar("GET", container, fields="status_code").get("status_code")
+        if estado == "FINISHED":
             break
-        time.sleep(15)
-    midia = chamar("POST", f"{ig}/media_publish", creation_id=container)["id"]
+        if estado == "ERROR":
+            raise SystemExit(f"O Instagram recusou a imagem {imagem}.")
+    midia = None
+    for tentativa in range(6):
+        try:
+            midia = chamar("POST", f"{ig}/media_publish", creation_id=container)["id"]
+            break
+        except ErroInstagram as erro:
+            if "9007" in erro.corpo and tentativa < 5:
+                print("Imagem ainda processando; tentando de novo em 20 s.")
+                time.sleep(20)
+                continue
+            raise
 
     registro[chave(p["slug"])] = {"midia": midia, "data": time.strftime("%Y-%m-%d %H:%M")}
     REGISTRO.write_text(json.dumps(registro, ensure_ascii=False, indent=2) + "\n")
     print(f"Publicado: {midia}. Restam {len(pendentes) - 1} na fila.")
+
+
+def automatico() -> None:
+    """Story a cada rodada (respeitando o intervalo) e até 3 posts no feed por dia, das 9h às 20h."""
+    try:
+        publicar("story")
+    except SystemExit as erro:
+        print(f"Story não publicado: {erro}")
+    agora = time.gmtime(time.time() - 3 * 3600)  # horário de Brasília
+    if not (9 <= agora.tm_hour <= 20):
+        print("Fora do horário do feed (9h às 20h).")
+        return
+    registro = json.loads(REGISTRO.read_text()) if REGISTRO.exists() else {}
+    hoje = time.strftime("%Y-%m-%d", agora)
+    feed_hoje = 0
+    for k, v in registro.items():
+        if k.startswith("story:"):
+            continue
+        quando = time.gmtime(time.mktime(time.strptime(v["data"], "%Y-%m-%d %H:%M")) - 3 * 3600)
+        if time.strftime("%Y-%m-%d", quando) == hoje:
+            feed_hoje += 1
+    if feed_hoje >= 3:
+        print("Já foram 3 posts no feed hoje.")
+        return
+    publicar("feed")
 
 
 def testar() -> None:
@@ -355,6 +401,8 @@ if __name__ == "__main__":
         publicar("feed")
     elif sys.argv[1:] == ["story"]:
         publicar("story")
+    elif sys.argv[1:] == ["auto"]:
+        automatico()
     elif sys.argv[1:] == ["testar"]:
         testar()
     else:

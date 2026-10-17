@@ -1,8 +1,9 @@
 name: Postar no Instagram
 
 # Publica no Instagram, um produto por vez:
-# - stories: de hora em hora, das 9h às 21h, e logo depois de cada publicação do site
-# - feed: 3 vezes por dia (9h, 13h e 19h), para não lotar o perfil
+# - stories: no máximo um a cada 50 minutos, das 9h às 21h
+# - feed: até 3 por dia, com pelo menos 2h30 de intervalo, das 9h às 20h
+# O GitHub atrasa agendamentos, por isso roda a cada 20 minutos e o script decide se publica.
 # Só funciona com os segredos IG_USER_ID e IG_ACCESS_TOKEN cadastrados e com o site fora do modo protótipo.
 
 on:
@@ -10,14 +11,13 @@ on:
     workflows: ["Publicar site"]
     types: [completed]
   schedule:
-    - cron: "7 12-23,0 * * *"     # stories
-    - cron: "37 12,16,22 * * *"   # feed
+    - cron: "*/20 12-23,0 * * *"
   workflow_dispatch:
     inputs:
       acao:
         description: "testar (só confere o acesso), story ou feed"
         type: choice
-        options: [testar, story, feed]
+        options: [testar, auto, story, feed]
         default: testar
 
 permissions:
@@ -41,7 +41,7 @@ jobs:
         env:
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
-        run: python scripts/instagram.py ${{ github.event.inputs.acao || (github.event.schedule == '37 12,16,22 * * *' && 'feed') || 'story' }}
+        run: python scripts/instagram.py ${{ github.event.inputs.acao || 'auto' }}
       - name: Registrar o que foi postado
         run: |
           if [ -n "$(git status --porcelain content/instagram-postados.json)" ]; then
