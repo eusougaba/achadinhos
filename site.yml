@@ -17,7 +17,7 @@ repositorio:
   branch: main
 
 # Redes (deixe vazio o que ainda não existe)
-whatsapp: ""             # link do canal ou grupo, ex.: https://whatsapp.com/channel/...
+whatsapp: https://whatsapp.com/channel/0029Vb9XLbVC6ZvZxMo7eA0l
 instagram: https://instagram.com/achadoteca.com.br
 
 # Enquanto for true, mostra o aviso de protótipo e pede para o Google não indexar.
