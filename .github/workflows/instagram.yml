@@ -22,6 +22,7 @@ on:
 
 permissions:
   contents: write
+  actions: write
 
 concurrency:
   group: instagram
@@ -43,6 +44,8 @@ jobs:
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
         run: python scripts/instagram.py ${{ github.event.inputs.acao || 'auto' }}
       - name: Registrar o que foi postado
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           if [ -n "$(git status --porcelain content/instagram-postados.json)" ]; then
             git config user.name "github-actions[bot]"
@@ -50,4 +53,6 @@ jobs:
             git add content/instagram-postados.json
             git commit -m "Registra post no Instagram [skip ci]"
             git push
+            # republica o site para a página /links mostrar o post novo
+            gh workflow run pages.yml --ref main
           fi

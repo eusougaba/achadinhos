@@ -158,7 +158,13 @@ def main() -> None:
         render("lista.html", f"lista/{lst['slug']}/", lista=lst)
     render("sobre.html", "sobre/")
     contagem = {c["slug"]: sum(1 for p in produtos if p.get("categoria") == c["slug"]) for c in site["categorias"]}
-    render("links.html", "links/", listas=listas, total=len(produtos), contagem=contagem)
+    # últimos posts do feed do Instagram, para a pessoa tocar na foto e ir ao produto
+    reg_ig = RAIZ / "content" / "instagram-postados.json"
+    postados = json.loads(reg_ig.read_text()) if reg_ig.exists() else {}
+    por_slug_ig = {p["slug"]: p for p in produtos}
+    no_insta = [por_slug_ig[k] for k, v in sorted(postados.items(), key=lambda kv: kv[1]["data"], reverse=True)
+                if not k.startswith("story:") and k in por_slug_ig][:12]
+    render("links.html", "links/", listas=listas, total=len(produtos), contagem=contagem, no_insta=no_insta)
 
     # admin: config do CMS gerada a partir do site.yml
     (SAIDA / "admin" / "config.yml").write_text(

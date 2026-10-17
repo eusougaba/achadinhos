@@ -225,7 +225,7 @@ def legenda(p: dict, site: dict) -> str:
     if p.get("codigo"):
         artigo = "da" if lj["em"].startswith("na") else "do"
         linhas.append(f"🔍 Busque no app {artigo} {lj['nome']}: {p['codigo']}")
-    linhas.append(f"🔗 Link na bio: {endereco_curto(site)}")
+    linhas.append("🔗 Link na bio: toque na foto deste post para ir direto ao produto")
     if site.get("whatsapp"):
         linhas.append("💬 Receba os achadinhos no WhatsApp: canal no link da bio")
     linhas.append("Preço visto na data do post, pode mudar a qualquer momento.")

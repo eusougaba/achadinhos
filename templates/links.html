@@ -32,6 +32,9 @@
     .links__lista a.principal span { color: #fff; }
     .links__lista a.escuro { background: var(--tinta); border-color: var(--tinta); color: #fff; }
     .links__lista a.escuro span { color: #C9CDD6; }
+    .links__insta { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; }
+    .links__insta a { display: block; border-radius: 6px; overflow: hidden; }
+    .links__insta img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; display: block; }
     .links__aviso { font-size: .82rem; color: var(--apagado); margin-top: 28px; }
   </style>
   {% if site.google_verificacao %}<meta name="google-site-verification" content="{{ site.google_verificacao }}">{% endif %}
@@ -52,6 +55,13 @@
       <a class="principal" href="{{ raiz }}">Todos os achadinhos de hoje <span>{{ total }} produtos</span></a>
       {% if site.whatsapp %}<a class="escuro" href="{{ site.whatsapp }}" target="_blank" rel="noopener">Canal no WhatsApp <span>receba as ofertas</span></a>{% endif %}
     </div>
+
+    {% if no_insta %}
+    <p class="links__grupo">Vistos no Instagram: toque na foto</p>
+    <div class="links__insta">
+      {% for p in no_insta %}<a href="{{ raiz }}produto/{{ p.slug }}/"><img src="{{ raiz }}ig/{{ p.slug }}.jpg" alt="{{ p.titulo }}" loading="lazy" width="1080" height="1350"></a>{% endfor %}
+    </div>
+    {% endif %}
 
     <p class="links__grupo">Listas</p>
     <div class="links__lista">
