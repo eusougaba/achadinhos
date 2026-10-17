@@ -231,8 +231,23 @@ def publicar() -> None:
     print(f"Publicado: {midia}. Restam {len(pendentes) - 1} na fila.")
 
 
+def testar() -> None:
+    """Confere se o token e o ID funcionam, sem publicar nada."""
+    if not os.environ.get("IG_USER_ID") or not os.environ.get("IG_ACCESS_TOKEN"):
+        raise SystemExit("Faltam os segredos IG_USER_ID e/ou IG_ACCESS_TOKEN no GitHub.")
+    ig = os.environ["IG_USER_ID"]
+    conta = chamar("GET", ig, fields="username,account_type,media_count")
+    print(f"Conta conectada: @{conta.get('username')} ({conta.get('account_type')}), {conta.get('media_count')} posts.")
+    limite = chamar("GET", f"{ig}/content_publishing_limit", fields="quota_usage,config")
+    dados = (limite.get("data") or [{}])[0]
+    print(f"Posts pela API nas últimas 24h: {dados.get('quota_usage')} de {dados.get('config', {}).get('quota_total')}.")
+    print("Tudo certo: a automação consegue publicar nessa conta.")
+
+
 if __name__ == "__main__":
     if sys.argv[1:] == ["publicar"]:
         publicar()
+    elif sys.argv[1:] == ["testar"]:
+        testar()
     else:
         print(__doc__)
