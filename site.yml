@@ -66,3 +66,6 @@ categorias:
   - slug: pets
     nome: Pets
     descricao: Caminhas, acessórios e cuidados para cães e gatos.
+  - slug: moda
+    nome: Moda e calçados
+    descricao: Chinelos, calçados e acessórios com preço bom.
