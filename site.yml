@@ -66,6 +66,9 @@ categorias:
   - slug: pets
     nome: Pets
     descricao: Caminhas, acessórios e cuidados para cães e gatos.
+  - slug: bebes
+    nome: Bebês e crianças
+    descricao: Itens para bebês, crianças e para quem vai ganhar ou dar presente de chá de bebê.
   - slug: moda
     nome: Moda e calçados
     descricao: Chinelos, calçados e acessórios com preço bom.

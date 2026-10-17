@@ -164,9 +164,11 @@ def main() -> None:
     )
 
     # imagens dos posts do Instagram (public/ig/<slug>.jpg)
-    from scripts.instagram import gerar_card
+    from scripts.instagram import gerar_card, gerar_story
     for p in produtos:
-        gerar_card(p, site, SAIDA / "ig" / f"{p['slug']}.jpg")
+        card = SAIDA / "ig" / f"{p['slug']}.jpg"
+        gerar_card(p, site, card)
+        gerar_story(p, site, card, SAIDA / "ig" / f"story-{p['slug']}.jpg")
 
     hoje = dt.date.today().isoformat()
     urls = "\n".join(

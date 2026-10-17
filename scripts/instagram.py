@@ -159,6 +159,26 @@ def gerar_card(p: dict, site: dict, destino: Path) -> None:
     img.save(destino, "JPEG", quality=90, optimize=True)
 
 
+def gerar_story(p: dict, site: dict, card: Path, destino: Path) -> None:
+    """Story 1080x1920: o card do feed no centro, com chamada em cima e código embaixo."""
+    img = Image.new("RGB", (1080, 1920), TINTA)
+    d = ImageDraw.Draw(img)
+    d.text((540, 230), "Achadinho do momento", font=fonte(800, 64), fill=PAPEL, anchor="mm")
+    d.text((540, 305), f"{p['cat']['nome']} · {p['lj']['nome']}", font=fonte(400, 38), fill=(201, 205, 214), anchor="mm")
+    c = Image.open(card).convert("RGB").resize((920, 1150), Image.LANCZOS)
+    mascara = Image.new("L", c.size, 0)
+    ImageDraw.Draw(mascara).rounded_rectangle([0, 0, *c.size], radius=36, fill=255)
+    img.paste(c, (80, 380), mascara)
+    rodape = "Link na bio: " + endereco_curto(site)
+    if p.get("codigo"):
+        artigo = "da" if p["lj"]["em"].startswith("na") else "do"
+        d.text((540, 1600), f"Busque no app {artigo} {p['lj']['nome']}:", font=fonte(400, 40), fill=(201, 205, 214), anchor="mm")
+        d.text((540, 1665), p["codigo"], font=fonte(800, 64), fill=LARANJA, anchor="mm")
+    d.text((540, 1760), rodape, font=fonte(600, 40), fill=PAPEL, anchor="mm")
+    destino.parent.mkdir(parents=True, exist_ok=True)
+    img.save(destino, "JPEG", quality=90, optimize=True)
+
+
 # ------------------------------------------------------------------ legenda
 
 def legenda(p: dict, site: dict) -> str:
@@ -230,7 +250,8 @@ def chamar(metodo: str, caminho: str, **params) -> dict:
         raise SystemExit(f"Erro da API do Instagram ({erro.code}): {erro.read().decode()[:500]}")
 
 
-def publicar() -> None:
+def publicar(modo: str = "feed") -> None:
+    """modo='feed' publica no feed (poucos por dia); modo='story' publica um story."""
     sys.path.insert(0, str(RAIZ))
     import build  # reaproveita a leitura dos produtos
 
@@ -242,36 +263,44 @@ def publicar() -> None:
         print("Site em modo protótipo: não publico no Instagram.")
         return
 
-    postados = json.loads(REGISTRO.read_text()) if REGISTRO.exists() else {}
+    registro = json.loads(REGISTRO.read_text()) if REGISTRO.exists() else {}
+    chave = (lambda slug: slug) if modo == "feed" else (lambda slug: f"story:{slug}")
+    feitos = {k: v for k, v in registro.items() if k.startswith("story:") == (modo == "story")}
     # ordem: destaque primeiro, depois os mais recentes e, entre eles, os de maior desconto
     ordem = lambda p: (not p.get("destaque"), -p["data"].toordinal(), -(p.get("desconto") or 0), p["slug"])
     pendentes = [p for p in sorted(produtos, key=ordem)
-                 if p["slug"] not in postados and p.get("instagram", True) is not False]
+                 if chave(p["slug"]) not in registro and p.get("instagram", True) is not False]
     if not pendentes:
-        print("Nenhum produto novo para postar.")
+        print(f"Nenhum produto novo para {modo}.")
         return
 
-    # no máximo um post a cada 50 minutos, mesmo com várias publicações do site seguidas
-    if postados:
-        ultimo = max(time.mktime(time.strptime(v["data"], "%Y-%m-%d %H:%M")) for v in postados.values())
-        if time.time() - ultimo < 50 * 60:
-            print("Último post foi há menos de 50 minutos; o próximo sai na próxima rodada.")
+    # intervalo mínimo entre publicações do mesmo tipo
+    minimo = 50 if modo == "story" else 150
+    if feitos:
+        ultimo = max(time.mktime(time.strptime(v["data"], "%Y-%m-%d %H:%M")) for v in feitos.values())
+        if time.time() - ultimo < minimo * 60:
+            print(f"Último {modo} foi há menos de {minimo} minutos; o próximo sai na próxima rodada.")
             return
 
     p = pendentes[0]
-    imagem = f"{site['url']}/ig/{p['slug']}.jpg"
-    print(f"Publicando {p['slug']} com a imagem {imagem}")
     ig = id_da_conta()
-    container = chamar("POST", f"{ig}/media", image_url=imagem, caption=legenda(p, site),
-                       alt_text=f"{p['titulo']} por {brl(p['preco'])}")["id"]
+    if modo == "story":
+        imagem = f"{site['url']}/ig/story-{p['slug']}.jpg"
+        print(f"Publicando story de {p['slug']} com a imagem {imagem}")
+        container = chamar("POST", f"{ig}/media", image_url=imagem, media_type="STORIES")["id"]
+    else:
+        imagem = f"{site['url']}/ig/{p['slug']}.jpg"
+        print(f"Publicando no feed {p['slug']} com a imagem {imagem}")
+        container = chamar("POST", f"{ig}/media", image_url=imagem, caption=legenda(p, site),
+                           alt_text=f"{p['titulo']} por {brl(p['preco'])}")["id"]
     for _ in range(10):
         if chamar("GET", container, fields="status_code").get("status_code") == "FINISHED":
             break
         time.sleep(15)
     midia = chamar("POST", f"{ig}/media_publish", creation_id=container)["id"]
 
-    postados[p["slug"]] = {"midia": midia, "data": time.strftime("%Y-%m-%d %H:%M")}
-    REGISTRO.write_text(json.dumps(postados, ensure_ascii=False, indent=2) + "\n")
+    registro[chave(p["slug"])] = {"midia": midia, "data": time.strftime("%Y-%m-%d %H:%M")}
+    REGISTRO.write_text(json.dumps(registro, ensure_ascii=False, indent=2) + "\n")
     print(f"Publicado: {midia}. Restam {len(pendentes) - 1} na fila.")
 
 
@@ -290,8 +319,10 @@ def testar() -> None:
 
 
 if __name__ == "__main__":
-    if sys.argv[1:] == ["publicar"]:
-        publicar()
+    if sys.argv[1:] in (["publicar"], ["feed"]):
+        publicar("feed")
+    elif sys.argv[1:] == ["story"]:
+        publicar("story")
     elif sys.argv[1:] == ["testar"]:
         testar()
     else:
