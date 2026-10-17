@@ -178,13 +178,33 @@ def legenda(p: dict, site: dict) -> str:
 
 # ------------------------------------------------------------------ publicação
 
-API = "https://graph.instagram.com/v23.0"
+def token() -> str:
+    """Token limpo (sem espaços, quebras de linha ou aspas coladas por engano)."""
+    return os.environ.get("IG_ACCESS_TOKEN", "").strip().strip('"').strip("'").strip()
+
+
+def api_base() -> str:
+    # Token do login do Instagram começa com "IG"; o do login do Facebook, com "EAA".
+    if token().startswith("EAA"):
+        return "https://graph.facebook.com/v23.0"
+    return "https://graph.instagram.com/v23.0"
+
+
+def descrever_token() -> str:
+    t = token()
+    if t.startswith("IG"):
+        tipo = "login do Instagram"
+    elif t.startswith("EAA"):
+        tipo = "login do Facebook"
+    else:
+        tipo = f"formato desconhecido (começa com '{t[:2]}')"
+    return f"token de {tipo}, {len(t)} caracteres"
 
 
 def chamar(metodo: str, caminho: str, **params) -> dict:
-    params["access_token"] = os.environ["IG_ACCESS_TOKEN"]
+    params["access_token"] = token()
     dados = urllib.parse.urlencode(params).encode()
-    url = f"{API}/{caminho}"
+    url = f"{api_base()}/{caminho}"
     if metodo == "GET":
         req = urllib.request.Request(f"{url}?{dados.decode()}")
     else:
@@ -217,7 +237,7 @@ def publicar() -> None:
     p = pendentes[0]
     imagem = f"{site['url']}/ig/{p['slug']}.jpg"
     print(f"Publicando {p['slug']} com a imagem {imagem}")
-    ig = os.environ["IG_USER_ID"]
+    ig = os.environ["IG_USER_ID"].strip()
     container = chamar("POST", f"{ig}/media", image_url=imagem, caption=legenda(p, site),
                        alt_text=f"{p['titulo']} por {brl(p['preco'])}")["id"]
     for _ in range(10):
@@ -235,9 +255,10 @@ def testar() -> None:
     """Confere se o token e o ID funcionam, sem publicar nada."""
     if not os.environ.get("IG_USER_ID") or not os.environ.get("IG_ACCESS_TOKEN"):
         raise SystemExit("Faltam os segredos IG_USER_ID e/ou IG_ACCESS_TOKEN no GitHub.")
-    ig = os.environ["IG_USER_ID"]
-    conta = chamar("GET", ig, fields="username,account_type,media_count")
-    print(f"Conta conectada: @{conta.get('username')} ({conta.get('account_type')}), {conta.get('media_count')} posts.")
+    ig = os.environ["IG_USER_ID"].strip()
+    print(f"Testando com {descrever_token()} e ID da conta com {len(ig)} dígitos.")
+    conta = chamar("GET", ig, fields="username,media_count")
+    print(f"Conta conectada: @{conta.get('username')}, {conta.get('media_count')} posts.")
     limite = chamar("GET", f"{ig}/content_publishing_limit", fields="quota_usage,config")
     dados = (limite.get("data") or [{}])[0]
     print(f"Posts pela API nas últimas 24h: {dados.get('quota_usage')} de {dados.get('config', {}).get('quota_total')}.")
