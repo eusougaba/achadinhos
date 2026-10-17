@@ -1,9 +1,9 @@
 # Configuração geral do site. Trocar o nome ou o endereço é só mudar aqui.
-nome: Achadinhos e Mais
-slogan: Achados do Mercado Livre que a gente olhou de perto
+nome: Achadoteca
+slogan: Achadinhos do Mercado Livre, catalogados um a um
 descricao: >-
-  Ofertas e achados do Mercado Livre selecionados um a um, com o preço que
-  vimos, o que achamos e para quem vale a pena.
+  Uma coleção de achadinhos do Mercado Livre escolhidos um a um, com o preço
+  que vimos, o que achamos e para quem vale a pena.
 
 # Endereço público do site (sem barra no final).
 # GitHub Pages sem domínio próprio: https://SEU_USUARIO.github.io/achadinhos
@@ -18,7 +18,7 @@ repositorio:
 
 # Redes (deixe vazio o que ainda não existe)
 whatsapp: ""             # link do canal ou grupo, ex.: https://whatsapp.com/channel/...
-instagram: ""            # ex.: https://instagram.com/achadinhosemais
+instagram: ""            # ex.: https://instagram.com/achadoteca
 
 # Enquanto for true, mostra o aviso de protótipo e pede para o Google não indexar.
 prototipo: true
