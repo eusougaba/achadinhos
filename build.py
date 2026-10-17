@@ -97,6 +97,11 @@ def carregar() -> tuple[dict, list[dict]]:
 
 def main() -> None:
     site, produtos = carregar()
+    # só mostra no menu as categorias que têm produto
+    usadas = {p.get("categoria") for p in produtos}
+    todas_categorias = list(site["categorias"])  # a área admin mostra todas
+    site["categorias"] = [c for c in site["categorias"] if c["slug"] in usadas]
+    site["categorias"].sort(key=lambda c: -sum(1 for p in produtos if p.get("categoria") == c["slug"]))
     por_slug = {p["slug"]: p for p in produtos}
 
     listas = ler_pasta("listas")
@@ -155,7 +160,7 @@ def main() -> None:
 
     # admin: config do CMS gerada a partir do site.yml
     (SAIDA / "admin" / "config.yml").write_text(
-        env.get_template("admin-config.yml").render(site=site), encoding="utf-8"
+        env.get_template("admin-config.yml").render(site={**site, "categorias": todas_categorias}), encoding="utf-8"
     )
 
     # imagens dos posts do Instagram (public/ig/<slug>.jpg)

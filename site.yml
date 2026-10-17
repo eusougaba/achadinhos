@@ -59,4 +59,10 @@ categorias:
     descricao: Ferramentas e acessórios para quem gosta de resolver as coisas sozinho.
   - slug: beleza
     nome: Beleza e cuidados
-    descricao: Secadores, chapinhas e itens de cuidado pessoal com bom custo-benefício.
+    descricao: Secadores, modeladores, cuidados com o cabelo e o corpo com bom custo-benefício.
+  - slug: esporte
+    nome: Esporte e bem-estar
+    descricao: Garrafas, suplementos e acessórios para treino e rotina.
+  - slug: pets
+    nome: Pets
+    descricao: Caminhas, acessórios e cuidados para cães e gatos.

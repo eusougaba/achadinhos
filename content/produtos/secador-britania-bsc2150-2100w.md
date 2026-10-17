@@ -8,7 +8,6 @@ preco_antigo: 122.32
 link_afiliado: https://meli.la/14vpjDV
 codigo: EQMTUP-CQ8E
 data: 2026-10-17
-destaque: true
 resumo: "Secador de 2100W da Britânia, bivolt e com íons, vendido pelo próprio Mercado Livre por menos de R$ 100."
 pros:
   - Potência de 2100W, boa para secar rápido
