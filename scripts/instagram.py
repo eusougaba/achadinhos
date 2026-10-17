@@ -179,6 +179,36 @@ def gerar_story(p: dict, site: dict, card: Path, destino: Path) -> None:
     img.save(destino, "JPEG", quality=90, optimize=True)
 
 
+def gerar_pin_lista(lista: dict, site: dict, destino: Path) -> None:
+    """Pin do Pinterest (1000x1500) para uma lista: título grande e mosaico de até 4 fotos."""
+    W2, H2 = 1000, 1500
+    img = Image.new("RGB", (W2, H2), FUNDO)
+    d = ImageDraw.Draw(img)
+    logo = Image.open(MARCA / "logo-horizontal.png"); logo.thumbnail((380, 74), Image.LANCZOS)
+    img.paste(logo, ((W2 - logo.width) // 2, 60), logo)
+    f_tit = fonte(800, 72)
+    y = 190
+    for linha in quebrar(lista["titulo"], f_tit, W2 - 120, 3):
+        d.text((W2 // 2, y), linha, font=f_tit, fill=TINTA, anchor="ma"); y += 86
+    d.text((W2 // 2, y + 10), f"{len(lista['itens'])} achadinhos selecionados", font=fonte(400, 36), fill=APAGADO, anchor="ma")
+    topo, base = y + 90, H2 - 230
+    lado = (W2 - 60 * 2 - 30) // 2
+    altura = min(lado, (base - topo - 30) // 2)
+    for i, p in enumerate(lista["itens"][:4]):
+        x = 60 + (i % 2) * (lado + 30); yy = topo + (i // 2) * (altura + 30)
+        d.rounded_rectangle([x, yy, x + lado, yy + altura], radius=28, fill=PAPEL)
+        foto = carregar_foto(p.get("imagem"))
+        if foto:
+            foto.thumbnail((lado - 50, altura - 90), Image.LANCZOS)
+            img.paste(foto, (x + (lado - foto.width) // 2, yy + 20 + (altura - 90 - foto.height) // 2))
+        d.text((x + lado // 2, yy + altura - 42), brl(p["preco"]), font=fonte(800, 38), fill=LARANJA, anchor="mm")
+    d.rectangle([0, H2 - 170, W2, H2], fill=TINTA)
+    d.text((W2 // 2, H2 - 108), "Veja todos com preço e link", font=fonte(600, 40), fill=PAPEL, anchor="mm")
+    d.text((W2 // 2, H2 - 55), endereco_curto(site), font=fonte(800, 40), fill=LARANJA, anchor="mm")
+    destino.parent.mkdir(parents=True, exist_ok=True)
+    img.save(destino, "JPEG", quality=90, optimize=True)
+
+
 # ------------------------------------------------------------------ legenda
 
 def legenda(p: dict, site: dict) -> str:

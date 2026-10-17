@@ -172,6 +172,10 @@ def main() -> None:
         gerar_card(p, site, card)
         gerar_story(p, site, card, SAIDA / "ig" / f"story-{p['slug']}.jpg")
 
+    from scripts.instagram import gerar_pin_lista
+    for lst in listas:
+        gerar_pin_lista(lst, site, SAIDA / "pin" / f"{lst['slug']}.jpg")
+
     hoje = dt.date.today().isoformat()
     urls = "\n".join(
         f"  <url><loc>{site['url']}/{c}</loc><lastmod>{hoje}</lastmod></url>" for c in paginas
