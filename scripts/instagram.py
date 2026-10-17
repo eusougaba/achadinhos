@@ -199,6 +199,16 @@ def descrever_token() -> str:
     return f"token de {tipo}, {len(t)} caracteres"
 
 
+def id_da_conta() -> str:
+    """ID da conta profissional, lido do próprio token (o IG_USER_ID é só conferência)."""
+    eu = chamar("GET", "me", fields="user_id,username")
+    real = str(eu.get("user_id") or eu.get("id"))
+    informado = os.environ.get("IG_USER_ID", "").strip()
+    if informado and informado != real:
+        print(f"Aviso: o IG_USER_ID cadastrado não é o ID da conta @{eu.get('username')}; uso o ID certo automaticamente.")
+    return real
+
+
 def chamar(metodo: str, caminho: str, **params) -> dict:
     params["access_token"] = token()
     dados = urllib.parse.urlencode(params).encode()
@@ -217,8 +227,8 @@ def publicar() -> None:
     sys.path.insert(0, str(RAIZ))
     import build  # reaproveita a leitura dos produtos
 
-    if not os.environ.get("IG_USER_ID") or not os.environ.get("IG_ACCESS_TOKEN"):
-        print("Instagram ainda não configurado (faltam IG_USER_ID e IG_ACCESS_TOKEN). Nada a fazer.")
+    if not os.environ.get("IG_ACCESS_TOKEN"):
+        print("Instagram ainda não configurado (falta IG_ACCESS_TOKEN). Nada a fazer.")
         return
     site, produtos = build.carregar()
     if site.get("prototipo"):
@@ -235,7 +245,7 @@ def publicar() -> None:
     p = pendentes[0]
     imagem = f"{site['url']}/ig/{p['slug']}.jpg"
     print(f"Publicando {p['slug']} com a imagem {imagem}")
-    ig = os.environ["IG_USER_ID"].strip()
+    ig = id_da_conta()
     container = chamar("POST", f"{ig}/media", image_url=imagem, caption=legenda(p, site),
                        alt_text=f"{p['titulo']} por {brl(p['preco'])}")["id"]
     for _ in range(10):
@@ -250,13 +260,13 @@ def publicar() -> None:
 
 
 def testar() -> None:
-    """Confere se o token e o ID funcionam, sem publicar nada."""
-    if not os.environ.get("IG_USER_ID") or not os.environ.get("IG_ACCESS_TOKEN"):
-        raise SystemExit("Faltam os segredos IG_USER_ID e/ou IG_ACCESS_TOKEN no GitHub.")
-    ig = os.environ["IG_USER_ID"].strip()
-    print(f"Testando com {descrever_token()} e ID da conta com {len(ig)} dígitos.")
-    conta = chamar("GET", ig, fields="username,media_count")
-    print(f"Conta conectada: @{conta.get('username')}, {conta.get('media_count')} posts.")
+    """Confere se o token funciona, sem publicar nada."""
+    if not os.environ.get("IG_ACCESS_TOKEN"):
+        raise SystemExit("Falta o segredo IG_ACCESS_TOKEN no GitHub.")
+    print(f"Testando com {descrever_token()}.")
+    ig = id_da_conta()
+    conta = chamar("GET", ig, fields="username,media_count,account_type")
+    print(f"Conta conectada: @{conta.get('username')} ({conta.get('account_type')}), {conta.get('media_count')} posts.")
     limite = chamar("GET", f"{ig}/content_publishing_limit", fields="quota_usage,config")
     dados = (limite.get("data") or [{}])[0]
     print(f"Posts pela API nas últimas 24h: {dados.get('quota_usage')} de {dados.get('config', {}).get('quota_total')}.")
