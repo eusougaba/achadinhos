@@ -63,7 +63,7 @@ def brl(valor) -> str:
 def desconto(p: dict) -> int | None:
     atual, antigo = p.get("preco"), p.get("preco_antigo")
     if atual and antigo and float(antigo) > float(atual):
-        return round((1 - float(atual) / float(antigo)) * 100)
+        return int((1 - float(atual) / float(antigo)) * 100)  # arredonda para baixo, como as lojas
     return None
 
 
