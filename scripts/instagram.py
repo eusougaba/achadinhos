@@ -251,6 +251,13 @@ def publicar() -> None:
         print("Nenhum produto novo para postar.")
         return
 
+    # no máximo um post a cada 50 minutos, mesmo com várias publicações do site seguidas
+    if postados:
+        ultimo = max(time.mktime(time.strptime(v["data"], "%Y-%m-%d %H:%M")) for v in postados.values())
+        if time.time() - ultimo < 50 * 60:
+            print("Último post foi há menos de 50 minutos; o próximo sai na próxima rodada.")
+            return
+
     p = pendentes[0]
     imagem = f"{site['url']}/ig/{p['slug']}.jpg"
     print(f"Publicando {p['slug']} com a imagem {imagem}")
