@@ -22,6 +22,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ raiz }}css/style.css?v={{ versao }}">
   {% block schema %}{% endblock %}
+  {% if site.google_verificacao %}<meta name="google-site-verification" content="{{ site.google_verificacao }}">{% endif %}
+  {% if site.google_analytics %}
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','{{ site.google_analytics }}');
+  document.addEventListener('click',function(e){var a=e.target.closest('a[rel~="sponsored"]');if(a){gtag('event','clique_loja',{produto:location.pathname,link:a.href});}});</script>
+  {% endif %}
+  {% if site.goatcounter %}<script data-goatcounter="https://{{ site.goatcounter }}.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+  <script>document.addEventListener('click',function(e){var a=e.target.closest('a[rel~="sponsored"]');if(a&&window.goatcounter&&goatcounter.count){goatcounter.count({path:'clique-loja'+location.pathname,title:'Clique na loja',event:true});}});</script>{% endif %}
 </head>
 <body>
   <a class="pular" href="#conteudo">Pular para o conteúdo</a>
