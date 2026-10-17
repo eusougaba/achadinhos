@@ -238,3 +238,10 @@ main { padding: 0 16px 48px; }
 .rodape__ano { font-size: .85rem; }
 
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+
+/* posts do Instagram na home */
+.insta-grade { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+@media (min-width: 760px) { .insta-grade { grid-template-columns: repeat(6, 1fr); gap: 10px; } }
+.insta-grade a { display: block; border-radius: 10px; overflow: hidden; border: 1px solid var(--linha); }
+.insta-grade img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; display: block; }
+.secao__mais { font-size: .95rem; color: var(--apagado); }

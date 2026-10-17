@@ -27,6 +27,18 @@
 </section>
 {% endif %}
 
+{% if no_insta %}
+<section class="secao" id="instagram" aria-labelledby="t-insta">
+  <div class="secao__cab">
+    <h2 id="t-insta">Vistos no Instagram</h2>
+    <a class="secao__mais" href="{{ raiz }}links/">Ver todos</a>
+  </div>
+  <div class="insta-grade">
+    {% for p in no_insta[:6] %}<a href="{{ raiz }}produto/{{ p.slug }}/"><img src="{{ raiz }}ig/{{ p.slug }}.jpg" alt="{{ p.titulo }}" loading="lazy" width="1080" height="1350"></a>{% endfor %}
+  </div>
+</section>
+{% endif %}
+
 <section class="secao" aria-labelledby="t-recentes">
   <div class="secao__cab">
     <h2 id="t-recentes">Achados recentes</h2>
