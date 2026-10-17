@@ -24,17 +24,19 @@ FONTES = Path(__file__).resolve().parent / "fontes"
 REGISTRO = RAIZ / "content" / "instagram-postados.json"
 
 W, H = 1080, 1350
-TINTA = (28, 58, 50)
-FUNDO = (238, 241, 236)
+TINTA = (22, 26, 39)        # grafite da marca
+FUNDO = (244, 245, 247)
 PAPEL = (255, 255, 255)
-LILAS = (205, 184, 245)
-LILAS_TEXTO = (74, 61, 115)
-VERDE = (31, 122, 85)
-APAGADO = (86, 106, 98)
+LILAS = (255, 138, 31)       # laranja da etiqueta
+LILAS_TEXTO = (90, 42, 0)
+VERDE = (22, 26, 39)         # selo de desconto
+LARANJA = (254, 109, 1)
+APAGADO = (91, 97, 112)
+MARCA = RAIZ / "static" / "img" / "marca"
 
 
 def fonte(peso: int, tamanho: int) -> ImageFont.FreeTypeFont:
-    return ImageFont.truetype(str(FONTES / f"bricolage-grotesque-latin-{peso}-normal.woff"), tamanho)
+    return ImageFont.truetype(str(FONTES / f"lexend-latin-{peso}-normal.woff"), tamanho)
 
 
 def brl(v) -> str:
@@ -82,14 +84,6 @@ def quebrar(texto: str, f: ImageFont.FreeTypeFont, largura: int, max_linhas: int
     return linhas
 
 
-def icone_ficha(d: ImageDraw.ImageDraw, x: int, y: int, s: float) -> None:
-    """Ficha de catálogo (mesmo desenho do favicon), escala s."""
-    pts = [(5, 11), (11, 9), (13, 6), (19, 6), (21, 9), (27, 9), (27, 27), (5, 27)]
-    d.polygon([(x + px * s, y + py * s) for px, py in pts], fill=LILAS, outline=TINTA, width=int(2.4 * s))
-    for (x1, y1, x2, y2) in [(10, 16, 22, 16), (10, 21, 18, 21)]:
-        d.line([(x + x1 * s, y + y1 * s), (x + x2 * s, y + y2 * s)], fill=TINTA, width=int(2.4 * s))
-
-
 def etiqueta(p: dict) -> Image.Image:
     f_preco, f_de, f_off = fonte(800, 78), fonte(400, 36), fonte(800, 34)
     preco, de = brl(p["preco"]), brl(p["preco_antigo"]) if p.get("desconto") else ""
@@ -121,9 +115,10 @@ def gerar_card(p: dict, site: dict, destino: Path) -> None:
     d = ImageDraw.Draw(img)
 
     # marca
-    icone_ficha(d, 72, 58, 2.2)
-    d.text((152, 92), site["nome"].lower(), font=fonte(800, 56), fill=TINTA, anchor="lm")
-    d.text((W - 72, 92), p["cat"]["nome"], font=fonte(600, 34), fill=APAGADO, anchor="rm")
+    logo = Image.open(MARCA / "logo-horizontal.png")
+    logo.thumbnail((420, 82), Image.LANCZOS)
+    img.paste(logo, (72, 92 - logo.height // 2), logo)
+    d.text((W - 72, 92), p["cat"]["nome"], font=fonte(600, 32), fill=APAGADO, anchor="rm")
 
     # foto
     caixa = (72, 160, W - 72, 840)
@@ -134,7 +129,9 @@ def gerar_card(p: dict, site: dict, destino: Path) -> None:
         foto.thumbnail((lw, lh), Image.LANCZOS)
         img.paste(foto, (caixa[0] + 40 + (lw - foto.width) // 2, caixa[1] + 40 + (lh - foto.height) // 2))
     else:
-        icone_ficha(d, W / 2 - 110, (caixa[1] + caixa[3]) / 2 - 120, 7)
+        icone = Image.open(MARCA / "icone-512.png")
+        icone.thumbnail((360, 360), Image.LANCZOS)
+        img.paste(icone, ((W - icone.width) // 2, (caixa[1] + caixa[3] - icone.height) // 2), icone)
 
     # título
     f_tit = fonte(600, 58)
@@ -151,7 +148,8 @@ def gerar_card(p: dict, site: dict, destino: Path) -> None:
     rodape = f"Link na bio  ·  {endereco_curto(site)}"
     if p.get("id_ml"):
         d.text((72, H - 120), f"Ou busque no app do Mercado Livre: {p['id_ml']}", font=fonte(600, 34), fill=TINTA)
-    d.text((72, H - 66), rodape, font=fonte(400, 34), fill=APAGADO)
+    d.text((72, H - 66), rodape, font=fonte(400, 32), fill=APAGADO)
+    d.rectangle([0, H - 14, W, H], fill=LARANJA)
 
     destino.parent.mkdir(parents=True, exist_ok=True)
     img.save(destino, "JPEG", quality=90, optimize=True)

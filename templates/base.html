@@ -12,11 +12,13 @@
   <meta property="og:title" content="{{ self.titulo() }}">
   <meta property="og:description" content="{{ self.descricao() }}">
   <meta property="og:url" content="{{ canonico }}">
-  {% block og_extra %}<meta property="og:type" content="website">{% endblock %}
-  <link rel="icon" href="{{ raiz }}favicon.svg" type="image/svg+xml">
+  {% block og_extra %}<meta property="og:type" content="website">
+  <meta property="og:image" content="{{ site.url }}/img/marca/compartilhar.jpg">{% endblock %}
+  <link rel="icon" href="{{ raiz }}img/marca/icone-32.png" type="image/png">
+  <link rel="apple-touch-icon" href="{{ raiz }}img/marca/icone-180.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ raiz }}css/style.css">
   {% block schema %}{% endblock %}
 </head>
@@ -28,8 +30,7 @@
   <header class="topo">
     <div class="topo__linha">
       <a class="marca" href="{{ raiz }}" aria-label="{{ site.nome }}, página inicial">
-        <svg class="marca__pepita" viewBox="0 0 32 32" aria-hidden="true"><path class="ficha" d="M5 11a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2z"/><path d="M10 16h12M10 21h8"/></svg>
-        <span>{{ site.nome | lower }}</span>
+        <img src="{{ raiz }}img/marca/logo-horizontal-96.png" alt="{{ site.nome }}" width="225" height="44">
       </a>
       <nav class="topo__redes" aria-label="Nossas redes">
         {% if site.whatsapp %}<a href="{{ site.whatsapp }}" rel="noopener" target="_blank">WhatsApp</a>{% endif %}
@@ -49,7 +50,8 @@
   </main>
 
   <footer class="rodape">
-    <div class="rodape__marca">{{ site.nome | lower }}</div>
+    <div class="rodape__marca">achado<span>teca</span></div>
+    <p>{{ site.slogan }}</p>
     <p>Somos afiliados do Mercado Livre: quando você compra por um link daqui, recebemos uma pequena comissão, sem custo a mais para você. Os preços mudam com frequência, então confira o valor final no Mercado Livre antes de comprar.</p>
     <nav aria-label="Rodapé">
       <a href="{{ raiz }}sobre/">Como funciona</a>

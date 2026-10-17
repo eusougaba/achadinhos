@@ -1,15 +1,15 @@
-/* Achadoteca: tokens */
+/* Achadoteca: tokens (grafite + laranja da marca) */
 :root {
-  --tinta: #1C3A32;      /* verde-garrafa do texto e da marca */
-  --fundo: #EEF1EC;      /* cinza-sálvia do fundo */
+  --tinta: #161A27;      /* grafite da marca */
+  --fundo: #F4F5F7;      /* cinza claro do fundo */
   --papel: #FFFFFF;
-  --ouro: #CDB8F5;       /* lilás da etiqueta (tinta de carimbo de biblioteca) */
-  --ouro-escuro: #6F4FD1;
-  --verde: #1F7A55;      /* desconto e botão de compra */
-  --apagado: #566A62;
-  --linha: #D3DCD6;
+  --ouro: #FF8A1F;       /* laranja da etiqueta de preço */
+  --ouro-escuro: #FE6D01; /* laranja da marca */
+  --verde: #161A27;      /* botão de compra e selo de desconto (grafite) */
+  --apagado: #5B6170;
+  --linha: #DDE0E6;
   --raio: 14px;
-  --fonte: "Bricolage Grotesque", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --fonte: "Lexend", system-ui, -apple-system, "Segoe UI", sans-serif;
   --largura: 1120px;
 }
 
@@ -48,11 +48,7 @@ h1, h2, h3 { line-height: 1.12; margin: 0; letter-spacing: -0.01em; }
   display: inline-flex; align-items: center; gap: 8px; text-decoration: none;
   font-size: 1.75rem; font-weight: 800; letter-spacing: -0.04em; white-space: nowrap;
 }
-@media (max-width: 480px) { .marca { font-size: 1.35rem; } .marca__pepita { width: 24px; height: 24px; } }
-.marca__pepita { width: 30px; height: 30px; }
-.marca__pepita { fill: none; stroke: var(--tinta); stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
-.marca__pepita .ficha { fill: var(--ouro); }
-.topo__redes { display: flex; gap: 14px; font-size: .95rem; white-space: nowrap; }
+@media (max-width: 480px) { .marca { font-size: 1.35rem; } .topo__redes { display: flex; gap: 14px; font-size: .95rem; white-space: nowrap; }
 .topo__redes a { text-decoration: none; color: var(--apagado); }
 .topo__redes a:hover { color: var(--tinta); text-decoration: underline; }
 
@@ -72,7 +68,7 @@ main { padding: 0 16px 48px; }
 
 /* abertura */
 .abertura { padding: 36px 0 24px; max-width: 46rem; }
-.abertura h1 { font-size: clamp(2.4rem, 7vw, 4.2rem); font-weight: 800; letter-spacing: -0.035em; }
+.abertura h1 { font-size: clamp(2.3rem, 7vw, 4rem); font-weight: 800; letter-spacing: -0.035em; }
 .abertura p { margin: 12px 0 0; color: var(--apagado); font-size: 1.125rem; max-width: 38rem; }
 .abertura--compacta { padding-top: 24px; }
 .abertura--compacta h1 { font-size: clamp(2rem, 5.5vw, 3rem); }
@@ -91,7 +87,7 @@ main { padding: 0 16px 48px; }
 }
 .card .etiqueta, .ranking .etiqueta { --furo: 5px; }
 .etiqueta__preco { font-size: 1.2rem; font-weight: 800; letter-spacing: -0.02em; white-space: nowrap; }
-.etiqueta__de { font-size: .85rem; color: #4A3D73; white-space: nowrap; }
+.etiqueta__de { font-size: .85rem; color: #5A2A00; white-space: nowrap; }
 .etiqueta__off {
   font-size: .8rem; font-weight: 700; color: var(--papel); background: var(--verde);
   padding: 1px 7px; border-radius: 6px; align-self: center;
@@ -105,7 +101,7 @@ main { padding: 0 16px 48px; }
   display: grid; grid-template-columns: 1fr; text-decoration: none;
   background: var(--papel); border: 1.5px solid var(--tinta); border-radius: var(--raio); overflow: hidden;
 }
-.destaque__card img { aspect-ratio: 4 / 3; object-fit: cover; width: 100%; background: #F6F8F5; }
+.destaque__card img { aspect-ratio: 4 / 3; object-fit: cover; width: 100%; background: #F7F8FA; }
 .destaque__texto { padding: 20px; }
 .destaque__rotulo { display: inline-block; font-size: .9rem; font-weight: 700; color: var(--verde); margin-bottom: 6px; }
 .destaque__texto h3 { font-size: 1.6rem; font-weight: 800; }
@@ -128,7 +124,7 @@ main { padding: 0 16px 48px; }
 .card { background: var(--papel); border: 1px solid var(--linha); border-radius: var(--raio); overflow: hidden; }
 .card:hover { border-color: var(--tinta); }
 .card__link { display: flex; flex-direction: column; height: 100%; text-decoration: none; }
-.card__foto { aspect-ratio: 1; background: #F6F8F5; }
+.card__foto { aspect-ratio: 1; background: #F7F8FA; }
 .card__foto img { width: 100%; height: 100%; object-fit: cover; }
 .card__info { padding: 10px 12px 14px; display: flex; flex-direction: column; flex: 1; }
 .card__cat { font-size: .8rem; color: var(--apagado); }
@@ -154,7 +150,7 @@ main { padding: 0 16px 48px; }
 /* convite */
 .convite { margin-top: 44px; padding: 28px 22px; background: var(--tinta); color: var(--papel); border-radius: var(--raio); }
 .convite h2 { font-size: 1.6rem; }
-.convite p { color: #C8D6CF; margin: 8px 0 16px; }
+.convite p { color: #C9CDD6; margin: 8px 0 16px; }
 
 /* botões */
 .botao {
@@ -163,7 +159,7 @@ main { padding: 0 16px 48px; }
   background: var(--ouro); color: var(--tinta); border: 0; font: inherit; font-weight: 700; cursor: pointer;
 }
 .botao--comprar { background: var(--verde); color: var(--papel); }
-.botao--comprar:hover { background: #17633F; }
+.botao--comprar:hover { background: #FE6D01; }
 .botao--leve { background: transparent; border: 1.5px solid var(--linha); color: var(--tinta); font-weight: 600; }
 .botao--leve:hover { border-color: var(--tinta); }
 .botao--pequeno { min-height: 40px; padding: 8px 16px; font-size: .95rem; }
@@ -218,7 +214,7 @@ main { padding: 0 16px 48px; }
   width: 30px; height: 30px; display: grid; place-items: center;
   background: var(--tinta); color: var(--ouro); border-radius: 50%; font-weight: 800;
 }
-.ranking__item img { border-radius: 10px; aspect-ratio: 1; object-fit: cover; background: #F6F8F5; }
+.ranking__item img { border-radius: 10px; aspect-ratio: 1; object-fit: cover; background: #F7F8FA; }
 .ranking__texto h2 { font-size: 1.2rem; }
 .ranking__texto h2 a { text-decoration: none; }
 .ranking__texto p { color: var(--apagado); margin: 6px 0 0; font-size: 1rem; }
@@ -229,10 +225,11 @@ main { padding: 0 16px 48px; }
 
 /* rodapé */
 .rodape {
-  background: var(--tinta); color: #C8D6CF; font-size: .95rem;
+  background: var(--tinta); color: #C9CDD6; font-size: .95rem;
   padding: 36px max(16px, calc((100% - var(--largura)) / 2 + 16px)) 28px;
 }
-.rodape__marca { color: var(--papel); font-size: 1.5rem; font-weight: 800; letter-spacing: -0.04em; }
+.rodape__marca { color: var(--papel); font-size: 1.6rem; font-weight: 800; letter-spacing: -0.03em; }
+.rodape__marca span, .nome-teca { color: var(--ouro-escuro); }
 .rodape p { max-width: 40rem; }
 .rodape nav { display: flex; flex-wrap: wrap; gap: 8px 18px; margin: 12px 0; }
 .rodape nav a { color: var(--papel); }
