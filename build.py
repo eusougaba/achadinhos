@@ -172,6 +172,13 @@ def main() -> None:
         gerar_card(p, site, card)
         gerar_story(p, site, card, SAIDA / "ig" / f"story-{p['slug']}.jpg")
 
+    # lista de produtos para o gerador de oferta (admin/gerador.html)
+    (SAIDA / "admin" / "produtos.json").write_text(json.dumps([{
+        "slug": p["slug"], "titulo": p["titulo"], "categoria": p.get("categoria"), "loja": p["loja"],
+        "preco": p.get("preco"), "preco_antigo": p.get("preco_antigo"), "link": p.get("link_afiliado"),
+        "codigo": p.get("codigo"), "resumo": p.get("resumo"), "imagem": p.get("imagem"),
+        "pagina": f"{site['url']}/produto/{p['slug']}/"} for p in produtos], ensure_ascii=False), encoding="utf-8")
+
     from scripts.instagram import gerar_pin_lista
     for lst in listas:
         gerar_pin_lista(lst, site, SAIDA / "pin" / f"{lst['slug']}.jpg")

@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/style.css?v=2">
+  <link rel="stylesheet" href="../css/style.css?v=3">
   <style>
     .ger { max-width: 760px; margin: 0 auto; padding: 24px 16px 60px; }
     .ger h1 { font-size: 2.2rem; font-weight: 800; letter-spacing: -0.03em; }
@@ -43,6 +43,10 @@
     <p>Preencha uma vez e copie o texto pronto para o WhatsApp, o Instagram e o site.</p>
 
     <form id="f" autocomplete="off">
+      <label>Escolher um produto do site <small>Preenche tudo sozinho; ou deixe em branco e preencha à mão</small>
+        <input id="busca" list="lista-produtos" placeholder="Digite parte do nome: air fryer, potes, secador...">
+        <datalist id="lista-produtos"></datalist>
+      </label>
       <label>Nome do produto
         <input name="titulo" required placeholder="Ex.: Air fryer 4 litros">
       </label>
@@ -102,7 +106,8 @@
       <textarea id="zap" readonly></textarea>
       <div class="acoes">
         <button class="botao" type="button" data-copiar="zap">Copiar mensagem</button>
-        <a class="botao botao--comprar" id="abrirZap" href="#" target="_blank" rel="noopener">Abrir no WhatsApp</a>
+        <a class="botao botao--comprar" id="abrirZap" href="#" target="_blank" rel="noopener">Mandar para um contato</a>
+        <a class="botao botao--leve" href="https://whatsapp.com/channel/0029Vb9XLbVC6ZvZxMo7eA0l" target="_blank" rel="noopener">Abrir o canal</a>
       </div>
     </section>
 
@@ -139,7 +144,7 @@ function gerar() {
   const d = Object.fromEntries(new FormData(f));
   const titulo = (d.titulo || '').trim();
   const preco = num(d.preco), antigo = num(d.antigo);
-  const off = preco && antigo && antigo > preco ? Math.round((1 - preco / antigo) * 100) : null;
+  const off = preco && antigo && antigo > preco ? Math.floor((1 - preco / antigo) * 100) : null;
   const link = (d.link || '').trim();
   const resumo = (d.resumo || '').trim();
   const frete = !!d.frete;
@@ -212,6 +217,21 @@ function gerar() {
       ${off ? `<span class="etiqueta__off">−${off}%</span>` : ''}
     </div>` : '';
 }
+
+let produtos = [];
+fetch('produtos.json').then(r => r.json()).then(ps => {
+  produtos = ps;
+  document.getElementById('lista-produtos').innerHTML = ps.map(p => `<option value="${esc(p.titulo)}">`).join('');
+}).catch(() => {});
+document.getElementById('busca').addEventListener('change', e => {
+  const p = produtos.find(x => x.titulo === e.target.value);
+  if (!p) return;
+  const br = n => n == null ? '' : n.toFixed(2).replace('.', ',');
+  f.titulo.value = p.titulo; f.link.value = p.link || ''; f.preco.value = br(p.preco); f.antigo.value = br(p.preco_antigo);
+  f.idml.value = p.codigo || ''; f.resumo.value = p.resumo || ''; f.imagem.value = (p.imagem || '').startsWith('http') ? p.imagem : '';
+  if (p.categoria) f.categoria.value = p.categoria; if (p.loja) f.loja.value = p.loja;
+  gerar();
+});
 
 f.addEventListener('input', gerar);
 gerar();
