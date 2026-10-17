@@ -47,3 +47,22 @@ No GitLab o arquivo `.gitlab-ci.yml` já faz o mesmo; troque `repositorio.servic
 - Troque os produtos de exemplo por produtos reais e mude `prototipo: false` no
   `site.yml` (enquanto estiver `true`, o Google é orientado a não indexar o site).
 - Use só links gerados pelo painel de afiliados do Mercado Livre e siga os termos do programa.
+
+## Postar no Instagram automaticamente
+
+Cada produto ganha uma imagem pronta para o feed em `/ig/<produto>.jpg` (1080×1350).
+O workflow **Postar no Instagram** publica um produto novo por vez, com imagem e legenda,
+logo depois de cada publicação do site e de hora em hora entre 9h e 20h. O que já foi
+postado fica registrado em `content/instagram-postados.json`. Para um produto não ir para o
+Instagram, coloque `instagram: false` no arquivo dele.
+
+Para ligar:
+
+1. Conta do Instagram como **profissional** (Criador de conteúdo ou Empresa).
+2. App na Meta for Developers com o produto **Instagram** e login pelo Instagram, com as
+   permissões `instagram_business_basic` e `instagram_business_content_publish`.
+3. Gere o token de acesso (longa duração) e pegue o ID da conta do Instagram.
+4. No GitHub: Settings → Secrets and variables → Actions → crie `IG_USER_ID` e `IG_ACCESS_TOKEN`.
+5. Mude `prototipo: false` no `site.yml` (em modo protótipo nada é postado).
+
+O token dura 60 dias: renove antes de vencer e atualize o segredo `IG_ACCESS_TOKEN`.

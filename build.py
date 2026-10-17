@@ -74,7 +74,8 @@ def data_br(d) -> str:
 
 # ---------------------------------------------------------------- build
 
-def main() -> None:
+def carregar() -> tuple[dict, list[dict]]:
+    """Lê o site.yml e os produtos, já com desconto, categoria e data tratados."""
     site = yaml.safe_load((RAIZ / "site.yml").read_text(encoding="utf-8"))
     site["url"] = site["url"].rstrip("/")
     categorias = {c["slug"]: c for c in site["categorias"]}
@@ -87,6 +88,11 @@ def main() -> None:
         p["pros"] = p.get("pros") or []
         p["contras"] = p.get("contras") or []
     produtos.sort(key=lambda p: (p["data"], p["slug"]), reverse=True)
+    return site, produtos
+
+
+def main() -> None:
+    site, produtos = carregar()
     por_slug = {p["slug"]: p for p in produtos}
 
     listas = ler_pasta("listas")
@@ -145,6 +151,11 @@ def main() -> None:
         env.get_template("admin-config.yml").render(site=site), encoding="utf-8"
     )
 
+    # imagens dos posts do Instagram (public/ig/<slug>.jpg)
+    from scripts.instagram import gerar_card
+    for p in produtos:
+        gerar_card(p, site, SAIDA / "ig" / f"{p['slug']}.jpg")
+
     hoje = dt.date.today().isoformat()
     urls = "\n".join(
         f"  <url><loc>{site['url']}/{c}</loc><lastmod>{hoje}</lastmod></url>" for c in paginas
@@ -160,7 +171,7 @@ def main() -> None:
         f"User-agent: *\n{regras}\nSitemap: {site['url']}/sitemap.xml\n", encoding="utf-8"
     )
 
-    print(f"Site gerado em {SAIDA}: {len(paginas)} páginas, {len(produtos)} produtos, {len(listas)} listas.")
+    print(f"Site gerado em {SAIDA}: {len(paginas)} páginas, {len(produtos)} produtos, {len(listas)} listas, {len(produtos)} imagens de post.")
 
 
 if __name__ == "__main__":
