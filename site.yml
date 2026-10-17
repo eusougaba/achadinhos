@@ -57,3 +57,6 @@ categorias:
   - slug: ferramentas
     nome: Ferramentas
     descricao: Ferramentas e acessórios para quem gosta de resolver as coisas sozinho.
+  - slug: beleza
+    nome: Beleza e cuidados
+    descricao: Secadores, chapinhas e itens de cuidado pessoal com bom custo-benefício.
