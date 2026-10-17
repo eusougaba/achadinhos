@@ -118,6 +118,9 @@ def main() -> None:
     env.filters.update(brl=brl, data_br=data_br, tojson_safe=lambda v: json.dumps(v, ensure_ascii=False))
 
     paginas: list[str] = []
+    # muda a cada alteração do CSS, para o navegador não usar a versão antiga em cache
+    import hashlib
+    versao = hashlib.sha1((RAIZ / "static" / "css" / "style.css").read_bytes()).hexdigest()[:8]
 
     def render(modelo: str, caminho: str, **ctx) -> None:
         """caminho é a URL da página, ex.: '' ou 'produto/fone/'."""
@@ -130,7 +133,7 @@ def main() -> None:
             return src if src.startswith("http") else raiz + src.lstrip("/")
 
         html = env.get_template(modelo).render(
-            site=site, categorias=site["categorias"], raiz=raiz, img=img,
+            versao=versao, site=site, categorias=site["categorias"], raiz=raiz, img=img,
             canonico=f"{site['url']}/{caminho}", ano=dt.date.today().year, **ctx,
         )
         destino = SAIDA / caminho / "index.html"
