@@ -18,7 +18,7 @@ repositorio:
 
 # Redes (deixe vazio o que ainda não existe)
 whatsapp: ""             # link do canal ou grupo, ex.: https://whatsapp.com/channel/...
-instagram: ""            # ex.: https://instagram.com/achadoteca
+instagram: https://instagram.com/achadoteca.com.br
 
 # Enquanto for true, mostra o aviso de protótipo e pede para o Google não indexar.
 prototipo: true
