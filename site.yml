@@ -2,8 +2,8 @@
 nome: Achadoteca
 slogan: Os melhores achadinhos, em um só lugar
 descricao: >-
-  Curadoria de achadinhos do Mercado Livre: produtos interessantes, boas
-  ofertas e o que achamos de cada um, para você comprar sem erro.
+  Curadoria de achadinhos do Mercado Livre, Shopee, Amazon e outras lojas:
+  produtos interessantes, boas ofertas e o que achamos de cada um.
 
 # Endereço público do site (sem barra no final).
 # GitHub Pages sem domínio próprio: https://SEU_USUARIO.github.io/achadinhos
@@ -22,6 +22,30 @@ instagram: https://instagram.com/achadoteca.com.br
 
 # Enquanto for true, mostra o aviso de protótipo e pede para o Google não indexar.
 prototipo: true
+
+# Lojas com programa de afiliados. "em" é como a loja aparece nas frases
+# ("Ver no Mercado Livre", "Ver na Shopee"). Para adicionar uma loja, copie um bloco.
+lojas:
+  - slug: mercadolivre
+    nome: Mercado Livre
+    em: no Mercado Livre
+    hashtag: achadinhosmercadolivre
+  - slug: shopee
+    nome: Shopee
+    em: na Shopee
+    hashtag: achadinhosshopee
+  - slug: amazon
+    nome: Amazon
+    em: na Amazon
+    hashtag: achadinhosamazon
+  - slug: magalu
+    nome: Magalu
+    em: na Magalu
+    hashtag: achadinhosmagalu
+  - slug: aliexpress
+    nome: AliExpress
+    em: no AliExpress
+    hashtag: achadinhosaliexpress
 
 categorias:
   - slug: tecnologia

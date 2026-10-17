@@ -32,9 +32,9 @@
     <h1>{{ p.titulo }}</h1>
     {% if p.resumo %}<p class="produto__resumo">{{ p.resumo }}</p>{% endif %}
     {{ etiqueta(p, grande=true) }}
-    <p class="produto__visto">Preço visto em {{ p.data | data_br }}. Pode ter mudado.</p>
-    <a class="botao botao--comprar" href="{{ p.link_afiliado }}" target="_blank" rel="sponsored noopener">Ver no Mercado Livre</a>
-    {% if p.id_ml %}<p class="produto__id">Ou busque no app do Mercado Livre: <strong>{{ p.id_ml }}</strong></p>{% endif %}
+    <p class="produto__visto">Vendido {{ p.lj.em }}. Preço visto em {{ p.data | data_br }}, pode ter mudado.</p>
+    <a class="botao botao--comprar" href="{{ p.link_afiliado }}" target="_blank" rel="sponsored noopener">Ver {{ p.lj.em }}</a>
+    {% if p.codigo %}<p class="produto__id">Ou busque no app {{ "da" if p.lj.em.startswith("na") else "do" }} {{ p.lj.nome }}: <strong>{{ p.codigo }}</strong></p>{% endif %}
     <a class="botao botao--leve" href="https://wa.me/?text={{ (p.titulo ~ ' por ' ~ (p.preco | brl) ~ ' ' ~ canonico) | urlencode }}" target="_blank" rel="noopener">Mandar para alguém no WhatsApp</a>
   </div>
 

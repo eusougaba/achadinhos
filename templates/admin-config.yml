@@ -27,8 +27,16 @@ collections:
 {% for c in site.categorias %}
           - { label: "{{ c.nome }}", value: {{ c.slug }} }
 {% endfor %}
-      - { name: link_afiliado, label: Link de afiliado do Mercado Livre, widget: string, hint: "Gere no painel de afiliados ou pela barra de afiliado na página do produto." }
-      - { name: id_ml, label: ID do produto no Mercado Livre, widget: string, required: false, hint: "Ex.: EQMTUP-CQ8E. A pessoa cola no buscador do app." }
+      - name: loja
+        label: Loja
+        widget: select
+        default: mercadolivre
+        options:
+{% for l in site.lojas %}
+          - { label: "{{ l.nome }}", value: {{ l.slug }} }
+{% endfor %}
+      - { name: link_afiliado, label: Link de afiliado, widget: string, hint: "Gerado no painel de afiliados da loja (meli.la, s.shopee.com.br, amzn.to...)." }
+      - { name: codigo, label: Código para buscar no app da loja, widget: string, required: false, hint: "Opcional. Ex.: o ID do produto que o Mercado Livre mostra ao gerar o link." }
       - { name: imagem, label: Foto, widget: image, required: false, hint: "Pode enviar uma foto ou colar o endereço da imagem." }
       - { name: preco, label: Preço atual (R$), widget: number, value_type: float }
       - { name: preco_antigo, label: Preço antigo (R$), widget: number, value_type: float, required: false }

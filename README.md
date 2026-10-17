@@ -1,6 +1,6 @@
 # Achadinhos e Mais
 
-Site de achados do Mercado Livre com links de afiliado. É um site estático gerado em
+Site de achadinhos com links de afiliado (Mercado Livre, Shopee, Amazon, Magalu, AliExpress). É um site estático gerado em
 Python: os produtos ficam em arquivos de texto e o GitHub (ou GitLab) publica de graça.
 
 ## Como está organizado
@@ -46,7 +46,8 @@ No GitLab o arquivo `.gitlab-ci.yml` já faz o mesmo; troque `repositorio.servic
 
 - Troque os produtos de exemplo por produtos reais e mude `prototipo: false` no
   `site.yml` (enquanto estiver `true`, o Google é orientado a não indexar o site).
-- Use só links gerados pelo painel de afiliados do Mercado Livre e siga os termos do programa.
+- Use só links gerados pelo painel de afiliados de cada loja e siga os termos de cada programa.
+- Para incluir outra loja, adicione um bloco em `lojas:` no `site.yml`.
 
 ## Postar no Instagram automaticamente
 

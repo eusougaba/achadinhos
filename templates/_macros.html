@@ -11,7 +11,7 @@
   <a class="card__link" href="{{ raiz }}produto/{{ p.slug }}/">
     <div class="card__foto"><img src="{{ img(p.imagem) }}" alt="{{ p.titulo }}" loading="lazy" width="400" height="400"></div>
     <div class="card__info">
-      <span class="card__cat">{{ p.cat.nome }}</span>
+      <span class="card__cat">{{ p.cat.nome }} · {{ p.lj.nome }}</span>
       <h3 class="card__titulo">{{ p.titulo }}</h3>
       {{ etiqueta(p) }}
     </div>

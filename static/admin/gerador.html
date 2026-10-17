@@ -46,8 +46,17 @@
       <label>Nome do produto
         <input name="titulo" required placeholder="Ex.: Air fryer 4 litros">
       </label>
-      <label>Link de afiliado <small>Gerado no painel de afiliados do Mercado Livre</small>
-        <input name="link" type="url" required placeholder="https://meli.la/...">
+      <label>Loja
+        <select name="loja">
+          <option value="mercadolivre" data-nome="Mercado Livre" data-em="no Mercado Livre" data-tag="achadinhosmercadolivre">Mercado Livre</option>
+          <option value="shopee" data-nome="Shopee" data-em="na Shopee" data-tag="achadinhosshopee">Shopee</option>
+          <option value="amazon" data-nome="Amazon" data-em="na Amazon" data-tag="achadinhosamazon">Amazon</option>
+          <option value="magalu" data-nome="Magalu" data-em="na Magalu" data-tag="achadinhosmagalu">Magalu</option>
+          <option value="aliexpress" data-nome="AliExpress" data-em="no AliExpress" data-tag="achadinhosaliexpress">AliExpress</option>
+        </select>
+      </label>
+      <label>Link de afiliado <small>Gerado no painel de afiliados da loja</small>
+        <input name="link" type="url" required placeholder="https://meli.la/... ou https://s.shopee.com.br/...">
       </label>
       <div class="duas">
         <label>Preço atual (R$)
@@ -57,7 +66,7 @@
           <input name="antigo" inputmode="decimal" placeholder="399,90">
         </label>
       </div>
-      <label>ID do produto <small>(opcional) Aparece junto do link no app de afiliados</small>
+      <label>Código para buscar no app <small>(opcional) Ex.: o ID que o Mercado Livre mostra ao gerar o link</small>
         <input name="idml" placeholder="Ex.: EQMTUP-CQ8E" autocapitalize="characters">
       </label>
       <div class="duas">
@@ -68,7 +77,7 @@
             <option value="ferramentas">Ferramentas</option>
           </select>
         </label>
-        <label>Cupom <small>(só se o Mercado Livre ou o vendedor já oferecer)</small>
+        <label>Cupom <small>(só se a loja ou o vendedor já oferecer)</small>
           <input name="cupom" placeholder="Ex.: ACHADO10">
         </label>
       </div>
@@ -131,6 +140,9 @@ function gerar() {
   const frete = !!d.frete;
   const cupom = (d.cupom || '').trim();
   const idml = (d.idml || '').trim().toUpperCase();
+  const opt = f.loja.selectedOptions[0];
+  const loja = { slug: opt.value, nome: opt.dataset.nome, em: opt.dataset.em, tag: opt.dataset.tag };
+  const artigo = loja.em.startsWith('na') ? 'da' : 'do';
 
   // WhatsApp (negrito com *, riscado com ~)
   const z = [];
@@ -143,7 +155,8 @@ function gerar() {
   if (cupom) z.push(`🎟️ Cupom: *${cupom}*`);
   z.push('');
   z.push(`👉 ${link || 'link de afiliado'}`);
-  if (idml) z.push(`🔍 Ou busque no Mercado Livre: *${idml}*`);
+  z.push(`🛒 Vendido ${loja.em}`);
+  if (idml) z.push(`🔍 Ou busque no app ${artigo} ${loja.nome}: *${idml}*`);
   z.push('');
   z.push('_Preço visto agora, pode mudar a qualquer momento._');
   document.getElementById('zap').value = z.join('\n');
@@ -159,11 +172,12 @@ function gerar() {
   if (frete) i.push('🚚 Frete grátis');
   if (cupom) i.push(`🎟️ Cupom: ${cupom}`);
   i.push('');
-  if (idml) i.push(`🔍 Busque no app do Mercado Livre: ${idml}`);
+  i.push(`🛒 Vendido ${loja.em}`);
+  if (idml) i.push(`🔍 Busque no app ${artigo} ${loja.nome}: ${idml}`);
   i.push('🔗 Link na bio e no nosso canal do WhatsApp');
   i.push('Preço pode mudar a qualquer momento.');
   i.push('');
-  i.push('#achadinhos #achadinhosmercadolivre #mercadolivre #ofertas #promoção');
+  i.push(`#achadinhos #${loja.tag} #${loja.slug} #ofertas #achadoteca`);
   document.getElementById('insta').value = i.join('\n');
 
   // Markdown para content/produtos
@@ -172,11 +186,12 @@ function gerar() {
   const m = ['---',
     `titulo: ${yamlStr(titulo)}`,
     `categoria: ${d.categoria}`,
+    `loja: ${loja.slug}`,
     d.imagem ? `imagem: ${yamlStr(d.imagem.trim())}` : null,
     `preco: ${preco ?? 0}`,
     antigo ? `preco_antigo: ${antigo}` : null,
     `link_afiliado: ${yamlStr(link)}`,
-    idml ? `id_ml: ${yamlStr(idml)}` : null,
+    idml ? `codigo: ${yamlStr(idml)}` : null,
     `data: ${hoje}`,
     `resumo: ${yamlStr(resumo)}`,
     '---',

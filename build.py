@@ -79,6 +79,7 @@ def carregar() -> tuple[dict, list[dict]]:
     site = yaml.safe_load((RAIZ / "site.yml").read_text(encoding="utf-8"))
     site["url"] = site["url"].rstrip("/")
     categorias = {c["slug"]: c for c in site["categorias"]}
+    lojas = {l["slug"]: l for l in site.get("lojas", [])}
 
     produtos = ler_pasta("produtos")
     for p in produtos:
@@ -87,6 +88,9 @@ def carregar() -> tuple[dict, list[dict]]:
         p["cat"] = categorias.get(p.get("categoria"), {"slug": "outros", "nome": "Outros"})
         p["pros"] = p.get("pros") or []
         p["contras"] = p.get("contras") or []
+        p["loja"] = p.get("loja") or "mercadolivre"
+        p["lj"] = lojas.get(p["loja"], {"slug": p["loja"], "nome": p["loja"].title(), "em": f"na {p['loja'].title()}", "hashtag": "achadinhos"})
+        p["codigo"] = p.get("codigo") or p.get("id_ml")  # código para buscar no app da loja
     produtos.sort(key=lambda p: (p["data"], p["slug"]), reverse=True)
     return site, produtos
 

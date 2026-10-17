@@ -31,7 +31,7 @@
         <h2><a href="{{ raiz }}produto/{{ p.slug }}/">{{ p.titulo }}</a></h2>
         <p>{{ p.resumo }}</p>
         {{ etiqueta(p) }}
-        <a class="botao botao--comprar botao--pequeno" href="{{ p.link_afiliado }}" target="_blank" rel="sponsored noopener">Ver no Mercado Livre</a>
+        <a class="botao botao--comprar botao--pequeno" href="{{ p.link_afiliado }}" target="_blank" rel="sponsored noopener">Ver {{ p.lj.em }}</a>
       </div>
     </li>
     {% endfor %}

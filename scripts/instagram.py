@@ -146,8 +146,12 @@ def gerar_card(p: dict, site: dict, destino: Path) -> None:
 
     # rodapé
     rodape = f"Link na bio  ·  {endereco_curto(site)}"
-    if p.get("id_ml"):
-        d.text((72, H - 120), f"Ou busque no app do Mercado Livre: {p['id_ml']}", font=fonte(600, 34), fill=TINTA)
+    lj = p["lj"]
+    if p.get("codigo"):
+        artigo = "da" if lj["em"].startswith("na") else "do"
+        d.text((72, H - 120), f"Busque no app {artigo} {lj['nome']}: {p['codigo']}", font=fonte(600, 34), fill=TINTA)
+    else:
+        d.text((72, H - 120), f"Vendido {lj['em']}", font=fonte(600, 34), fill=TINTA)
     d.text((72, H - 66), rodape, font=fonte(400, 32), fill=APAGADO)
     d.rectangle([0, H - 14, W, H], fill=LARANJA)
 
@@ -166,11 +170,14 @@ def legenda(p: dict, site: dict) -> str:
     if p.get("resumo"):
         linhas += ["", p["resumo"]]
     linhas.append("")
-    if p.get("id_ml"):
-        linhas.append(f"🔍 Busque no app do Mercado Livre: {p['id_ml']}")
+    lj = p["lj"]
+    linhas.append(f"🛒 Vendido {lj['em']}")
+    if p.get("codigo"):
+        artigo = "da" if lj["em"].startswith("na") else "do"
+        linhas.append(f"🔍 Busque no app {artigo} {lj['nome']}: {p['codigo']}")
     linhas.append(f"🔗 Link na bio: {endereco_curto(site)}")
     linhas.append("Preço visto na data do post, pode mudar a qualquer momento.")
-    linhas += ["", "#achadinhos #achadinhosmercadolivre #mercadolivre #ofertas #achadoteca"]
+    linhas += ["", f"#achadinhos #{lj['hashtag']} #{lj['slug']} #ofertas #achadoteca"]
     return "\n".join(linhas)
 
 
