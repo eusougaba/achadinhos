@@ -44,6 +44,8 @@ lojas:
     nome: Amazon
     em: na Amazon
     hashtag: achadinhosamazon
+    sem_preco: true   # a Amazon limita a exibição de preço: o site mostra "veja o preço na loja"
+    aviso: "Como Associado da Amazon, ganhamos com compras qualificadas."
   - slug: magalu
     nome: Magalu
     em: na Magalu

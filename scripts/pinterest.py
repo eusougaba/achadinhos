@@ -46,9 +46,12 @@ def gerar_csv(produtos: list[dict], listas: list[dict], site: dict, comeco: dt.d
         quando = dt.datetime.combine(dia, dt.time(hora_utc % 24)) + dt.timedelta(days=hora_utc // 24)
         if tipo == "produto":
             titulo = _corta(f"{x['titulo']}: vale a pena?", 100)
-            preco = f"Por {_brl(x['preco'])}" + (f" (de {_brl(x['preco_antigo'])})" if x.get("desconto") else "")
-            desc = _corta(f"{x.get('resumo') or x['titulo']} {preco}. Veja os detalhes, prós e contras no site. "
-                          f"Preço visto hoje, pode mudar.", 480)
+            if x.get("sem_preco"):
+                desc = _corta(f"{x.get('resumo') or x['titulo']} Veja os detalhes, prós e contras no site.", 480)
+            else:
+                preco = f"Por {_brl(x['preco'])}" + (f" (de {_brl(x['preco_antigo'])})" if x.get("desconto") else "")
+                desc = _corta(f"{x.get('resumo') or x['titulo']} {preco}. Veja os detalhes, prós e contras no site. "
+                              f"Preço visto hoje, pode mudar.", 480)
             midia = f"{base}/pin/produto-{x['slug']}.jpg"
             link = f"{base}/produto/{x['slug']}/{UTM}"
             quadro = x["cat"]["nome"]

@@ -101,7 +101,7 @@
   <footer class="rodape">
     <div class="rodape__marca">achado<span>teca</span></div>
     <p>{{ site.slogan }}</p>
-    <p>Participamos de programas de afiliados de lojas como {% for l in site.lojas %}{{ l.nome }}{% if loop.revindex == 2 %} e {% elif not loop.last %}, {% endif %}{% endfor %}. Quando você compra por um link daqui, recebemos uma pequena comissão, sem custo a mais para você. Os preços mudam com frequência, então confira o valor final na loja antes de comprar.</p>
+    <p>Participamos de programas de afiliados de lojas como {% for l in site.lojas %}{{ l.nome }}{% if loop.revindex == 2 %} e {% elif not loop.last %}, {% endif %}{% endfor %}. Quando você compra por um link daqui, recebemos uma pequena comissão, sem custo a mais para você. Os preços mudam com frequência, então confira o valor final na loja antes de comprar.{% for a in avisos_lojas %} {{ a }}{% endfor %}</p>
     <nav aria-label="Rodapé">
       <a href="{{ raiz }}blog/">Blog</a>
       <a href="{{ raiz }}sobre/">Como funciona</a>

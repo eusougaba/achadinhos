@@ -1,8 +1,10 @@
 {% macro etiqueta(p, grande=false) %}
 <div class="etiqueta{% if grande %} etiqueta--grande{% endif %}">
+  {% if p.sem_preco %}<strong class="etiqueta__preco">Ver preço {{ p.lj.em }}</strong>{% else %}
   {% if p.preco_antigo and p.desconto %}<s class="etiqueta__de">{{ p.preco_antigo | brl }}</s>{% endif %}
   <strong class="etiqueta__preco">{{ p.preco | brl }}</strong>
   {% if p.desconto %}<span class="etiqueta__off">−{{ p.desconto }}%</span>{% endif %}
+  {% endif %}
 </div>
 {% endmacro %}
 

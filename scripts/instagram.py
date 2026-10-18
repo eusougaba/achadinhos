@@ -88,8 +88,10 @@ def quebrar(texto: str, f: ImageFont.FreeTypeFont, largura: int, max_linhas: int
 
 def etiqueta(p: dict) -> Image.Image:
     f_preco, f_de, f_off = fonte(800, 78), fonte(400, 36), fonte(800, 34)
-    preco, de = brl(p["preco"]), brl(p["preco_antigo"]) if p.get("desconto") else ""
+    preco, de = brl(p.get("preco") or 0), brl(p["preco_antigo"]) if p.get("desconto") else ""
     off = f"-{p['desconto']}%" if p.get("desconto") else ""
+    if p.get("sem_preco"):
+        preco, de, off = "Ver preço", "", ""
     larg_de = f_de.getlength(de) + 22 if de else 0
     larg_off = f_off.getlength(off) + 44 if off else 0
     w = int(70 + larg_de + f_preco.getlength(preco) + (22 + larg_off if off else 0) + 40)
@@ -203,7 +205,7 @@ def gerar_pin_lista(lista: dict, site: dict, destino: Path) -> None:
         if foto:
             foto.thumbnail((lado - 50, altura - 90), Image.LANCZOS)
             img.paste(foto, (x + (lado - foto.width) // 2, yy + 20 + (altura - 90 - foto.height) // 2))
-        d.text((x + lado // 2, yy + altura - 42), brl(p["preco"]), font=fonte(800, 38), fill=LARANJA, anchor="mm")
+        d.text((x + lado // 2, yy + altura - 42), "Ver preço" if p.get("sem_preco") else brl(p["preco"]), font=fonte(800, 38), fill=LARANJA, anchor="mm")
     d.rectangle([0, H2 - 170, W2, H2], fill=TINTA)
     d.text((W2 // 2, H2 - 108), "Veja todos com preço e link", font=fonte(600, 40), fill=PAPEL, anchor="mm")
     d.text((W2 // 2, H2 - 55), endereco_curto(site), font=fonte(800, 40), fill=LARANJA, anchor="mm")
@@ -278,7 +280,9 @@ def hashtags(p: dict, site: dict, limite: int = 14) -> list[str]:
 
 def legenda(p: dict, site: dict) -> str:
     linhas = [f"{p['titulo']} 🔥"]
-    if p.get("desconto"):
+    if p.get("sem_preco"):
+        linhas.append(f"Veja o preço atual {p['lj']['em']}")
+    elif p.get("desconto"):
         linhas.append(f"De {brl(p['preco_antigo'])} por {brl(p['preco'])} (-{p['desconto']}%)")
     else:
         linhas.append(f"Por {brl(p['preco'])}")
@@ -294,7 +298,10 @@ def legenda(p: dict, site: dict) -> str:
     linhas.append("🔗 Ou no link da bio: toque na foto deste post")
     if site.get("whatsapp"):
         linhas.append("💬 Receba os achadinhos no WhatsApp: canal no link da bio")
-    linhas.append("Preço visto na data do post, pode mudar a qualquer momento.")
+    if not p.get("sem_preco"):
+        linhas.append("Preço visto na data do post, pode mudar a qualquer momento.")
+    if p["lj"].get("aviso"):
+        linhas.append(p["lj"]["aviso"])
     linhas += ["", " ".join(hashtags(p, site))]
     return "\n".join(linhas)
 
@@ -379,7 +386,7 @@ def publicar(modo: str = "feed") -> None:
     pendentes = [p for p in sorted(produtos, key=ordem)
                  if chave(p["slug"]) not in registro and p.get("instagram", True) is not False
                  and (modo == "story" or p.get("feed", True) is not False)
-                 and (dt.date.today() - p["visto"]).days <= 21]  # preço velho não vai para o Instagram  # feed só para quem pontuou bem
+                 and (p.get("sem_preco") or (dt.date.today() - p["visto"]).days <= 21)]  # preço velho não vai para o Instagram  # feed só para quem pontuou bem
     if modo != "story" and foco and any(p.get("categoria") in foco for p in pendentes):
         pendentes = [p for p in pendentes if p.get("categoria") in foco]   # só sai produto de foco enquanto houver
     if not pendentes:
@@ -409,7 +416,7 @@ def publicar(modo: str = "feed") -> None:
         imagem = f"{site['url']}/ig/{p['slug']}.jpg"
         print(f"Publicando no feed {p['slug']} com a imagem {imagem}")
         container = chamar("POST", f"{ig}/media", image_url=imagem, caption=legenda(p, site),
-                           alt_text=f"{p['titulo']} por {brl(p['preco'])}")["id"]
+                           alt_text=p["titulo"] if p.get("sem_preco") else f"{p['titulo']} por {brl(p['preco'])}")["id"]
     # espera o Instagram processar a imagem (até ~5 min) e tenta publicar com novas tentativas
     for _ in range(60 if modo == "reel" else 30):
         time.sleep(10)

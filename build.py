@@ -91,6 +91,7 @@ def carregar() -> tuple[dict, list[dict]]:
         p["contras"] = p.get("contras") or []
         p["loja"] = p.get("loja") or "mercadolivre"
         p["lj"] = lojas.get(p["loja"], {"slug": p["loja"], "nome": p["loja"].title(), "em": f"na {p['loja'].title()}", "hashtag": "achadinhos"})
+        p["sem_preco"] = bool(p.get("sem_preco", p["lj"].get("sem_preco", False)))
         p["codigo"] = p.get("codigo") or p.get("id_ml")  # código para buscar no app da loja
     produtos.sort(key=lambda p: (p["data"], p["slug"]), reverse=True)
     return site, produtos
@@ -129,6 +130,10 @@ def main() -> None:
     )
     env.filters.update(brl=brl, data_br=data_br, tojson_safe=lambda v: json.dumps(v, ensure_ascii=False))
 
+    # avisos exigidos por lojas com produto ativo (ex.: Amazon)
+    lojas_ativas = {p["loja"] for p in produtos}
+    avisos_lojas = [l["aviso"] for l in site.get("lojas", []) if l.get("aviso") and l["slug"] in lojas_ativas]
+
     paginas: list[str] = []
     # muda a cada alteração do CSS, para o navegador não usar a versão antiga em cache
     import hashlib
@@ -146,7 +151,7 @@ def main() -> None:
 
         html = env.get_template(modelo).render(
             versao=versao, site=site, listas_menu=listas[:4], categorias=site["categorias"], raiz=raiz, img=img,
-            canonico=f"{site['url']}/{caminho}", ano=dt.date.today().year, **ctx,
+            canonico=f"{site['url']}/{caminho}", avisos_lojas=avisos_lojas, ano=dt.date.today().year, **ctx,
         )
         destino = SAIDA / caminho / "index.html"
         destino.parent.mkdir(parents=True, exist_ok=True)
