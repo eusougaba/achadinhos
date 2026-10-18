@@ -71,8 +71,12 @@ def main():
         t = trocar(t, "atualizado", f"'{hoje}'")
         f.write_text(t, encoding="utf-8")
         time.sleep(2)
-    print("\n".join(log))
-    print(f"lidos {ok}, alterados {mudou}, sem preço {falhou}")
+    resumo = f"{hoje}: lidos {ok}, alterados {mudou}, sem preço {falhou}"
+    print("\n".join(log)); print(resumo)
+    arq = PASTA.parent / "analise" / "precos.log"
+    arq.parent.mkdir(exist_ok=True)
+    antes = arq.read_text(encoding="utf-8") if arq.exists() else ""
+    arq.write_text("\n".join([resumo] + log[:30]) + "\n\n" + antes[:6000], encoding="utf-8")
     if ok == 0 and falhou:
         sys.exit(0)
 
