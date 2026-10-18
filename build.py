@@ -102,7 +102,6 @@ def main() -> None:
     usadas = {p.get("categoria") for p in produtos}
     todas_categorias = list(site["categorias"])  # a área admin mostra todas
     site["categorias"] = [c for c in site["categorias"] if c["slug"] in usadas]
-    site["categorias"].sort(key=lambda c: -sum(1 for p in produtos if p.get("categoria") == c["slug"]))
     por_slug = {p["slug"]: p for p in produtos}
 
     listas = ler_pasta("listas")
