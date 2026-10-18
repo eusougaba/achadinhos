@@ -7,6 +7,7 @@ preco: 1993
 preco_antigo: 3000
 link_afiliado: https://meli.la/2nrQPiD
 codigo: EQMTUP-V38U
+ativo: false
 data: '2026-10-17'
 resumo: Ar-condicionado split Gree G-Side inverter de 9.000 BTUs, só frio, com 33% de desconto.
 pros:

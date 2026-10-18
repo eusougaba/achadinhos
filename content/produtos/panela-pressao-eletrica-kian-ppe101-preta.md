@@ -8,6 +8,7 @@ preco_antigo: 499.99
 link_afiliado: https://meli.la/2HdFf6s
 codigo: EQMTUP-3FY5
 atualizado: '2026-10-18'
+ativo: false
 data: '2026-10-17'
 resumo: Panela de pressão elétrica Kian de 5 litros, versão preta multifuncional, com 44% de desconto no Pix.
 pros:
