@@ -65,3 +65,6 @@ textos:
   moda:
     contras: ["Confira a tabela de medidas antes de escolher o tamanho", "Cores podem variar um pouco da foto"]
     corpo: "{curto} é bem avaliado e custa pouco. Veja a tabela de medidas no anúncio."
+
+# Instagram: feed e Reels priorizam estas categorias (stories continuam variados)
+instagram_foco: [beleza]

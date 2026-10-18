@@ -1,5 +1,6 @@
 ---
 titulo: Cortador De Cabelo Mondial Super Groom 6 BG-04
+feed: false
 categoria: beleza
 loja: mercadolivre
 imagem: https://http2.mlstatic.com/D_NQ_NP_738685-MLA100002770137_112025-O.webp

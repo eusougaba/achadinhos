@@ -96,6 +96,13 @@ def carregar() -> tuple[dict, list[dict]]:
     return site, produtos
 
 
+# foco do Instagram (feed e Reels) vem de content/regras.yml
+try:
+    REGRAS_FOCO = yaml.safe_load((RAIZ / "content" / "regras.yml").read_text(encoding="utf-8")) or {}
+except Exception:
+    REGRAS_FOCO = {}
+
+
 def main() -> None:
     site, produtos = carregar()
     # só mostra no menu as categorias que têm produto
@@ -184,7 +191,7 @@ def main() -> None:
     from scripts.reel import gerar_reel
     reg = json.loads((RAIZ / "content" / "instagram-postados.json").read_text()) if (RAIZ / "content" / "instagram-postados.json").exists() else {}
     fila = [p for p in produtos if p.get("feed", True) is not False and f"reel:{p['slug']}" not in reg]
-    fila.sort(key=lambda p: (-(p.get("pontos") or 0), p["slug"]))
+    fila.sort(key=lambda p: (p.get("categoria") not in REGRAS_FOCO.get("instagram_foco", []), -(p.get("pontos") or 0), p["slug"]))
     for p in fila[:6]:
         gerar_reel(SAIDA / "ig" / f"story-{p['slug']}.jpg", SAIDA / "reels" / f"{p['slug']}.mp4")
 

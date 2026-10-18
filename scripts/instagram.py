@@ -373,11 +373,15 @@ def publicar(modo: str = "feed") -> None:
     chave = lambda slug: f"{prefixo}{slug}"
     feitos = {k: v for k, v in registro.items() if (k.startswith(prefixo) if prefixo else ":" not in k)}
     # ordem: destaque primeiro, depois os mais recentes e, entre eles, os de maior desconto
-    ordem = lambda p: (not p.get("destaque"), -p["data"].toordinal(), -(p.get("pontos") or p.get("desconto") or 0), p["slug"])
+    # feed e Reels: primeiro as categorias de foco (beleza e moda feminina); stories ficam variados
+    foco = set(build.REGRAS_FOCO.get("instagram_foco", [])) if modo != "story" else set()
+    ordem = lambda p: (p.get("categoria") not in foco, not p.get("destaque"), -p["data"].toordinal(), -(p.get("pontos") or p.get("desconto") or 0), p["slug"])
     pendentes = [p for p in sorted(produtos, key=ordem)
                  if chave(p["slug"]) not in registro and p.get("instagram", True) is not False
                  and (modo == "story" or p.get("feed", True) is not False)
                  and (dt.date.today() - p["visto"]).days <= 21]  # preço velho não vai para o Instagram  # feed só para quem pontuou bem
+    if modo != "story" and foco and any(p.get("categoria") in foco for p in pendentes):
+        pendentes = [p for p in pendentes if p.get("categoria") in foco]   # só sai produto de foco enquanto houver
     if not pendentes:
         print(f"Nenhum produto novo para {modo}.")
         return
