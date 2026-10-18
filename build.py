@@ -81,7 +81,7 @@ def carregar() -> tuple[dict, list[dict]]:
     categorias = {c["slug"]: c for c in site["categorias"]}
     lojas = {l["slug"]: l for l in site.get("lojas", [])}
 
-    produtos = ler_pasta("produtos")
+    produtos = [p for p in ler_pasta("produtos") if p.get("ativo", True) is not False]  # ativo: false = fora do site e do Instagram
     for p in produtos:
         p["data"] = para_data(p.get("data")) or dt.date.today()
         p["visto"] = para_data(p.get("atualizado")) or p["data"]

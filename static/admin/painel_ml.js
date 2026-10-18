@@ -118,14 +118,17 @@
       try {
         for (var k = 0; k < itens.length; k++) {
           var it = itens[k];
-          await AC.busca(it.t.split(/\s+/).slice(0, 7).join(' '));
           var nz = function (x) { return x.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').split(/[^a-z0-9]+/).filter(function (w) { return w.length > 1; }); };
-          var A = nz(it.t), melhor = null, mp = 0;
-          lis().map(det).forEach(function (x) {
-            if (!x.t) return; var B = nz(x.t), com = A.filter(function (w) { return B.indexOf(w) > -1; }).length / A.length;
-            if (com > mp) { mp = com; melhor = x; }
-          });
-          var c = mp >= 0.7 ? melhor : null;
+          var A = nz(it.t), c = null;
+          for (var n = 7; n >= 4 && !c; n -= 3) {   // 2ª tentativa com busca mais curta antes de dar como não encontrado
+            await AC.busca(it.t.split(/\s+/).slice(0, n).join(' '));
+            var melhor = null, mp = 0;
+            lis().map(det).forEach(function (x) {
+              if (!x.t) return; var B = nz(x.t), com = A.filter(function (w) { return B.indexOf(w) > -1; }).length / A.length;
+              if (com > mp) { mp = com; melhor = x; }
+            });
+            if (mp >= 0.7) c = melhor;
+          }
           out.push(c ? { s: it.s, p: c.p, de: c.de } : { s: it.s, erro: 'não achei' });
         }
         AC.saida = JSON.stringify(out);
