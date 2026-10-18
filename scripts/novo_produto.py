@@ -47,7 +47,10 @@ def mil(n: int) -> str:
 def contagem_por_categoria() -> dict[str, int]:
     cont: dict[str, int] = {}
     for f in PASTA.glob("*.md"):
-        m = re.search(r"^categoria:\s*(\S+)", f.read_text(encoding="utf-8"), re.M)
+        txt = f.read_text(encoding="utf-8")
+        if re.search(r"^ativo:\s*false", txt, re.M):
+            continue  # produto retirado não conta
+        m = re.search(r"^categoria:\s*(\S+)", txt, re.M)
         if m:
             cont[m.group(1)] = cont.get(m.group(1), 0) + 1
     return cont
