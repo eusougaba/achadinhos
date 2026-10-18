@@ -1,5 +1,6 @@
 ---
 titulo: Câmera Segurança Ip Wifi 360 1080p Visão Noturna Áudio Branco
+ativo: false
 categoria: bebes
 loja: mercadolivre
 imagem: https://http2.mlstatic.com/D_NQ_NP_682845-MLB113544956670_072026-O.webp

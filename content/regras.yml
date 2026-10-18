@@ -31,10 +31,13 @@ buscas:
   tecnologia: [fone bluetooth, power bank, carregador turbo, caixa de som bluetooth, suporte celular carro, mouse sem fio]
   pets: [fonte bebedouro gato, comedouro automatico, escova removedora de pelos, caminha pet, brinquedo cachorro]
   bebes: [baba eletronica, banheira bebe, kit mamadeira, cadeirinha alimentacao, mordedor]
-  esporte: [kit elasticos treino, tapete yoga, corda de pular, halter, coqueteleira, creatina]
-  casa: [aspirador robo, umidificador, organizador, panela, ventilador]
-  beleza: [secador de cabelo, chapinha, kit skincare, perfume, hidratante]
-  moda: [mochila, relogio, oculos de sol, chinelo]
+  esporte: [kit elasticos treino, tapete yoga, corda de pular, legging fitness, top fitness feminino, coqueteleira]
+  casa: [organizador de maquiagem, espelho com led, umidificador, organizador, panela, ventilador]
+  beleza: [base liquida, batom, mascara de cilios, paleta de sombras, serum facial, protetor solar facial, creme anti idade, kit unhas, depilador, escova alisadora, difusor de cabelo, hidratante corporal, secador de cabelo, chapinha, kit skincare, perfume feminino]
+  moda: [bolsa feminina, bolsa tiracolo, sandalia feminina, tenis feminino, oculos de sol feminino, relogio feminino, bijuteria, conjunto fitness feminino]
+
+# foco do site: mulher e beleza. Peso maior = a categoria tem que ter mais produtos que as outras
+pesos: {beleza: 3, moda: 2.5, casa: 1.5}
 
 # textos de modelo por categoria (os pontos fracos são sempre honestos e genéricos; o produto específico a gente ajusta à mão se for destaque)
 textos:

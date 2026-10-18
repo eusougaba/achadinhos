@@ -138,12 +138,12 @@ def garimpar(painel: Painel, meta: int, max_novos: int) -> None:
     quero = min(falta, max_novos)
     regras = n.REGRAS
     estado = json.loads(ESTADO.read_text()) if ESTADO.exists() else {}
-    cats = sorted(regras["buscas"], key=lambda c: cont.get(c, 0))[:4]   # as categorias mais vazias
+    cats = sorted(regras["buscas"], key=lambda c: cont.get(c, 0) / regras.get("pesos", {}).get(c, 1))[:4]   # as categorias mais vazias
     termos = []
     for c in cats:
         lst = regras["buscas"][c]
         i = estado.get(c, 0)
-        for k in range(2):
+        for k in range(3 if c in ("beleza", "moda") else 2):
             termos.append([lst[(i + k) % len(lst)], c])
         estado[c] = (i + 2) % len(lst)
     painel.rodar(f"AC.go({json.dumps(termos, ensure_ascii=False)}, 4)")

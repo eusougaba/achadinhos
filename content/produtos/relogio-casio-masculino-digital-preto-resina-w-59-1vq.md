@@ -1,5 +1,6 @@
 ---
 titulo: Relógio Casio Masculino Digital Preto de Resina W-59-1VQ
+ativo: false
 categoria: moda
 loja: mercadolivre
 imagem: https://http2.mlstatic.com/D_NQ_NP_684326-MLA115755090874_092026-O.webp

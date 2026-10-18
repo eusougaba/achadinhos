@@ -1,5 +1,6 @@
 ---
 titulo: Mochila Masculina Grande Notebook Impermeável Reforçada
+ativo: false
 categoria: moda
 loja: mercadolivre
 imagem: https://http2.mlstatic.com/D_NQ_NP_615102-MLA99700960038_122025-O.webp

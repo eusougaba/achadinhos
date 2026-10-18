@@ -1,5 +1,6 @@
 ---
 titulo: Mochila Notebook Masculina Executiva Impermeável Reforçada Antifurto USB Trabalho Faculdade
+ativo: false
 categoria: moda
 loja: mercadolivre
 imagem: https://http2.mlstatic.com/D_NQ_NP_645866-MLA117261080890_102026-O.webp
