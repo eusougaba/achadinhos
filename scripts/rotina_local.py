@@ -21,7 +21,7 @@ import sys
 import time
 from pathlib import Path
 
-import yaml
+import os
 
 RAIZ = Path(__file__).resolve().parent.parent
 HUB = "https://www.mercadolivre.com.br/afiliados/hub"
@@ -32,13 +32,21 @@ PY = sys.executable
 resumo: list[str] = []
 
 
+ENV_UTF8 = {**os.environ, "PYTHONUTF8": "1", "PYTHONIOENCODING": "utf-8"}   # Windows usa cp1252 por padrão
+for _f in (sys.stdout, sys.stderr):
+    try:
+        _f.reconfigure(encoding="utf-8", errors="replace")
+    except Exception:
+        pass
+
+
 def dizer(msg: str) -> None:
     print(msg, flush=True)
     resumo.append(msg)
 
 
 def sh(*cmd: str, entrada: str | None = None, ok: bool = True) -> str:
-    r = subprocess.run(cmd, cwd=RAIZ, input=entrada, capture_output=True, text=True, encoding="utf-8")
+    r = subprocess.run(cmd, cwd=RAIZ, input=entrada, capture_output=True, text=True, encoding="utf-8", errors="replace", env=ENV_UTF8)
     if ok and r.returncode != 0:
         raise SystemExit(f"Falhou: {' '.join(cmd)}\n{r.stdout}\n{r.stderr}")
     return (r.stdout or "") + (r.stderr or "")
