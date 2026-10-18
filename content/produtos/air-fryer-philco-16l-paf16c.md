@@ -3,9 +3,11 @@ titulo: Air fryer Philco 16 litros PAF16C
 categoria: casa
 loja: mercadolivre
 imagem: https://http2.mlstatic.com/D_NQ_NP_628291-MLA108163637680_032026-O.webp
-preco: 346
+preco: 429.01
 link_afiliado: https://meli.la/2Y6Kf6q
 codigo: EQMTUP-XH9J
+atualizado: '2026-10-18'
+preco_antigo: 623.96
 data: '2026-10-17'
 resumo: Air fryer de 16 litros da Philco, entre as mais vendidas, em 6x sem juros.
 pros:
