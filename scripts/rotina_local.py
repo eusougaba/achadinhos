@@ -220,7 +220,6 @@ def main() -> None:
             dizer("Enviado ao GitHub; o site, os posts e o Pinterest se atualizam sozinhos.")
     else:
         dizer("Sem mudanças hoje.")
-    print("\n".join(resumo[-1:]))
 
 
 if __name__ == "__main__":

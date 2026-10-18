@@ -26,7 +26,7 @@ def lista(n):
     itens = []
     for f in PASTA.glob("*.md"):
         t = f.read_text(encoding="utf-8")
-        if campo(t, "loja") == "mercadolivre":
+        if campo(t, "loja") == "mercadolivre" and campo(t, "ativo") != "false":
             itens.append((campo(t, "atualizado") or campo(t, "data") or "", f.stem, campo(t, "titulo")))
     itens.sort()
     print(json.dumps([{"s": s, "t": t} for _, s, t in itens[:n]], ensure_ascii=False))
