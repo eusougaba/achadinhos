@@ -7,6 +7,7 @@ preco: 27
 preco_antigo: 39
 link_afiliado: https://meli.la/163mwkW
 codigo: EQMTUP-HZD9
+atualizado: '2026-10-18'
 data: '2026-10-18'
 resumo: Kit Chocalhos e Mordedores Sensoriais para Bebê com 8 Peças por R$ 27,00, com nota 4.9 e mais de 1 mil vendidos.
 pros:

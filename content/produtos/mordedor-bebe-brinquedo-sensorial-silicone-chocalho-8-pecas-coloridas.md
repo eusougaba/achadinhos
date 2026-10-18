@@ -7,6 +7,7 @@ preco: 27.49
 preco_antigo: 40
 link_afiliado: https://meli.la/2GnPtMx
 codigo: EQMTUP-28J6
+atualizado: '2026-10-18'
 data: '2026-10-18'
 resumo: Kit Mordedor para Bebê brinquedo Sensorial Silicone com por R$ 27,49, com nota 4.9 e mais de 5 mil vendidos.
 pros:

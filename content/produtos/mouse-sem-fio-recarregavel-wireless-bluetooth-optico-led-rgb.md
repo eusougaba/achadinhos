@@ -7,6 +7,7 @@ preco: 23.9
 preco_antigo: 29.67
 link_afiliado: https://meli.la/14AnHHs
 codigo: EQMTUP-0EYR
+atualizado: '2026-10-18'
 data: '2026-10-18'
 resumo: Mouse Sem Fio Recarregável Wireless Bluetooth Optico Led Rgb por R$ 23,90, com nota 4.8 e mais de 250 mil vendidos.
 pros:

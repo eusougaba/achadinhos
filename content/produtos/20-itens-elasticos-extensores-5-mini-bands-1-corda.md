@@ -7,6 +7,7 @@ preco: 52.96
 preco_antigo: 78
 link_afiliado: https://meli.la/1HQkpGZ
 codigo: EQMTUP-VWL4
+atualizado: '2026-10-18'
 data: '2026-10-18'
 resumo: 'Kit 20 Itens: Elasticos Extensores + 5 Mini bands + 1 Corda por R$ 52,96, com nota 4.7 e mais de 5 mil vendidos.'
 pros:

@@ -3,10 +3,11 @@ titulo: Grelha Uruguaia Parrilla Inox Reforçada 50x50
 categoria: casa
 loja: mercadolivre
 imagem: https://http2.mlstatic.com/D_NQ_NP_893666-MLB117706098297_092026-O.webp
-preco: 149.99
+preco: 127.49
 link_afiliado: https://meli.la/2VNpdkw
 codigo: EQMTUP-CGDM
 atualizado: '2026-10-18'
+preco_antigo: 149.99
 data: '2026-10-17'
 resumo: Grelha uruguaia (parrilla) de inox reforçado, 50x50, para churrasco.
 pros:

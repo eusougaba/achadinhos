@@ -7,6 +7,7 @@ preco: 29.9
 link_afiliado: https://meli.la/1PCJ1yt
 codigo: EQMTUP-2YDJ
 atualizado: '2026-10-18'
+ativo: false
 data: '2026-10-17'
 resumo: Conjunto com 6 taças Diamond de 340 ml, por menos de R$ 30.
 pros:

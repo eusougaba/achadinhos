@@ -7,6 +7,7 @@ preco: 44.47
 preco_antigo: 69.9
 link_afiliado: https://meli.la/1TqNUF8
 codigo: EQMTUP-GJKF
+atualizado: '2026-10-18'
 data: '2026-10-18'
 resumo: Mouse Vertical Ergonômico Sem Fio Recarregável Bluetooth e por R$ 44,47, com nota 4.7 e mais de 10 mil vendidos.
 pros:

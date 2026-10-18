@@ -7,6 +7,7 @@ preco: 27.99
 preco_antigo: 39.9
 link_afiliado: https://meli.la/2RQVUxn
 codigo: EQMTUP-BLQV
+atualizado: '2026-10-18'
 data: '2026-10-18'
 resumo: Tapete De Yoga Pilates Eva Aderente Em Casa 1,70mx55cmx5mm por R$ 27,99, com nota 4.5 e mais de 1 mil vendidos.
 pros:
