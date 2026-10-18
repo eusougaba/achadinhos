@@ -186,9 +186,13 @@ def main() -> None:
         "codigo": p.get("codigo"), "resumo": p.get("resumo"), "imagem": p.get("imagem"),
         "pagina": f"{site['url']}/produto/{p['slug']}/"} for p in produtos], ensure_ascii=False), encoding="utf-8")
 
-    from scripts.instagram import gerar_pin_lista
+    from scripts.instagram import gerar_pin_lista, gerar_pin_produto
     for lst in listas:
         gerar_pin_lista(lst, site, SAIDA / "pin" / f"{lst['slug']}.jpg")
+    for p in produtos:
+        gerar_pin_produto(p, site, SAIDA / "pin" / f"produto-{p['slug']}.jpg")
+    from scripts.pinterest import gerar_csv
+    (SAIDA / "admin" / "pinterest-pins.csv").write_text(gerar_csv(produtos, listas, site), encoding="utf-8")
 
     hoje = dt.date.today().isoformat()
     urls = "\n".join(

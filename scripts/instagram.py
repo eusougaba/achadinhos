@@ -210,6 +210,37 @@ def gerar_pin_lista(lista: dict, site: dict, destino: Path) -> None:
     img.save(destino, "JPEG", quality=90, optimize=True)
 
 
+def gerar_pin_produto(p: dict, site: dict, destino: Path) -> None:
+    """Pin do Pinterest (1000x1500) de um produto: foto grande, título, etiqueta de preço e o endereço do site."""
+    W2, H2 = 1000, 1500
+    img = Image.new("RGB", (W2, H2), FUNDO)
+    d = ImageDraw.Draw(img)
+    logo = Image.open(MARCA / "logo-horizontal.png"); logo.thumbnail((380, 74), Image.LANCZOS)
+    img.paste(logo, ((W2 - logo.width) // 2, 56), logo)
+    caixa = (60, 170, W2 - 60, 900)
+    d.rounded_rectangle(caixa, radius=40, fill=PAPEL)
+    foto = carregar_foto(p.get("imagem"))
+    if foto:
+        lw, lh = caixa[2] - caixa[0] - 70, caixa[3] - caixa[1] - 70
+        foto.thumbnail((lw, lh), Image.LANCZOS)
+        img.paste(foto, (caixa[0] + 35 + (lw - foto.width) // 2, caixa[1] + 35 + (lh - foto.height) // 2))
+    else:
+        icone = Image.open(MARCA / "icone-512.png"); icone.thumbnail((360, 360), Image.LANCZOS)
+        img.paste(icone, ((W2 - icone.width) // 2, (caixa[1] + caixa[3] - icone.height) // 2), icone)
+    f_tit = fonte(800, 56)
+    y = 940
+    for linha in quebrar(p["titulo"], f_tit, W2 - 120, 3):
+        d.text((60, y), linha, font=f_tit, fill=TINTA); y += 68
+    tag = etiqueta(p)
+    if tag.width > W2 - 100:
+        tag = tag.resize((W2 - 100, int(tag.height * (W2 - 100) / tag.width)), Image.LANCZOS)
+    img.paste(tag, (50, y + 14), tag)
+    d.rectangle([0, H2 - 120, W2, H2], fill=TINTA)
+    d.text((W2 // 2, H2 - 60), f"Veja no site  ·  {endereco_curto(site)}", font=fonte(800, 38), fill=LARANJA, anchor="mm")
+    destino.parent.mkdir(parents=True, exist_ok=True)
+    img.save(destino, "JPEG", quality=90, optimize=True)
+
+
 # ------------------------------------------------------------------ legenda
 
 # hashtags: o que o mercado usa + loja + categoria + o produto específico
