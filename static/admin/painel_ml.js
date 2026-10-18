@@ -110,6 +110,25 @@
     return 'iniciado ' + indices.length + ' links';
   };
 
+  // Atualiza preços: AC.precos([{s:'slug',t:'título cadastrado'}]) e depois await AC.esperar()
+  AC.precos = function (itens) {
+    AC.ocupado = true; AC.saida = null;
+    (async function () {
+      var out = [];
+      try {
+        for (var k = 0; k < itens.length; k++) {
+          var it = itens[k];
+          await AC.busca(it.t.split(/\s+/).slice(0, 7).join(' '));
+          var c = lis().map(det).find(function (x) { return x.t && x.t.slice(0, 30) === it.t.slice(0, 30); });
+          out.push(c ? { s: it.s, p: c.p, de: c.de } : { s: it.s, erro: 'não achei' });
+        }
+        AC.saida = JSON.stringify(out);
+      } catch (e) { AC.saida = 'ERRO ' + e; }
+      AC.ocupado = false;
+    })();
+    return 'iniciado ' + itens.length + ' preços';
+  };
+
   AC.esperar = async function (max) {
     var t0 = Date.now();
     while (AC.ocupado && Date.now() - t0 < (max || 40000)) await esp(1500);
