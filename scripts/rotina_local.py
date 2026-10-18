@@ -198,7 +198,8 @@ def main() -> None:
     a = ap.parse_args()
 
     dizer(f"Rotina Achadoteca {dt.datetime.now():%d/%m/%Y %H:%M}")
-    sh("git", "pull", "-q", "--rebase", "origin", "main")
+    sh("git", "fetch", "-q", "origin")
+    sh("git", "reset", "-q", "--hard", "origin/main")   # sempre parte do estado oficial do GitHub
     painel = Painel(a.porta)
     try:
         conferir_precos(painel)

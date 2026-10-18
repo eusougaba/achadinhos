@@ -18,7 +18,8 @@ if errorlevel 1 (
 rem 2) Atualiza o projeto e roda a rotina
 echo.
 echo Atualizando o projeto...
-git pull
+git fetch origin
+git reset --hard origin/main
 echo.
 echo Rodando a rotina (precos e reposicao). Nao feche o Edge da automacao.
 python scripts\rotina_local.py
