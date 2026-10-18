@@ -7,6 +7,7 @@ preco: 36.93
 preco_antigo: 59.9
 link_afiliado: https://meli.la/1w2S3Pg
 codigo: EQMTUP-25PT
+ativo: false
 data: '2026-10-17'
 resumo: Garrafa térmica de 1 litro em aço inox 304, com bico e alça, por menos de R$ 40 no Pix.
 pros:

@@ -7,6 +7,7 @@ preco: 19.9
 preco_antigo: 32.9
 link_afiliado: https://meli.la/2bPQEQP
 codigo: EQMTUP-0V8B
+ativo: false
 data: '2026-10-17'
 resumo: Kit com 5 faixas elásticas de resistências diferentes por menos de R$ 20, com mais de 50 mil vendidos.
 pros:

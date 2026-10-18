@@ -6,6 +6,7 @@ imagem: https://http2.mlstatic.com/D_NQ_NP_899165-MLB113315035623_062026-O.webp
 preco: 26.99
 link_afiliado: https://meli.la/2FwB4qC
 codigo: EQMTUP-B5HF
+ativo: false
 data: '2026-10-17'
 resumo: Percarbonato de sódio em pacote de 1 kg, o 'segredo' de quem tira mancha de roupa sem cloro, da loja oficial da Calisul.
 pros:

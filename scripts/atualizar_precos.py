@@ -2,7 +2,7 @@
 
   python3 scripts/atualizar_precos.py lista [N]   -> JSON [{s,t}] dos N mais antigos (para AC.precos)
   python3 scripts/atualizar_precos.py < saida.json -> aplica os preços lidos (AC.esperar())
-Produto não achado no painel é retirado (ativo: false); com variação > 60% é ignorado (pode ser outro anúncio).
+Produto não achado no painel é retirado (ativo: false); com variação > 60% é retirado (pode ser outro anúncio).
 """
 import json, re, sys, datetime
 from pathlib import Path
@@ -47,7 +47,9 @@ def aplicar():
         antigo = float(campo(t, "preco"))
         novo = float(r["p"])
         if abs(novo - antigo) / antigo > 0.6:
-            print(f"  ignorado (variação grande) {r['s']}: {antigo} -> {novo}"); continue
+            # preço instável ou outro anúncio: não é produto sólido, sai do site e do Instagram
+            f.write_text(trocar(t, "ativo", "false"), encoding="utf-8")
+            print(f"  RETIRADO (variação grande) {r['s']}: {antigo:g} -> {novo:g}"); continue
         t = trocar(t, "atualizado", f"'{hoje}'")
         if novo != antigo:
             t = trocar(t, "preco", f"{novo:g}")

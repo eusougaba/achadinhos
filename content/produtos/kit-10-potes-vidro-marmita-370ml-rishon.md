@@ -7,6 +7,7 @@ preco: 75.77
 preco_antigo: 159.9
 link_afiliado: https://meli.la/27a9Bao
 codigo: EQMTUP-4Z11
+ativo: false
 data: '2026-10-17'
 resumo: Dez potes de vidro de 370 ml para marmita, que vão ao freezer, com 52% de desconto.
 pros:
