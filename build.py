@@ -84,6 +84,7 @@ def carregar() -> tuple[dict, list[dict]]:
     produtos = ler_pasta("produtos")
     for p in produtos:
         p["data"] = para_data(p.get("data")) or dt.date.today()
+        p["visto"] = para_data(p.get("atualizado")) or p["data"]
         p["desconto"] = desconto(p)
         p["cat"] = categorias.get(p.get("categoria"), {"slug": "outros", "nome": "Outros"})
         p["pros"] = p.get("pros") or []

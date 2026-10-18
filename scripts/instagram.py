@@ -9,6 +9,7 @@
 from __future__ import annotations
 
 import io
+import datetime as dt
 import json
 import os
 import re
@@ -375,7 +376,8 @@ def publicar(modo: str = "feed") -> None:
     ordem = lambda p: (not p.get("destaque"), -p["data"].toordinal(), -(p.get("pontos") or p.get("desconto") or 0), p["slug"])
     pendentes = [p for p in sorted(produtos, key=ordem)
                  if chave(p["slug"]) not in registro and p.get("instagram", True) is not False
-                 and (modo == "story" or p.get("feed", True) is not False)]  # feed só para quem pontuou bem
+                 and (modo == "story" or p.get("feed", True) is not False)
+                 and (dt.date.today() - p["visto"]).days <= 21]  # preço velho não vai para o Instagram  # feed só para quem pontuou bem
     if not pendentes:
         print(f"Nenhum produto novo para {modo}.")
         return

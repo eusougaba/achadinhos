@@ -1,9 +1,9 @@
 name: Checar preços
 
-# Todo dia confere os 20 produtos com preço mais antigo direto na página pública do Mercado Livre.
+# (Experimento) confere os 20 produtos com preço mais antigo direto na página pública do Mercado Livre.
+# Desligado: o link de afiliado abre uma vitrine sem preço para quem não está logado.
+# Os preços são conferidos pelo painel (AC.precos) com o Edge do Marcos.
 on:
-  schedule:
-    - cron: "30 7 * * *"
   workflow_dispatch:
 
 permissions:
