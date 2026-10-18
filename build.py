@@ -164,6 +164,7 @@ def main() -> None:
     for lst in listas:
         render("lista.html", f"lista/{lst['slug']}/", lista=lst)
     render("sobre.html", "sobre/")
+    render("blog.html", "blog/")
     render("busca.html", "busca/", produtos=produtos)
     contagem = {c["slug"]: sum(1 for p in produtos if p.get("categoria") == c["slug"]) for c in site["categorias"]}
     render("links.html", "links/", listas=listas, total=len(produtos), contagem=contagem, no_insta=no_insta)
