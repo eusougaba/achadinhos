@@ -368,19 +368,20 @@ def publicar(modo: str = "feed") -> None:
         return
 
     registro = json.loads(REGISTRO.read_text()) if REGISTRO.exists() else {}
-    chave = (lambda slug: slug) if modo == "feed" else (lambda slug: f"story:{slug}")
-    feitos = {k: v for k, v in registro.items() if k.startswith("story:") == (modo == "story")}
+    prefixo = {"feed": "", "story": "story:", "reel": "reel:"}[modo]
+    chave = lambda slug: f"{prefixo}{slug}"
+    feitos = {k: v for k, v in registro.items() if (k.startswith(prefixo) if prefixo else ":" not in k)}
     # ordem: destaque primeiro, depois os mais recentes e, entre eles, os de maior desconto
     ordem = lambda p: (not p.get("destaque"), -p["data"].toordinal(), -(p.get("pontos") or p.get("desconto") or 0), p["slug"])
     pendentes = [p for p in sorted(produtos, key=ordem)
                  if chave(p["slug"]) not in registro and p.get("instagram", True) is not False
-                 and (modo != "feed" or p.get("feed", True) is not False)]  # feed só para quem pontuou bem
+                 and (modo == "story" or p.get("feed", True) is not False)]  # feed só para quem pontuou bem
     if not pendentes:
         print(f"Nenhum produto novo para {modo}.")
         return
 
     # intervalo mínimo entre publicações do mesmo tipo
-    minimo = 50 if modo == "story" else 150
+    minimo = {"story": 50, "feed": 150, "reel": 360}[modo]
     if feitos:
         ultimo = max(time.mktime(time.strptime(v["data"], "%Y-%m-%d %H:%M")) for v in feitos.values())
         if time.time() - ultimo < minimo * 60:
@@ -393,13 +394,18 @@ def publicar(modo: str = "feed") -> None:
         imagem = f"{site['url']}/ig/story-{p['slug']}.jpg"
         print(f"Publicando story de {p['slug']} com a imagem {imagem}")
         container = chamar("POST", f"{ig}/media", image_url=imagem, media_type="STORIES")["id"]
+    elif modo == "reel":
+        imagem = f"{site['url']}/reels/{p['slug']}.mp4"
+        print(f"Publicando reel de {p['slug']} com o vídeo {imagem}")
+        container = chamar("POST", f"{ig}/media", video_url=imagem, media_type="REELS", caption=legenda(p, site),
+                           share_to_feed="true")["id"]
     else:
         imagem = f"{site['url']}/ig/{p['slug']}.jpg"
         print(f"Publicando no feed {p['slug']} com a imagem {imagem}")
         container = chamar("POST", f"{ig}/media", image_url=imagem, caption=legenda(p, site),
                            alt_text=f"{p['titulo']} por {brl(p['preco'])}")["id"]
     # espera o Instagram processar a imagem (até ~5 min) e tenta publicar com novas tentativas
-    for _ in range(30):
+    for _ in range(60 if modo == "reel" else 30):
         time.sleep(10)
         estado = chamar("GET", container, fields="status_code").get("status_code")
         if estado == "FINISHED":
@@ -437,7 +443,7 @@ def automatico() -> None:
     hoje = time.strftime("%Y-%m-%d", agora)
     feed_hoje = 0
     for k, v in registro.items():
-        if k.startswith("story:"):
+        if k.startswith(("story:", "reel:")):
             continue
         quando = time.gmtime(time.mktime(time.strptime(v["data"], "%Y-%m-%d %H:%M")) - 3 * 3600)
         if time.strftime("%Y-%m-%d", quando) == hoje:
@@ -446,6 +452,12 @@ def automatico() -> None:
         print("Já foram 3 posts no feed hoje.")
         return
     publicar("feed")
+    # um Reel por dia, no fim da tarde
+    if agora.tm_hour >= 17 and not any(k.startswith("reel:") and v["data"][:10] == hoje for k, v in registro.items()):
+        try:
+            publicar("reel")
+        except (SystemExit, ErroInstagram) as erro:
+            print(f"Reel não publicado: {erro}")
 
 
 def testar() -> None:
@@ -467,6 +479,8 @@ if __name__ == "__main__":
         publicar("feed")
     elif sys.argv[1:] == ["story"]:
         publicar("story")
+    elif sys.argv[1:] == ["reel"]:
+        publicar("reel")
     elif sys.argv[1:] == ["auto"]:
         automatico()
     elif sys.argv[1:] == ["testar"]:

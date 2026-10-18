@@ -38,7 +38,7 @@ def main() -> None:
     postados = json.loads((RAIZ / "content" / "instagram-postados.json").read_text())
     linhas, por_cat, erros = [], collections.defaultdict(lambda: [0, 0, 0]), 0
     for chave, v in postados.items():
-        story = chave.startswith("story:")
+        story = chave.startswith("story:")  # reel usa as mesmas métricas do feed
         slug = chave.split(":", 1)[-1]
         m = metricas(v["midia"], STORY if story else FEED)
         if "_erro" in m:

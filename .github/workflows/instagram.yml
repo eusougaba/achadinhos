@@ -17,7 +17,7 @@ on:
       acao:
         description: "testar (só confere o acesso), story ou feed"
         type: choice
-        options: [testar, auto, story, feed]
+        options: [testar, auto, story, feed, reel]
         default: testar
 
 permissions:

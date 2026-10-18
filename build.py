@@ -151,7 +151,7 @@ def main() -> None:
     postados = json.loads(reg_ig.read_text()) if reg_ig.exists() else {}
     por_slug_ig = {p["slug"]: p for p in produtos}
     no_insta = [por_slug_ig[k] for k, v in sorted(postados.items(), key=lambda kv: kv[1]["data"], reverse=True)
-                if not k.startswith("story:") and k in por_slug_ig][:12]
+                if not k.startswith(("story:", "reel:")) and k in por_slug_ig][:12]
     render("index.html", "", no_insta=no_insta, produtos=produtos, destaques=[p for p in produtos if p.get("destaque")][:3], listas=listas)
     for c in site["categorias"]:
         itens = [p for p in produtos if p.get("categoria") == c["slug"]]
@@ -178,6 +178,14 @@ def main() -> None:
         card = SAIDA / "ig" / f"{p['slug']}.jpg"
         gerar_card(p, site, card)
         gerar_story(p, site, card, SAIDA / "ig" / f"story-{p['slug']}.jpg")
+
+    # Reels (public/reels/<slug>.mp4): só os próximos da fila que foram bem na pontuação
+    from scripts.reel import gerar_reel
+    reg = json.loads((RAIZ / "content" / "instagram-postados.json").read_text()) if (RAIZ / "content" / "instagram-postados.json").exists() else {}
+    fila = [p for p in produtos if p.get("feed", True) is not False and f"reel:{p['slug']}" not in reg]
+    fila.sort(key=lambda p: (-(p.get("pontos") or 0), p["slug"]))
+    for p in fila[:6]:
+        gerar_reel(SAIDA / "ig" / f"story-{p['slug']}.jpg", SAIDA / "reels" / f"{p['slug']}.mp4")
 
     # lista de produtos para o gerador de oferta (admin/gerador.html)
     (SAIDA / "admin" / "produtos.json").write_text(json.dumps([{
