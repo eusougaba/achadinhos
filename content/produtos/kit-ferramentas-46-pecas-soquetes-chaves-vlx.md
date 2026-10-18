@@ -7,6 +7,7 @@ preco: 29.22
 preco_antigo: 38.45
 link_afiliado: https://meli.la/31miswr
 codigo: EQMTUP-AE4A
+atualizado: '2026-10-18'
 data: '2026-10-17'
 resumo: Kit com 46 peças (soquetes e chaves) por menos de R$ 30, com mais de 50 mil vendidos.
 pros:

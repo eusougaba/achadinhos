@@ -3,10 +3,11 @@ titulo: Electrolux Kit 6 Potes Herméticos De Plástico Cinza 12,4l Safelock
 categoria: casa
 loja: mercadolivre
 imagem: https://http2.mlstatic.com/D_NQ_NP_929111-MLA108657636819_032026-O.webp
-preco: 72.1
-preco_antigo: 89.9
+preco: 87.69
+preco_antigo: 119
 link_afiliado: https://meli.la/2SyMpkR
 codigo: EQMTUP-MTZL
+atualizado: '2026-10-18'
 data: '2026-10-17'
 resumo: Seis potes herméticos empilháveis da Electrolux, somando 12,4 litros, vendidos pelo Mercado Livre.
 pros:

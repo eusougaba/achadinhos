@@ -3,9 +3,11 @@ titulo: Copo Térmico Gigante 1,2l Inox Com Tampa e Canudo
 categoria: esporte
 loja: mercadolivre
 imagem: https://http2.mlstatic.com/D_NQ_NP_763470-MLA115323351322_082026-O.webp
-preco: 48
+preco: 48.99
 link_afiliado: https://meli.la/2DA33PT
 codigo: EQMTUP-VRWE
+atualizado: '2026-10-18'
+preco_antigo: 76.99
 data: '2026-10-17'
 resumo: Copo térmico gigante de 1,2 litro em inox, com tampa e canudo de inox.
 pros:

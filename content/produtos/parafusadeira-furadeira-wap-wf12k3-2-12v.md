@@ -7,6 +7,7 @@ preco: 129
 preco_antigo: 196
 link_afiliado: https://meli.la/2dg6FTR
 codigo: EQMTUP-GYZC
+ativo: false
 data: '2026-10-17'
 resumo: Parafusadeira e furadeira a bateria de 12 V da WAP, com nota 4,8 e mais de 50 mil vendidas.
 pros:

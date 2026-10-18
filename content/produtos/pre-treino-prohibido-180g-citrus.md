@@ -7,6 +7,7 @@ preco: 41.88
 preco_antigo: 69.99
 link_afiliado: https://meli.la/1MtzQcg
 codigo: EQMTUP-GGGQ
+ativo: false
 data: '2026-10-17'
 resumo: Pré-treino com creatina, beta-alanina, taurina e cafeína, com 40% de desconto.
 pros:

@@ -7,6 +7,7 @@ preco: 87.99
 preco_antigo: 159.9
 link_afiliado: https://meli.la/1h62SQv
 codigo: EQMTUP-YDDD
+ativo: false
 data: '2026-10-17'
 resumo: Power bank de 20.000 mAh com carga rápida de 22,5 W por menos de R$ 90, nota 4,8.
 pros:

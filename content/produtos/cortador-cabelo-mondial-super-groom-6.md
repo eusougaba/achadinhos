@@ -3,10 +3,10 @@ titulo: Cortador De Cabelo Mondial Super Groom 6 BG-04
 categoria: beleza
 loja: mercadolivre
 imagem: https://http2.mlstatic.com/D_NQ_NP_738685-MLA100002770137_112025-O.webp
-preco: 83.8
-preco_antigo: 184.9
+preco: 96.85
 link_afiliado: https://meli.la/2tYEwZ4
 codigo: EQMTUP-89UM
+atualizado: '2026-10-18'
 data: '2026-10-17'
 resumo: Kit de cortar cabelo e aparar barba Mondial Super Groom 6, vendido pelo Mercado Livre com 54% de desconto.
 pros:

@@ -6,6 +6,7 @@ imagem: https://http2.mlstatic.com/D_NQ_NP_893666-MLB117706098297_092026-O.webp
 preco: 149.99
 link_afiliado: https://meli.la/2VNpdkw
 codigo: EQMTUP-CGDM
+atualizado: '2026-10-18'
 data: '2026-10-17'
 resumo: Grelha uruguaia (parrilla) de inox reforçado, 50x50, para churrasco.
 pros:

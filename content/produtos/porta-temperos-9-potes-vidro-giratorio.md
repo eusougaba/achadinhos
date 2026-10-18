@@ -7,6 +7,7 @@ preco: 39.98
 preco_antigo: 65.9
 link_afiliado: https://meli.la/2wHLBSZ
 codigo: EQMTUP-YY3J
+atualizado: '2026-10-18'
 data: '2026-10-17'
 resumo: Porta-temperos giratório com 9 potes de vidro e etiquetas, que organiza a bancada.
 pros:

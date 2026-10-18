@@ -7,6 +7,7 @@ preco: 55
 preco_antigo: 109.9
 link_afiliado: https://meli.la/1aT6EzT
 codigo: EQMTUP-1M9E
+atualizado: '2026-10-18'
 data: '2026-10-17'
 resumo: Jogo De Chave Boca E Estrela Combinada 12 Pçs Aço 6-22 Mm por R$ 55,00, com nota 4.8 e mais de 10 mil vendidos.
 pros:

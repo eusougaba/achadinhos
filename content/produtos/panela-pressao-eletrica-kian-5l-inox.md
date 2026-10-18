@@ -3,10 +3,11 @@ titulo: Panela de pressão elétrica Kian 5 litros inox
 categoria: casa
 loja: mercadolivre
 imagem: https://http2.mlstatic.com/D_NQ_NP_851133-MLA99475264230_112025-O.webp
-preco: 305.1
-preco_antigo: 459.9
+preco: 310.3
+preco_antigo: 499.99
 link_afiliado: https://meli.la/2anYkds
 codigo: EQMTUP-NT07
+atualizado: '2026-10-18'
 data: '2026-10-17'
 resumo: Panela de pressão elétrica de 5 litros em inox com 33% de desconto no Pix.
 pros:

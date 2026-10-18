@@ -7,6 +7,7 @@ preco: 1455
 preco_antigo: 2199
 link_afiliado: https://meli.la/1G9FopY
 codigo: EQMTUP-3VR8
+ativo: false
 data: '2026-10-17'
 resumo: GoPro compacta com vídeo 4K60, estabilização HyperSmooth e luz integrada, vendida pela loja oficial da GoPro com 33% de desconto no Pix.
 pros:

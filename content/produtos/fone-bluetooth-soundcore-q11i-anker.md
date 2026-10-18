@@ -7,6 +7,7 @@ preco: 189
 preco_antigo: 433
 link_afiliado: https://meli.la/1EDvozV
 codigo: EQMTUP-CWYJ
+atualizado: '2026-10-18'
 data: '2026-10-17'
 resumo: Fone over-ear da Soundcore (Anker) com bateria de 60 horas e multiponto, com 56% de desconto.
 pros:

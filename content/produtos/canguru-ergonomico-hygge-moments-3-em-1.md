@@ -3,10 +3,11 @@ titulo: Canguru ergonômico para bebê 3 em 1 Hygge Moments
 categoria: bebes
 loja: mercadolivre
 imagem: https://http2.mlstatic.com/D_NQ_NP_738715-MLA99517969776_112025-O.webp
-preco: 139
+preco: 115
 preco_antigo: 161.25
 link_afiliado: https://meli.la/2wM8qPL
 codigo: EQMTUP-LH03
+atualizado: '2026-10-18'
 data: '2026-10-17'
 resumo: Canguru ergonômico com 3 posições de uso, entre os mais vendidos da categoria, por R$ 139.
 pros:

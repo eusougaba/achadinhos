@@ -7,6 +7,7 @@ preco: 217.54
 preco_antigo: 228.99
 link_afiliado: https://meli.la/2859cQT
 codigo: EQMTUP-VJ79
+ativo: false
 data: '2026-10-17'
 resumo: O clássico CK Be, unissex, no frasco grande de 200 ml, por cerca de R$ 218 no Pix.
 pros:

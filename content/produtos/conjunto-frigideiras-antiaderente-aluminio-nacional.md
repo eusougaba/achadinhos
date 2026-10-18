@@ -7,6 +7,7 @@ preco: 51.63
 preco_antigo: 74.9
 link_afiliado: https://meli.la/2JidGHj
 codigo: EQMTUP-1VBM
+ativo: false
 data: '2026-10-17'
 resumo: Três frigideiras antiaderentes (16, 20 e 14 cm para ovo) da loja oficial da Alumínio Nacional por cerca de R$ 50.
 pros:

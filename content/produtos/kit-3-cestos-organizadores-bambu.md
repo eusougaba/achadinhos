@@ -3,10 +3,11 @@ titulo: Kit 3 Cestos Organizadores de Bambu com Forro
 categoria: casa
 loja: mercadolivre
 imagem: https://http2.mlstatic.com/D_NQ_NP_820185-MLA99595328578_122025-O.webp
-preco: 49.89
-preco_antigo: 78.99
+preco: 48.9
+preco_antigo: 78.9
 link_afiliado: https://meli.la/1EodsXB
 codigo: EQMTUP-WATD
+atualizado: '2026-10-18'
 data: '2026-10-17'
 resumo: Kit com 3 cestos organizadores de bambu com forro, para armários e prateleiras.
 pros:

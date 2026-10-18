@@ -3,10 +3,11 @@ titulo: Máscara acidificante Amend Equilíbrio pH antifrizz 250 g
 categoria: beleza
 loja: mercadolivre
 imagem: https://http2.mlstatic.com/D_NQ_NP_926648-MLB102167512413_122025-O.webp
-preco: 61.65
+preco: 64.9
 preco_antigo: 89.9
 link_afiliado: https://meli.la/2bkN1ne
 codigo: EQMTUP-GBCF
+atualizado: '2026-10-18'
 data: '2026-10-17'
 resumo: Máscara acidificante da Amend para controlar o frizz, com 31% de desconto no Pix.
 pros:

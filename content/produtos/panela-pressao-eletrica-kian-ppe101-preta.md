@@ -3,10 +3,11 @@ titulo: Panela De Pressão Elétrica 5 Litros Inox Preto Multifuncional Kian PPE
 categoria: casa
 loja: mercadolivre
 imagem: https://http2.mlstatic.com/D_NQ_NP_762366-MLA96885069741_102025-O.webp
-preco: 279.27
+preco: 310.3
 preco_antigo: 499.99
 link_afiliado: https://meli.la/2HdFf6s
 codigo: EQMTUP-3FY5
+atualizado: '2026-10-18'
 data: '2026-10-17'
 resumo: Panela de pressão elétrica Kian de 5 litros, versão preta multifuncional, com 44% de desconto no Pix.
 pros:

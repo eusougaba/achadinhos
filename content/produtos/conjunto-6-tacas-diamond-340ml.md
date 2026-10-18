@@ -3,9 +3,10 @@ titulo: Conjunto 6 Taças Diamond Gamma 340ml
 categoria: casa
 loja: mercadolivre
 imagem: https://http2.mlstatic.com/D_NQ_NP_865530-MLA116959056070_092026-O.webp
-preco: 29.06
+preco: 29.9
 link_afiliado: https://meli.la/1PCJ1yt
 codigo: EQMTUP-2YDJ
+atualizado: '2026-10-18'
 data: '2026-10-17'
 resumo: Conjunto com 6 taças Diamond de 340 ml, por menos de R$ 30.
 pros:
