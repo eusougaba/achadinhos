@@ -1,0 +1,64 @@
+# Regras do garimpo: tudo que decide se um produto entra, e se vai para o feed, fica aqui.
+# O script (scripts/novo_produto.py) e o painel (static/admin/painel_ml.js) leem este arquivo.
+
+minimos:            # abaixo disso o produto nem é considerado
+  nota: 4.5
+  vendas: 1000
+  desconto: 10      # % abaixo do preço de referência
+  preco_min: 15
+  preco_max: 400
+  comissao: 5       # % mostrada no painel de afiliados
+
+desconto_confiavel_max: 60   # acima disso o preço "de" costuma estar inflado: não conta ponto
+
+pesos:              # somam 100
+  nota: 30
+  vendas: 25
+  desconto: 15
+  comissao: 15
+  marca: 10
+  categoria: 5      # bônus para categorias com poucos produtos no site
+
+feed_min_pontos: 55          # só vai para o feed quem passa disso; os outros ficam só nos stories
+
+marcas: [wap, bosch, black tools, makita, dewalt, tramontina, philco, mondial, britania, britânia, electrolux,
+         brastemp, philips, huawei, xiaomi, jbl, anker, soundcore, samsung, lenovo, multilaser, taiff,
+         nativa spa, natura, growth, max titanium, havaianas, mor, intelbras, positivo, oster, cadence]
+
+# termos que o garimpo pesquisa no painel, por categoria (o site tem poucos itens de ferramentas, pets e tecnologia)
+buscas:
+  ferramentas: [parafusadeira, kit de ferramentas, trena a laser, nivel a laser, lanterna recarregavel, serra tico tico]
+  tecnologia: [fone bluetooth, power bank, carregador turbo, caixa de som bluetooth, suporte celular carro, mouse sem fio]
+  pets: [fonte bebedouro gato, comedouro automatico, escova removedora de pelos, caminha pet, brinquedo cachorro]
+  bebes: [baba eletronica, banheira bebe, kit mamadeira, cadeirinha alimentacao, mordedor]
+  esporte: [kit elasticos treino, tapete yoga, corda de pular, halter, coqueteleira, creatina]
+  casa: [aspirador robo, umidificador, organizador, panela, ventilador]
+  beleza: [secador de cabelo, chapinha, kit skincare, perfume, hidratante]
+  moda: [mochila, relogio, oculos de sol, chinelo]
+
+# textos de modelo por categoria (os pontos fracos são sempre honestos e genéricos; o produto específico a gente ajusta à mão se for destaque)
+textos:
+  ferramentas:
+    contras: ["Para uso pesado ou profissional, escolha um modelo de linha industrial", "Confira no anúncio o que acompanha (bateria, carregador, acessórios)"]
+    corpo: "{curto} é um dos itens mais vendidos da busca no painel de afiliados. Serve bem para reparos e montagem em casa."
+  tecnologia:
+    contras: ["Confira no anúncio a compatibilidade com o seu aparelho", "Eletrônico de entrada: não espere o acabamento de uma marca premium"]
+    corpo: "{curto} aparece entre os mais vendidos da categoria e está com desconto hoje. Compare as especificações no anúncio antes de comprar."
+  pets:
+    contras: ["Confira o tamanho e o peso do seu pet nas medidas do anúncio", "Produtos de pet pedem limpeza frequente"]
+    corpo: "{curto} é bem avaliado por quem tem pet em casa e custa pouco. Veja as medidas antes de comprar."
+  bebes:
+    contras: ["Confira a faixa de idade e as certificações no anúncio", "Compare a segurança com o uso que você pretende"]
+    corpo: "{curto} é uma opção bem avaliada para quem tem bebê em casa. Confira idade e especificações no anúncio."
+  esporte:
+    contras: ["Confira no anúncio o tamanho, o peso e a resistência", "Consulte um profissional se estiver começando a treinar"]
+    corpo: "{curto} é popular entre quem treina em casa e custa pouco. Veja as especificações no anúncio."
+  casa:
+    contras: ["Confira as medidas e a voltagem no anúncio", "Compare o preço final, com frete, em outras lojas"]
+    corpo: "{curto} é um dos itens mais vendidos da categoria e está com desconto hoje. Confira medidas e voltagem."
+  beleza:
+    contras: ["Confira os ingredientes e a indicação para o seu tipo de pele ou cabelo", "O resultado varia de pessoa para pessoa"]
+    corpo: "{curto} está entre os mais vendidos da categoria. Confira a indicação no anúncio."
+  moda:
+    contras: ["Confira a tabela de medidas antes de escolher o tamanho", "Cores podem variar um pouco da foto"]
+    corpo: "{curto} é bem avaliado e custa pouco. Veja a tabela de medidas no anúncio."

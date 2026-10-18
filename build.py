@@ -191,6 +191,8 @@ def main() -> None:
         gerar_pin_lista(lst, site, SAIDA / "pin" / f"{lst['slug']}.jpg")
     for p in produtos:
         gerar_pin_produto(p, site, SAIDA / "pin" / f"produto-{p['slug']}.jpg")
+    regras = yaml.safe_load((RAIZ / "content" / "regras.yml").read_text(encoding="utf-8"))
+    (SAIDA / "admin" / "regras.json").write_text(json.dumps(regras, ensure_ascii=False), encoding="utf-8")
     from scripts.pinterest import gerar_csv
     (SAIDA / "admin" / "pinterest-pins.csv").write_text(gerar_csv(produtos, listas, site), encoding="utf-8")
 

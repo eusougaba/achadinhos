@@ -371,9 +371,10 @@ def publicar(modo: str = "feed") -> None:
     chave = (lambda slug: slug) if modo == "feed" else (lambda slug: f"story:{slug}")
     feitos = {k: v for k, v in registro.items() if k.startswith("story:") == (modo == "story")}
     # ordem: destaque primeiro, depois os mais recentes e, entre eles, os de maior desconto
-    ordem = lambda p: (not p.get("destaque"), -p["data"].toordinal(), -(p.get("desconto") or 0), p["slug"])
+    ordem = lambda p: (not p.get("destaque"), -p["data"].toordinal(), -(p.get("pontos") or p.get("desconto") or 0), p["slug"])
     pendentes = [p for p in sorted(produtos, key=ordem)
-                 if chave(p["slug"]) not in registro and p.get("instagram", True) is not False]
+                 if chave(p["slug"]) not in registro and p.get("instagram", True) is not False
+                 and (modo != "feed" or p.get("feed", True) is not False)]  # feed só para quem pontuou bem
     if not pendentes:
         print(f"Nenhum produto novo para {modo}.")
         return
