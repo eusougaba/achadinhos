@@ -5,7 +5,6 @@ data: 2026-10-17
 produtos:
   - ar-condicionado-gree-g-side-9000-inverter
   - gopro-lit-hero-4k
-  - adega-brastemp-12-garrafas-bzc12be
   - geladeira-electrolux-inverse-ib51s-490l
   - fone-bluetooth-soundcore-q11i-anker
   - air-fryer-oven-mondial-12l-afon-12l-fg
