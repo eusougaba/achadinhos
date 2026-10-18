@@ -21,7 +21,7 @@ whatsapp: https://whatsapp.com/channel/0029Vb9XLbVC6ZvZxMo7eA0l
 instagram: https://instagram.com/achadoteca.com.br
 
 # Medição de acessos (deixe vazio o que não usar)
-google_analytics: ""      # ID do Google Analytics 4, ex.: G-ABC123XYZ
+google_analytics: "G-3D9P709RR0"      # ID do Google Analytics 4, ex.: G-ABC123XYZ
 goatcounter: ""           # código do GoatCounter, ex.: achadoteca (de achadoteca.goatcounter.com)
 # Verificação do Google Search Console (só o código do content da meta tag)
 google_verificacao: ""
