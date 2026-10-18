@@ -1,0 +1,36 @@
+name: Checar preços
+
+# Todo dia confere os 20 produtos com preço mais antigo direto na página pública do Mercado Livre.
+on:
+  schedule:
+    - cron: "30 7 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  precos:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: Conferir preços
+        run: python scripts/checar_precos.py 20
+      - name: Guardar e republicar
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if [ -n "$(git status --porcelain content/produtos)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add content/produtos
+            git commit -m "Preços atualizados [skip ci]"
+            git pull -q --rebase origin main
+            git push
+            gh workflow run pages.yml --ref main
+          fi
