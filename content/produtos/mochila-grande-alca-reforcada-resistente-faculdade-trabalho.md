@@ -3,7 +3,7 @@ titulo: Mochila Grande Alça Reforçada Resistente Faculdade Trabalho
 categoria: moda
 loja: mercadolivre
 imagem: https://http2.mlstatic.com/D_NQ_NP_812719-MLB92851761813_092025-O.webp
-preco: 45.99
+preco: 45.76
 preco_antigo: 78.9
 link_afiliado: https://meli.la/1pavWk1
 codigo: EQMTUP-VYEL

@@ -3,8 +3,8 @@ titulo: Espelho orgânico de corpo inteiro 90x40 com suporte
 categoria: casa
 loja: mercadolivre
 imagem: https://http2.mlstatic.com/D_NQ_NP_671705-MLB118351926475_092026-O.webp
-preco: 78.99
-preco_antigo: 129
+preco: 79.9
+preco_antigo: 199.9
 link_afiliado: https://meli.la/23V7joQ
 codigo: EQMTUP-1TEN
 atualizado: '2026-10-18'

@@ -3,8 +3,8 @@ titulo: Modelador de cachos Taiff Curves 2,5 cm
 categoria: beleza
 loja: mercadolivre
 imagem: https://http2.mlstatic.com/D_NQ_NP_669590-MLU73129802506_122023-O.webp
-preco: 209.9
-preco_antigo: 249.9
+preco: 211.9
+preco_antigo: 300
 link_afiliado: https://meli.la/2eMmgrV
 codigo: EQMTUP-6T1G
 atualizado: '2026-10-18'

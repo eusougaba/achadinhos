@@ -7,6 +7,7 @@ preco: 154
 link_afiliado: https://meli.la/2R9yYQn
 codigo: EQMTUP-4TQN
 atualizado: '2026-10-18'
+ativo: false
 data: '2026-10-17'
 resumo: Fone sem fio da Huawei com até 40 horas de bateria (com o estojo), nota 4,8.
 pros:

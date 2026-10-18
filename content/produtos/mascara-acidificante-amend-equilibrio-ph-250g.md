@@ -8,6 +8,7 @@ preco_antigo: 89.9
 link_afiliado: https://meli.la/2bkN1ne
 codigo: EQMTUP-GBCF
 atualizado: '2026-10-18'
+ativo: false
 data: '2026-10-17'
 resumo: Máscara acidificante da Amend para controlar o frizz, com 31% de desconto no Pix.
 pros:

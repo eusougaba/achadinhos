@@ -7,6 +7,7 @@ preco: 119
 link_afiliado: https://meli.la/2NMNCjs
 codigo: EQMTUP-8LSD
 atualizado: '2026-10-18'
+ativo: false
 data: '2026-10-17'
 resumo: Travesseiro com capa 100% algodão de 233 fios e enchimento de ecopluma, no tamanho padrão 50x70.
 pros:
