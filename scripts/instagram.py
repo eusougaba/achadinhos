@@ -11,6 +11,7 @@ from __future__ import annotations
 import io
 import json
 import os
+import re
 import sys
 import time
 import urllib.parse
@@ -211,6 +212,38 @@ def gerar_pin_lista(lista: dict, site: dict, destino: Path) -> None:
 
 # ------------------------------------------------------------------ legenda
 
+# hashtags: o que o mercado usa + loja + categoria + o produto específico
+HASHTAGS_BASE = ["achadinhos", "achadinhosdodia", "promocao", "ofertas", "comprasonline", "dicadecompra", "desconto"]
+SEM_VALOR = {"de", "da", "do", "das", "dos", "com", "para", "por", "em", "e", "a", "o", "um", "uma", "kit", "sem", "ou",
+             "pcs", "unidades", "original", "novo", "nova", "premium", "preto", "preta", "branco", "branca", "cor", "tamanho"}
+
+
+def _sem_acento(t: str) -> str:
+    import unicodedata
+    return "".join(c for c in unicodedata.normalize("NFD", t) if unicodedata.category(c) != "Mn")
+
+
+def hashtags(p: dict, site: dict, limite: int = 14) -> list[str]:
+    """Ordem: o que mais importa primeiro (produto, categoria, loja, mercado). Sem repetir, no máximo `limite`.
+    Para escolher as do produto à mão, use `hashtags: [airfryer, cozinhapratica]` no cabeçalho do produto."""
+    lj = p["lj"]
+    cat = next((c for c in site.get("categorias", []) if c["slug"] == p.get("categoria")), {})
+    do_produto = [str(h).lstrip("#") for h in (p.get("hashtags") or [])]
+    if not do_produto:  # automático: palavras que descrevem o produto no título (sem marca-modelo, números ou medidas)
+        palavras = [w for w in re.findall(r"[A-Za-zÀ-ÿ]+", _sem_acento(p["titulo"]).lower())
+                    if len(w) > 3 and w not in SEM_VALOR]
+        do_produto = palavras[:1]  # o tipo do produto vem primeiro no título (air fryer, secador, whey...)
+        if len(palavras) >= 2:
+            do_produto.append(palavras[0] + palavras[1])
+    ordem = do_produto + list(cat.get("hashtags") or [])[:3] + [lj["hashtag"], lj["slug"], "achadoteca"] + HASHTAGS_BASE
+    vistas, saida = set(), []
+    for h in ordem:
+        h = _sem_acento(h).lower().replace(" ", "")
+        if h and h not in vistas:
+            vistas.add(h); saida.append("#" + h)
+    return saida[:limite]
+
+
 def legenda(p: dict, site: dict) -> str:
     linhas = [f"{p['titulo']} 🔥"]
     if p.get("desconto"):
@@ -230,7 +263,7 @@ def legenda(p: dict, site: dict) -> str:
     if site.get("whatsapp"):
         linhas.append("💬 Receba os achadinhos no WhatsApp: canal no link da bio")
     linhas.append("Preço visto na data do post, pode mudar a qualquer momento.")
-    linhas += ["", f"#achadinhos #{lj['hashtag']} #{lj['slug']} #ofertas #achadoteca"]
+    linhas += ["", " ".join(hashtags(p, site))]
     return "\n".join(linhas)
 
 

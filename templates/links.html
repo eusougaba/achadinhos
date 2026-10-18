@@ -63,7 +63,7 @@
     </div>
     {% endif %}
 
-    <p class="links__grupo">Listas</p>
+    <p class="links__grupo" id="listas">Listas</p>
     <div class="links__lista">
       {% for l in listas %}<a href="{{ raiz }}lista/{{ l.slug }}/">{{ l.titulo }} <span>{{ l.itens | length }}</span></a>{% endfor %}
     </div>

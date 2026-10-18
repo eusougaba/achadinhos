@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% from "_macros.html" import card %}
+
+{% block titulo %}Buscar achadinhos | {{ site.nome }}{% endblock %}
+{% block descricao %}Busque entre todos os achadinhos da {{ site.nome }}.{% endblock %}
+
+{% block conteudo %}
+<form class="busca__campo" role="search" onsubmit="return false">
+  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+  <input id="q" type="search" name="q" placeholder="O que você procura? Ex.: air fryer, potes, secador" aria-label="Buscar achadinhos" autocomplete="off">
+</form>
+<p class="busca__info" id="info" aria-live="polite">{{ produtos | length }} achadinhos para buscar.</p>
+<div class="grade" id="resultados">
+  {% for p in produtos %}<div data-busca="{{ [p.titulo, p.resumo or '', p.cat.nome, p.lj.nome, p.marca or ''] | join(' ') }}">{{ card(p, raiz, img) }}</div>{% endfor %}
+</div>
+<p class="vazio" id="nada" hidden>Nada encontrado. Tente outra palavra ou veja as <a href="{{ raiz }}links/#listas">listas</a>.</p>
+<script>
+(function(){
+  var q=document.getElementById('q'),itens=[].slice.call(document.querySelectorAll('[data-busca]')),
+      info=document.getElementById('info'),nada=document.getElementById('nada'),total=itens.length;
+  function norm(t){return t.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();}
+  itens.forEach(function(e){e._t=norm(e.getAttribute('data-busca'));});
+  function filtrar(){
+    var termos=norm(q.value).split(/\s+/).filter(Boolean),n=0;
+    itens.forEach(function(e){var ok=termos.every(function(t){return e._t.indexOf(t)>-1;});e.hidden=!ok;if(ok)n++;});
+    nada.hidden=n>0;
+    info.textContent=termos.length?(n+(n===1?' achadinho encontrado':' achadinhos encontrados')):total+' achadinhos para buscar.';
+    var u=new URL(location);termos.length?u.searchParams.set('q',q.value):u.searchParams.delete('q');history.replaceState(null,'',u);
+  }
+  q.value=new URLSearchParams(location.search).get('q')||'';
+  q.addEventListener('input',filtrar);filtrar();
+  if(!q.value)q.focus();
+})();
+</script>
+{% endblock %}

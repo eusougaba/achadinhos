@@ -138,7 +138,7 @@ def main() -> None:
             return src if src.startswith("http") else raiz + src.lstrip("/")
 
         html = env.get_template(modelo).render(
-            versao=versao, site=site, categorias=site["categorias"], raiz=raiz, img=img,
+            versao=versao, site=site, listas_menu=listas[:4], categorias=site["categorias"], raiz=raiz, img=img,
             canonico=f"{site['url']}/{caminho}", ano=dt.date.today().year, **ctx,
         )
         destino = SAIDA / caminho / "index.html"
@@ -163,6 +163,7 @@ def main() -> None:
     for lst in listas:
         render("lista.html", f"lista/{lst['slug']}/", lista=lst)
     render("sobre.html", "sobre/")
+    render("busca.html", "busca/", produtos=produtos)
     contagem = {c["slug"]: sum(1 for p in produtos if p.get("categoria") == c["slug"]) for c in site["categorias"]}
     render("links.html", "links/", listas=listas, total=len(produtos), contagem=contagem, no_insta=no_insta)
 
