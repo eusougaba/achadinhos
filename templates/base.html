@@ -26,10 +26,11 @@
   {% if site.google_analytics %}
   <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','{{ site.google_analytics }}');
-  document.addEventListener('click',function(e){var a=e.target.closest('a[rel~="sponsored"]');if(a){gtag('event','clique_loja',{produto:location.pathname,link:a.href});}});</script>
+  document.addEventListener('click',function(e){var a=e.target.closest('a[rel~="sponsored"]');if(a){gtag('event','clique_loja',{produto:location.pathname,link:a.href,origem:(sessionStorage.getItem('origem')||'direto')});}});</script>
   {% endif %}
   {% if site.goatcounter %}<script data-goatcounter="https://{{ site.goatcounter }}.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
   <script>document.addEventListener('click',function(e){var a=e.target.closest('a[rel~="sponsored"]');if(a&&window.goatcounter&&goatcounter.count){goatcounter.count({path:'clique-loja'+location.pathname,title:'Clique na loja',event:true});}});</script>{% endif %}
+  <script>try{var q=new URLSearchParams(location.search).get('utm_source');if(q)sessionStorage.setItem('origem',q);}catch(e){}</script>
 </head>
 <body>
   <a class="pular" href="#conteudo">Pular para o conteúdo</a>

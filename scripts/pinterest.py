@@ -13,6 +13,7 @@ import io
 PINS_POR_DIA = 4
 HORARIOS_BRT = [9, 12, 17, 20]          # horários de publicação, no fuso de São Paulo
 QUADRO_LISTAS = "Listas de achadinhos"
+UTM = "?utm_source=pinterest&utm_medium=pin&utm_campaign=achados"   # o Google Analytics mostra a origem da visita
 CABECALHO = ["Title", "Media URL", "Pinterest board", "Thumbnail", "Description", "Link", "Publish date", "Keywords"]
 
 
@@ -49,14 +50,14 @@ def gerar_csv(produtos: list[dict], listas: list[dict], site: dict, comeco: dt.d
             desc = _corta(f"{x.get('resumo') or x['titulo']} {preco}. Veja os detalhes, prós e contras no site. "
                           f"Preço visto hoje, pode mudar.", 480)
             midia = f"{base}/pin/produto-{x['slug']}.jpg"
-            link = f"{base}/produto/{x['slug']}/"
+            link = f"{base}/produto/{x['slug']}/{UTM}"
             quadro = x["cat"]["nome"]
             chaves = [x["cat"]["nome"], x["lj"]["nome"], "achadinhos", "oferta"] + x["titulo"].split()[:2]
         else:
             titulo = _corta(x["titulo"], 100)
             desc = _corta(f"{x.get('descricao') or x['titulo']} Veja a lista completa com preços e prós e contras de cada item.", 480)
             midia = f"{base}/pin/{x['slug']}.jpg"
-            link = f"{base}/lista/{x['slug']}/"
+            link = f"{base}/lista/{x['slug']}/{UTM}"
             quadro = QUADRO_LISTAS
             chaves = ["achadinhos", "lista de compras", "ofertas", x["titulo"]]
         w.writerow([titulo, midia, quadro, "", desc, link, quando.strftime("%Y-%m-%dT%H:%M:%S"), ",".join(dict.fromkeys(chaves))])
