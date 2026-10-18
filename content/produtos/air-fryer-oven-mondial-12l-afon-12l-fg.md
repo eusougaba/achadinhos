@@ -3,10 +3,10 @@ titulo: Air fryer oven Mondial 12 L digital AFON-12L-FG
 categoria: casa
 loja: mercadolivre
 imagem: https://http2.mlstatic.com/D_NQ_NP_943271-MLA111115999589_052026-O.webp
-preco: 474.05
-preco_antigo: 499
+preco: 499
 link_afiliado: https://meli.la/1LaDMxc
 codigo: EQMTUP-N6WJ
+atualizado: '2026-10-18'
 data: '2026-10-17'
 resumo: Air fryer no formato forno, com 12 litros e painel digital, vendida pela Casas Bahia no Mercado Livre.
 pros:

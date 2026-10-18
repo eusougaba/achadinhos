@@ -3,10 +3,11 @@ titulo: Balança Digital Bioimpedância Bluetooth 180kg com App
 categoria: esporte
 loja: mercadolivre
 imagem: https://http2.mlstatic.com/D_NQ_NP_750371-MLA116617370667_082026-O.webp
-preco: 28.95
+preco: 32.9
 preco_antigo: 84.9
 link_afiliado: https://meli.la/2ka2nRH
 codigo: EQMTUP-7DR9
+atualizado: '2026-10-18'
 data: '2026-10-17'
 resumo: Balança digital com bioimpedância e app no celular, por menos de R$ 30 no Pix.
 pros:
