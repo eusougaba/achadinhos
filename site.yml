@@ -54,35 +54,43 @@ lojas:
     hashtag: achadinhosaliexpress
 
 categorias:
-  - slug: tecnologia
-    nome: Tecnologia
-    hashtags: [tecnologia, gadgets, fonedeouvido, smartwatch, eletronicos]
-    descricao: Fones, relógios, acessórios e eletrônicos que valem o preço.
-  - slug: casa
-    nome: Casa e cozinha
-    hashtags: [casa, cozinha, decoracaodecasa, utilidadesdomesticas, organizacao]
-    descricao: Utilidades para a casa e a cozinha que fazem diferença no dia a dia.
-  - slug: ferramentas
-    nome: Ferramentas
-    hashtags: [ferramentas, faacavocemesmo, bricolagem, casaeconstrucao]
-    descricao: Ferramentas e acessórios para quem gosta de resolver as coisas sozinho.
   - slug: beleza
+    curto: Beleza
     nome: Beleza e cuidados
     hashtags: [beleza, skincare, cabelo, cuidadospessoais, autocuidado]
     descricao: Secadores, modeladores, cuidados com o cabelo e o corpo com bom custo-benefício.
-  - slug: esporte
-    nome: Esporte e bem-estar
-    hashtags: [fitness, treino, suplementos, vidasaudavel, academia]
-    descricao: Garrafas, suplementos e acessórios para treino e rotina.
-  - slug: pets
-    nome: Pets
-    hashtags: [pets, dog, cachorro, gato, petshop]
-    descricao: Caminhas, acessórios e cuidados para cães e gatos.
-  - slug: bebes
-    nome: Bebês e crianças
-    hashtags: [bebe, maternidade, maedeprimeiraviagem, enxovaldebebe, chadebebe]
-    descricao: Itens para bebês, crianças e para quem vai ganhar ou dar presente de chá de bebê.
   - slug: moda
+    curto: Moda
     nome: Moda e calçados
     hashtags: [moda, look, calcados, estilo, modafeminina]
     descricao: Chinelos, calçados e acessórios com preço bom.
+  - slug: casa
+    curto: Casa
+    nome: Casa e cozinha
+    hashtags: [casa, cozinha, decoracaodecasa, utilidadesdomesticas, organizacao]
+    descricao: Utilidades para a casa e a cozinha que fazem diferença no dia a dia.
+  - slug: esporte
+    curto: Esporte
+    nome: Esporte e bem-estar
+    hashtags: [fitness, treino, suplementos, vidasaudavel, academia]
+    descricao: Garrafas, suplementos e acessórios para treino e rotina.
+  - slug: tecnologia
+    curto: Tecnologia
+    nome: Tecnologia
+    hashtags: [tecnologia, gadgets, fonedeouvido, smartwatch, eletronicos]
+    descricao: Fones, relógios, acessórios e eletrônicos que valem o preço.
+  - slug: ferramentas
+    curto: Ferramentas
+    nome: Ferramentas
+    hashtags: [ferramentas, faacavocemesmo, bricolagem, casaeconstrucao]
+    descricao: Ferramentas e acessórios para quem gosta de resolver as coisas sozinho.
+  - slug: bebes
+    curto: Bebês
+    nome: Bebês e crianças
+    hashtags: [bebe, maternidade, maedeprimeiraviagem, enxovaldebebe, chadebebe]
+    descricao: Itens para bebês, crianças e para quem vai ganhar ou dar presente de chá de bebê.
+  - slug: pets
+    curto: Pets
+    nome: Pets
+    hashtags: [pets, dog, cachorro, gato, petshop]
+    descricao: Caminhas, acessórios e cuidados para cães e gatos.

@@ -58,7 +58,7 @@
     </div>
     <nav class="chips" aria-label="Categorias">
       {% for c in categorias %}
-      <a class="chip{% if categoria is defined and categoria.slug == c.slug %} chip--ativo{% endif %}" href="{{ raiz }}categoria/{{ c.slug }}/">{{ c.nome }}</a>
+      <a class="chip{% if categoria is defined and categoria.slug == c.slug %} chip--ativo{% endif %}" href="{{ raiz }}categoria/{{ c.slug }}/">{{ c.curto or c.nome }}</a>
       {% endfor %}
     </nav>
   </header>

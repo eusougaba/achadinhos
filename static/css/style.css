@@ -114,8 +114,14 @@ h1, h2, h3 { line-height: 1.12; margin: 0; letter-spacing: -0.01em; }
 
 .chips {
   display: flex; gap: 8px; overflow-x: auto; padding: 8px 16px 14px;
-  scrollbar-width: none;
+  scrollbar-width: none; scroll-snap-type: x proximity; scroll-padding-inline: 16px;
+  /* esmaece a borda direita para mostrar que há mais categorias */
+  -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 28px), transparent);
+  mask-image: linear-gradient(to right, #000 calc(100% - 28px), transparent);
 }
+.chip { scroll-snap-align: start; }
+.chips::after { content: ""; flex: none; width: 20px; }
+@media (min-width: 900px) { .chips { flex-wrap: wrap; overflow: visible; -webkit-mask-image: none; mask-image: none; } .chips::after { display: none; } }
 .chips::-webkit-scrollbar { display: none; }
 .chip {
   flex: none; padding: 7px 14px; border-radius: 999px; text-decoration: none;
