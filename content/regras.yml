@@ -37,7 +37,7 @@ buscas:
   moda: [bolsa feminina, bolsa tiracolo, sandalia feminina, tenis feminino, oculos de sol feminino, relogio feminino, bijuteria, conjunto fitness feminino]
 
 # foco do site: mulher e beleza. Peso maior = a categoria tem que ter mais produtos que as outras
-pesos: {beleza: 3, moda: 2.5, casa: 1.5}
+pesos_categoria: {beleza: 3, moda: 2.5, casa: 1.5}
 
 # textos de modelo por categoria (os pontos fracos são sempre honestos e genéricos; o produto específico a gente ajusta à mão se for destaque)
 textos:
