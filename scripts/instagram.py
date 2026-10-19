@@ -443,17 +443,17 @@ def publicar(modo: str = "feed") -> None:
 
 
 def automatico() -> None:
-    """Story a cada rodada (respeitando o intervalo) e até 3 posts no feed por dia, das 9h às 20h."""
+    """Story a cada rodada (respeitando o intervalo), até 3 posts no feed por dia (9h às 20h)
+    e 1 Reel por dia a partir das 17h. Cada etapa é independente: uma falha ou uma pausa
+    em uma não impede as outras."""
     try:
         publicar("story")
     except SystemExit as erro:
         print(f"Story não publicado: {erro}")
     agora = time.gmtime(time.time() - 3 * 3600)  # horário de Brasília
-    if not (9 <= agora.tm_hour <= 20):
-        print("Fora do horário do feed (9h às 20h).")
-        return
-    registro = json.loads(REGISTRO.read_text()) if REGISTRO.exists() else {}
     hoje = time.strftime("%Y-%m-%d", agora)
+    registro = json.loads(REGISTRO.read_text()) if REGISTRO.exists() else {}
+
     feed_hoje = 0
     for k, v in registro.items():
         if k.startswith(("story:", "reel:")):
@@ -461,12 +461,26 @@ def automatico() -> None:
         quando = time.gmtime(time.mktime(time.strptime(v["data"], "%Y-%m-%d %H:%M")) - 3 * 3600)
         if time.strftime("%Y-%m-%d", quando) == hoje:
             feed_hoje += 1
-    if feed_hoje >= 3:
+    if not (9 <= agora.tm_hour <= 20):
+        print("Fora do horário do feed (9h às 20h).")
+    elif feed_hoje >= 3:
         print("Já foram 3 posts no feed hoje.")
-        return
-    publicar("feed")
-    # um Reel por dia, no fim da tarde
-    if agora.tm_hour >= 17 and not any(k.startswith("reel:") and v["data"][:10] == hoje for k, v in registro.items()):
+    else:
+        try:
+            publicar("feed")
+        except (SystemExit, ErroInstagram) as erro:
+            print(f"Feed não publicado: {erro}")
+
+    # um Reel por dia, a partir das 17h (horário de Brasília)
+    def reel_hoje() -> bool:
+        for k, v in registro.items():
+            if k.startswith("reel:"):
+                q = time.gmtime(time.mktime(time.strptime(v["data"], "%Y-%m-%d %H:%M")) - 3 * 3600)
+                if time.strftime("%Y-%m-%d", q) == hoje:
+                    return True
+        return False
+
+    if agora.tm_hour >= 17 and not reel_hoje():
         try:
             publicar("reel")
         except (SystemExit, ErroInstagram) as erro:
