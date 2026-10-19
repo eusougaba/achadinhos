@@ -19,5 +19,6 @@ contras:
 - Confira no anúncio o que acompanha (bateria, carregador, acessórios)
 pontos: 63
 feed: true
+feed: false
 ---
 Serra Tico Tico 500w 3000rpm Uso Profissional é um dos itens mais vendidos da busca no painel de afiliados. Serve bem para reparos e montagem em casa.

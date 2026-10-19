@@ -17,5 +17,6 @@ pros:
 contras:
 - 'Kit básico: para uso frequente ou pesado, vale um jogo de marca profissional'
 - Confira no anúncio a lista exata das peças
+feed: false
 ---
 Um kit barato para ter em casa ou no porta-malas. Para trocar uma peça simples, apertar parafusos e fazer ajustes, resolve bem.

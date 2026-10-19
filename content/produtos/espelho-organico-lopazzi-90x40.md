@@ -17,5 +17,6 @@ pros:
 - Mais vendido da categoria
 contras:
 - '90 cm de altura: não mostra do pé à cabeça para quem é alto'
+feed: false
 ---
 Se você gosta do espelho orgânico mas prefere com moldura, este é o par do outro modelo que está aqui no site. Mesmo preço, acabamento diferente.

@@ -18,5 +18,6 @@ pros:
 contras:
 - Confira as medidas do espaço da sua cozinha antes de comprar
 - Verifique a voltagem no anúncio
+feed: false
 ---
 Para quem vai trocar de geladeira, o modelo inverse com motor inverter junta economia de energia e praticidade. Vale comparar o preço à vista com o parcelado antes de fechar.

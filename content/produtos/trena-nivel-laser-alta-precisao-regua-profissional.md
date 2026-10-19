@@ -19,5 +19,6 @@ contras:
 - Confira no anúncio o que acompanha (bateria, carregador, acessórios)
 pontos: 57
 feed: true
+feed: false
 ---
 Trena Nivel A Laser Alta Precisão Com Regua é um dos itens mais vendidos da busca no painel de afiliados. Serve bem para reparos e montagem em casa.

@@ -19,5 +19,6 @@ contras:
 - 'Eletrônico de entrada: não espere o acabamento de uma marca premium'
 pontos: 72
 feed: true
+feed: false
 ---
 Caixa De Som Bluetooth Portátil Go Essencial 2 aparece entre os mais vendidos da categoria e está com desconto hoje. Compare as especificações no anúncio antes de comprar.

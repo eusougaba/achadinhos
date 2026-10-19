@@ -16,5 +16,6 @@ pros:
 - Vendido pela loja Soundcore
 contras:
 - Não tem cancelamento ativo de ruído
+feed: false
 ---
 Anker é referência em custo-benefício. Por menos de R$ 200, é um fone grande e confortável para o dia todo.

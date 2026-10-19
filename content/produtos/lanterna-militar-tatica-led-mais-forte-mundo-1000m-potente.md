@@ -18,5 +18,6 @@ contras:
 - Confira no anúncio o que acompanha (bateria, carregador, acessórios)
 pontos: 56
 feed: true
+feed: false
 ---
 Lanterna Militar Tatica LED Mais Forte do Mundo é um dos itens mais vendidos da busca no painel de afiliados. Serve bem para reparos e montagem em casa.

@@ -18,5 +18,6 @@ contras:
 - Confira no anúncio o que acompanha (bateria, carregador, acessórios)
 pontos: 78
 feed: true
+feed: false
 ---
 Lanterna Mais Forte Do Mundo Recarregável é um dos itens mais vendidos da busca no painel de afiliados. Serve bem para reparos e montagem em casa.

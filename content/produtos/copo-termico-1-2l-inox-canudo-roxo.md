@@ -15,5 +15,6 @@ pros:
 - 51% de desconto
 contras:
 - Confira a cor no anúncio antes de comprar
+feed: false
 ---
 A versão roxa do copo térmico gigante, agora com metade do preço e escova de limpeza junto.

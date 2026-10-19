@@ -17,5 +17,6 @@ pros:
 contras:
 - 'Pelo título, é só a bolsa: as ferramentas não acompanham'
 - Confira no anúncio o peso que ela suporta
+feed: false
 ---
 Para quem já tem ferramentas espalhadas pela casa, uma bolsa com bolsos separados facilita achar tudo e levar para qualquer cômodo.

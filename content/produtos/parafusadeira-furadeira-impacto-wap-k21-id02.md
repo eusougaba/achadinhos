@@ -17,5 +17,6 @@ pros:
 contras:
 - 'Bateria de 2000 mAh: confira se a autonomia atende trabalhos longos'
 - Custa mais que as de 12 V sem impacto
+feed: false
 ---
 É a opção da WAP para quem precisa de um pouco mais de força que a parafusadeira simples. Tem impacto e mandril de 3/8", e é um dos modelos mais vendidos da categoria.

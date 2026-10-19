@@ -20,5 +20,6 @@ contras:
 - Confira no anúncio o que acompanha (bateria, carregador, acessórios)
 pontos: 79
 feed: true
+feed: false
 ---
 Jogo De Chave Boca E Estrela Combinada 12 Pçs é um dos itens mais vendidos da busca no painel de afiliados. Serve bem para reparos e montagem em casa.

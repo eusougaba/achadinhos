@@ -17,5 +17,6 @@ pros:
 contras:
 - O desconto de 50% é sobre o preço de referência do anúncio; compare com outras lojas
 - 'Marca de entrada: serve bem para uso doméstico, não para canteiro de obra'
+feed: false
 ---
 Duas baterias significam que uma carrega enquanto você usa a outra, o que ajuda em tarefas longas. É o produto mais vendido da busca por parafusadeira no painel de afiliados.
