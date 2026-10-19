@@ -17,6 +17,8 @@ import sys
 import time
 import urllib.parse
 import urllib.request
+
+import yaml
 from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFont
@@ -362,6 +364,17 @@ class ErroInstagram(SystemExit):
         self.corpo = corpo
 
 
+def proximo_reel_avulso(registro: dict) -> dict | None:
+    """Primeiro Reel de content/reels-avulsos.yml que ainda não saiu e não está segurado."""
+    arq = RAIZ / "content" / "reels-avulsos.yml"
+    if not arq.exists():
+        return None
+    for r in yaml.safe_load(arq.read_text(encoding="utf-8")) or []:
+        if not r.get("segurar") and (r.get("legenda") or "").strip() and f"reel:avulso-{r['id']}" not in registro:
+            return r
+    return None
+
+
 def publicar(modo: str = "feed") -> None:
     """modo='feed' publica no feed (poucos por dia); modo='story' publica um story."""
     sys.path.insert(0, str(RAIZ))
@@ -389,7 +402,7 @@ def publicar(modo: str = "feed") -> None:
                  and (p.get("sem_preco") or (dt.date.today() - p["visto"]).days <= 21)]  # preço velho não vai para o Instagram  # feed só para quem pontuou bem
     if modo != "story" and foco and any(p.get("categoria") in foco for p in pendentes):
         pendentes = [p for p in pendentes if p.get("categoria") in foco]   # só sai produto de foco enquanto houver
-    if not pendentes:
+    if not pendentes and not (modo == "reel" and proximo_reel_avulso(registro)):
         print(f"Nenhum produto novo para {modo}.")
         return
 
@@ -400,6 +413,26 @@ def publicar(modo: str = "feed") -> None:
         if time.time() - ultimo < minimo * 60:
             print(f"Último {modo} foi há menos de {minimo} minutos; o próximo sai na próxima rodada.")
             return
+
+    avulso = proximo_reel_avulso(registro) if modo == "reel" else None
+    if avulso:
+        ig = id_da_conta()
+        video = f"{site['url']}/reels-avulsos/{avulso['arquivo']}"
+        print(f"Publicando reel avulso {avulso['id']} com o vídeo {video}")
+        container = chamar("POST", f"{ig}/media", video_url=video, media_type="REELS",
+                           caption=avulso["legenda"].strip(), share_to_feed="true")["id"]
+        for _ in range(60):
+            time.sleep(10)
+            estado = chamar("GET", container, fields="status_code").get("status_code")
+            if estado == "FINISHED":
+                break
+            if estado == "ERROR":
+                raise SystemExit(f"O Instagram recusou o vídeo {video}.")
+        midia = chamar("POST", f"{ig}/media_publish", creation_id=container)["id"]
+        registro[f"reel:avulso-{avulso['id']}"] = {"midia": midia, "data": time.strftime("%Y-%m-%d %H:%M")}
+        REGISTRO.write_text(json.dumps(registro, ensure_ascii=False, indent=2) + "\n")
+        print(f"Publicado: {midia}.")
+        return
 
     p = pendentes[0]
     ig = id_da_conta()

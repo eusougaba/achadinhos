@@ -1,0 +1,52 @@
+# Reels que não são de um produto só. Saem antes dos Reels de produto, na ordem da lista.
+# segurar: true = não publica ainda (ex.: produto fora do ar).
+- id: mito-caro-bom
+  arquivo: mito-caro-bom.mp4
+  legenda: |
+    Mito: caro = bom? 🤔
+    O que dura é o que entrega. Olha o custo-benefício, não só o preço.
+
+    💾 Salva pra lembrar na hora de comprar
+    📲 Manda pra amiga que sempre acha que o mais caro é o melhor
+    🔗 Achados de beleza e casa selecionados: link na bio (achadoteca.com.br)
+
+    O site pode conter links de afiliado: ganhamos uma comissão se você comprar, sem pagar nada a mais.
+
+    #achadinhos #custobeneficio #dicasdecompras #economizar #beleza #comprasonline
+- id: preco-suspeito
+  arquivo: preco-suspeito.mp4
+  legenda: |
+    "De R$ 199 por R$ 89" é desconto de verdade? Faz isso antes de comprar 👇
+    1️⃣ Veja o histórico de preço
+    2️⃣ Compare em outra loja
+    3️⃣ Só confie no preço que se repete
+
+    💾 Salva esse checklist
+    📲 Manda pra quem cai em promoção inflada
+
+    🔗 Os achados que conferimos: link na bio (achadoteca.com.br)
+
+    O site pode conter links de afiliado: ganhamos uma comissão se você comprar, sem pagar nada a mais.
+
+    #promocao #achadinhos #dicasdeeconomia #blackfriday #comprasinteligentes #economizar
+- id: custo-beneficio
+  arquivo: custo-beneficio.mp4
+  legenda: |
+    Como eu escolho achadinhos de beleza sem cair em furada 💜
+    No site tem a seleção do dia, com o preço e a loja de cada um.
+    🤖 Apresentadora gerada por inteligência artificial.
+
+    💾 Salva pra consultar depois
+    🔗 Link na bio: achadoteca.com.br
+
+    O site pode conter links de afiliado: ganhamos uma comissão se você comprar, sem pagar nada a mais.
+
+    #achadinhos #beleza #cuidadospessoais #dicasdebeleza #comprasonline #achadoteca
+- id: dispenser-apresentadora
+  arquivo: dispenser-apresentadora.mp4
+  segurar: true
+  legenda: ""
+- id: refil-nativa-apresentadora
+  arquivo: refil-nativa-apresentadora.mp4
+  segurar: true
+  legenda: ""
