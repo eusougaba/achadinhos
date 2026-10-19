@@ -44,8 +44,19 @@
     #achadinhos #beleza #cuidadospessoais #dicasdebeleza #comprasonline #achadoteca
 - id: dispenser-apresentadora
   arquivo: dispenser-apresentadora.mp4
-  segurar: true
-  legenda: ""
+  legenda: |
+    Avaliação boa significa produto bom? Nem sempre 👀
+    Antes de comprar, olha o que as pessoas dizem de verdade, não só a nota.
+    🤖 Apresentadora gerada por inteligência artificial.
+
+    💾 Salva pra checar antes da próxima compra
+    📲 Manda pra quem compra só pela nota
+
+    🔗 Achados selecionados: link na bio (achadoteca.com.br)
+
+    O site pode conter links de afiliado: ganhamos uma comissão se você comprar, sem pagar nada a mais.
+
+    #avaliacoes #achadinhos #dicasdecompras #comprasonline #custobeneficio #achadoteca
 - id: refil-nativa-apresentadora
   arquivo: refil-nativa-apresentadora.mp4
   segurar: true
