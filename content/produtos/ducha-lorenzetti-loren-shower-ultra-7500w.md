@@ -3,10 +3,10 @@ titulo: Ducha eletrônica Lorenzetti Loren Shower Ultra 7500W 220V
 categoria: casa
 loja: mercadolivre
 imagem: https://http2.mlstatic.com/D_NQ_NP_638677-MLA118516851287_092026-O.webp
-preco: 136
+preco: 134.39
 link_afiliado: https://meli.la/2Z58M2e
 codigo: EQMTUP-KCTD
-atualizado: '2026-10-18'
+atualizado: '2026-10-20'
 data: '2026-10-17'
 resumo: 'Uma das duchas mais vendidas do Brasil: Lorenzetti eletrônica de 7500W, com temperatura regulável.'
 pros:

@@ -8,6 +8,7 @@ preco_antigo: 260
 link_afiliado: https://meli.la/2W9VaWX
 codigo: EQMTUP-2EEE
 atualizado: '2026-10-18'
+ativo: false
 data: '2026-10-17'
 resumo: Parafusadeira de impacto da WAP, com nota 4,8 e mais de 100 mil vendidas.
 pros:

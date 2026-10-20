@@ -8,6 +8,7 @@ preco_antigo: 64.99
 link_afiliado: https://meli.la/18QSNY8
 codigo: EQMTUP-LVJF
 atualizado: '2026-10-18'
+ativo: false
 data: '2026-10-17'
 resumo: Havaianas Top com detalhe de borboleta e escrita dourada, com 16% de desconto no Pix.
 pros:

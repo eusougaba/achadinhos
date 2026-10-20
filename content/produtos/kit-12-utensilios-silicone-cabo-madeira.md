@@ -7,7 +7,7 @@ preco: 39.99
 preco_antigo: 45.97
 link_afiliado: https://meli.la/16nMwge
 codigo: EQMTUP-27V0
-atualizado: '2026-10-18'
+atualizado: '2026-10-20'
 data: '2026-10-17'
 resumo: Kit com 12 utensílios de silicone com cabo de madeira que não riscam as panelas.
 pros:

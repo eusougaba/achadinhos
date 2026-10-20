@@ -7,6 +7,7 @@ preco: 101.75
 link_afiliado: https://meli.la/1dTYQwY
 codigo: EQMTUP-X77N
 atualizado: '2026-10-18'
+ativo: false
 data: '2026-10-17'
 resumo: Barraca infantil em formato de casinha com luzes de LED, em branco e rosa.
 pros:

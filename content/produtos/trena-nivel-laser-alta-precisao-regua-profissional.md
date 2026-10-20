@@ -8,6 +8,7 @@ preco_antigo: 51.99
 link_afiliado: https://meli.la/1h9x5kU
 codigo: EQMTUP-QC8D
 atualizado: '2026-10-18'
+ativo: false
 data: '2026-10-17'
 resumo: Trena Nivel A Laser Alta Precisão Com Regua Profissional por R$ 30,15, com nota 4.6 e mais de 10 mil vendidos.
 pros:

@@ -7,6 +7,7 @@ preco: 499
 link_afiliado: https://meli.la/1LaDMxc
 codigo: EQMTUP-N6WJ
 atualizado: '2026-10-18'
+ativo: false
 data: '2026-10-17'
 resumo: Air fryer no formato forno, com 12 litros e painel digital, vendida pela Casas Bahia no Mercado Livre.
 pros:

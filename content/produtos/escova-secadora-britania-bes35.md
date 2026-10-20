@@ -7,7 +7,7 @@ preco: 100.09
 preco_antigo: 124.32
 link_afiliado: https://meli.la/1Kn1osp
 codigo: EQMTUP-F0WU
-atualizado: '2026-10-18'
+atualizado: '2026-10-20'
 data: '2026-10-17'
 resumo: Escova secadora Britânia 4 em 1 de 1300W, bivolt, vendida pelo Mercado Livre.
 pros:

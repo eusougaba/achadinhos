@@ -6,7 +6,7 @@ imagem: https://http2.mlstatic.com/D_NQ_NP_880111-MLA98000162588_112025-O.webp
 preco: 2433
 link_afiliado: https://meli.la/2uMnuqD
 codigo: EQMTUP-NSU5
-atualizado: '2026-10-18'
+atualizado: '2026-10-20'
 data: '2026-10-17'
 resumo: Geladeira inverse de 490 litros, frost free e com motor inverter, em 10x sem juros. Está entre as mais vendidas da categoria.
 pros:

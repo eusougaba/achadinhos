@@ -8,6 +8,7 @@ preco_antigo: 59.9
 link_afiliado: https://meli.la/29akFwb
 codigo: EQMTUP-ZTEV
 atualizado: '2026-10-18'
+ativo: false
 data: '2026-10-18'
 resumo: Chinelo Kappa Beach Adulto Unissex Em Borracha por R$ 29,99, com nota 4.8 e mais de 10 mil vendidos.
 pros:
