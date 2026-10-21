@@ -7,6 +7,7 @@ preco: 49.7
 preco_antigo: 69.99
 link_afiliado: https://meli.la/2AZhXup
 codigo: EQMTUP-1CDY
+ativo: false
 data: '2026-10-20'
 resumo: Chinelo Havaianas Brasil Bandeira Bandeirinha Original Cores por R$ 49,70, com nota 4.9 e mais de 10 mil vendidos.
 pros:

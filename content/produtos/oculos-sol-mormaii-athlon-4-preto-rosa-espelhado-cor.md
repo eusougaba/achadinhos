@@ -7,6 +7,7 @@ preco: 227.19
 preco_antigo: 449
 link_afiliado: https://meli.la/1bzQiz8
 codigo: EQMTUP-G9HY
+atualizado: '2026-10-21'
 data: '2026-10-20'
 resumo: Oculos Sol Mormaii Athlon 4 Preto Rosa Espelhado Cor por R$ 227,19, com nota 4.9 e mais de 1 mil vendidos.
 pros:

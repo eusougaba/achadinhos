@@ -7,7 +7,7 @@ preco: 34.9
 preco_antigo: 43.9
 link_afiliado: https://meli.la/1fuQ7JB
 codigo: EQMTUP-ZUXG
-atualizado: '2026-10-20'
+atualizado: '2026-10-21'
 data: '2026-10-19'
 resumo: Sérum Roll-on Área Dos Olhos Adeus Olheiras 10ml Kokeshi Todo por R$ 34,90, com nota 4.7 e mais de 10 mil vendidos.
 pros:

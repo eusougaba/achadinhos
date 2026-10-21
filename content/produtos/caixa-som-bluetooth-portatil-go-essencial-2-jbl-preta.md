@@ -8,6 +8,7 @@ preco_antigo: 219
 link_afiliado: https://meli.la/2HmC8qL
 codigo: EQMTUP-D9A4
 atualizado: '2026-10-20'
+ativo: false
 data: '2026-10-17'
 resumo: Caixa De Som Bluetooth Portátil Go Essencial 2 Jbl - Preta por R$ 172,20, com nota 4.9 e mais de 10 mil vendidos.
 pros:

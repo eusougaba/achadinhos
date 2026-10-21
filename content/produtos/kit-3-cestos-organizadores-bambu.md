@@ -6,7 +6,7 @@ imagem: https://http2.mlstatic.com/D_NQ_NP_820185-MLA99595328578_122025-O.webp
 preco: 75.8
 link_afiliado: https://meli.la/1EodsXB
 codigo: EQMTUP-WATD
-atualizado: '2026-10-20'
+atualizado: '2026-10-21'
 data: '2026-10-17'
 resumo: Kit com 3 cestos organizadores de bambu com forro, para armários e prateleiras.
 pros:

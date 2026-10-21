@@ -7,7 +7,7 @@ preco: 48.36
 preco_antigo: 99.99
 link_afiliado: https://meli.la/1NWsuhH
 codigo: EQMTUP-YG2W
-atualizado: '2026-10-20'
+atualizado: '2026-10-21'
 data: '2026-10-17'
 resumo: Copo térmico gigante de 1,2 litro em inox, roxo claro, com canudo e escova, com 51% de desconto.
 pros:

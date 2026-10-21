@@ -7,7 +7,7 @@ preco: 40.64
 preco_antigo: 59.9
 link_afiliado: https://meli.la/1Q8NLNW
 codigo: EQMTUP-FUC0
-atualizado: '2026-10-20'
+atualizado: '2026-10-21'
 data: '2026-10-17'
 resumo: Chaleira elétrica de inox com 1,8 litro e desligamento automático, por menos de R$ 40.
 pros:

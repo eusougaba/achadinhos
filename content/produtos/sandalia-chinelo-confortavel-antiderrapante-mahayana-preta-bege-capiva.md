@@ -3,11 +3,11 @@ titulo: Sandália Chinelo Confortável Antiderrapante Mahayana Preta Bege Capiva
 categoria: moda
 loja: mercadolivre
 imagem: https://http2.mlstatic.com/D_NQ_NP_841221-MLB112999309940_072026-O.webp
-preco: 39.5
+preco: 41
 preco_antigo: 59.99
 link_afiliado: https://meli.la/2fhF3v1
 codigo: EQMTUP-8KTP
-atualizado: '2026-10-20'
+atualizado: '2026-10-21'
 data: '2026-10-18'
 resumo: Sandália Chinelo Confortável Antiderrapante Mahayana Preta por R$ 49,99, com nota 4.8 e mais de 10 mil vendidos.
 pros:

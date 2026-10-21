@@ -7,7 +7,7 @@ preco: 58.9
 preco_antigo: 259.99
 link_afiliado: https://meli.la/1YjGzgG
 codigo: EQMTUP-AJ1M
-atualizado: '2026-10-20'
+atualizado: '2026-10-21'
 data: '2026-10-17'
 resumo: Lixeira automática redonda com sensor e bateria recarregável por USB-C, com 77% de desconto.
 pros:

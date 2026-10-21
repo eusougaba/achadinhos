@@ -7,7 +7,7 @@ preco: 29.99
 preco_antigo: 49.99
 link_afiliado: https://meli.la/2ka2nRH
 codigo: EQMTUP-7DR9
-atualizado: '2026-10-20'
+atualizado: '2026-10-21'
 data: '2026-10-17'
 resumo: Balança digital com bioimpedância e app no celular, por menos de R$ 30 no Pix.
 pros:

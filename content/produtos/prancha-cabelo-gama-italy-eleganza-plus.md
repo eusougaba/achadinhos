@@ -7,7 +7,7 @@ preco: 88
 preco_antigo: 149.9
 link_afiliado: https://meli.la/1jna9FJ
 codigo: EQMTUP-L90Z
-atualizado: '2026-10-20'
+atualizado: '2026-10-21'
 data: '2026-10-19'
 resumo: Prancha de cabelo Gama Italy Eleganza Plus por R$ 88,00, com nota 4.8 e mais de 100 mil vendidos.
 pros:

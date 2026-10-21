@@ -7,7 +7,7 @@ preco: 48.5
 preco_antigo: 79
 link_afiliado: https://meli.la/2ANCg17
 codigo: EQMTUP-901R
-atualizado: '2026-10-20'
+atualizado: '2026-10-21'
 data: '2026-10-18'
 resumo: Lanterna Mais Forte Do Mundo Recarregável Tática Potente T9 - por R$ 48,50, com nota 4.8 e mais de 100 mil vendidos.
 pros:

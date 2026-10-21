@@ -7,7 +7,7 @@ preco: 64.9
 preco_antigo: 133.09
 link_afiliado: https://meli.la/1kDdqD9
 codigo: EQMTUP-SCA4
-atualizado: '2026-10-20'
+atualizado: '2026-10-21'
 data: '2026-10-17'
 resumo: Óleo Braé Essential para reparação e proteção térmica, com 53% de desconto no Pix.
 pros:

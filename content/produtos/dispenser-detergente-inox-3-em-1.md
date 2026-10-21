@@ -7,7 +7,7 @@ preco: 36.72
 preco_antigo: 69.9
 link_afiliado: https://meli.la/24aNwG4
 codigo: EQMTUP-EEYY
-atualizado: '2026-10-20'
+atualizado: '2026-10-21'
 data: '2026-10-17'
 resumo: Dispenser de detergente em inox com porta-esponja, que organiza a pia.
 pros:

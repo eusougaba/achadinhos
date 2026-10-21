@@ -7,7 +7,7 @@ preco: 71.09
 preco_antigo: 78.99
 link_afiliado: https://meli.la/1VBmtzZ
 codigo: EQMTUP-W7DQ
-atualizado: '2026-10-20'
+atualizado: '2026-10-21'
 data: '2026-10-17'
 resumo: Caminha para pet de porte pequeno a médio que vai direto na máquina de lavar.
 pros:

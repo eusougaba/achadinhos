@@ -3,11 +3,11 @@ titulo: Protetor Solar Facial Antioleosidade FPS 80 Anthelios La Roche-Posay 40g
 categoria: beleza
 loja: mercadolivre
 imagem: https://http2.mlstatic.com/D_NQ_NP_752201-MLA113617929791_062026-O.webp
-preco: 83.54
+preco: 83.57
 preco_antigo: 120.9
 link_afiliado: https://meli.la/1WxECHV
 codigo: EQMTUP-6PJ6
-atualizado: '2026-10-20'
+atualizado: '2026-10-21'
 data: '2026-10-19'
 resumo: Protetor Solar Facial Antioleosidade FPS 80 Anthelios La por R$ 83,54, com nota 4.9 e mais de 250 mil vendidos.
 pros:
