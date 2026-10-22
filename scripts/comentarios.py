@@ -69,11 +69,16 @@ def main(ver: bool) -> None:
     primeira = not ESTADO.exists()
     estado = json.loads(ESTADO.read_text()) if ESTADO.exists() else {}
     recentes = chamar("GET", f"{ig}/media", fields="id,timestamp,comments_count", limit=30).get("data", [])
+    if ver:
+        for m in recentes[:8]:
+            print(f"mídia {m['id']} {m.get('timestamp')} comentários={m.get('comments_count')}")
+            try:
+                print('  leitura:', len(comentarios(ig, m['id'])), 'comentários')
+            except ErroInstagram as e:
+                print('  erro:', e)
     corte = dt.datetime.now(dt.timezone.utc) - dt.timedelta(days=6)
     fila = []
     for m in recentes:
-        if not m.get("comments_count"):
-            continue
         for c in comentarios(ig, m["id"]):
             if c["id"] in estado or c.get("username") == minha:
                 continue
