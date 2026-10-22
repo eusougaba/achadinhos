@@ -4,8 +4,8 @@ name: Responder comentários do Instagram
 # Roda a cada ~15 minutos. Primeira execução só marca os comentários existentes, sem responder.
 
 on:
-  schedule:
-    - cron: "*/15 11-23,0-2 * * *"
+  # schedule:  (desligado até o Marcos aprovar)
+  #   - cron: "*/15 11-23,0-2 * * *"
   workflow_dispatch:
     inputs:
       modo:
