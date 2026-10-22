@@ -3,7 +3,7 @@ titulo: Kit 3 Cestos Organizadores de Bambu com Forro
 categoria: casa
 loja: mercadolivre
 imagem: https://http2.mlstatic.com/D_NQ_NP_820185-MLA99595328578_122025-O.webp
-preco: 75.8
+preco: 75.9
 link_afiliado: https://meli.la/1EodsXB
 codigo: EQMTUP-WATD
 atualizado: '2026-10-21'

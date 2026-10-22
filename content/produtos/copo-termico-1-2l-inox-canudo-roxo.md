@@ -3,7 +3,7 @@ titulo: Copo Térmico Gigante 1,2l Inox Com Tampa, Canudo e Escova Roxo Claro
 categoria: esporte
 loja: mercadolivre
 imagem: https://http2.mlstatic.com/D_NQ_NP_879721-MLB115920850639_082026-O.webp
-preco: 48.36
+preco: 48.99
 preco_antigo: 99.99
 link_afiliado: https://meli.la/1NWsuhH
 codigo: EQMTUP-YG2W

@@ -3,8 +3,8 @@ titulo: Electrolux Kit 6 Potes Herméticos De Plástico Cinza 12,4l Safelock
 categoria: casa
 loja: mercadolivre
 imagem: https://http2.mlstatic.com/D_NQ_NP_929111-MLA108657636819_032026-O.webp
-preco: 87.69
-preco_antigo: 119
+preco: 72
+preco_antigo: 80
 link_afiliado: https://meli.la/2SyMpkR
 codigo: EQMTUP-MTZL
 atualizado: '2026-10-21'

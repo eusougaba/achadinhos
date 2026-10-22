@@ -3,7 +3,7 @@ titulo: Air Fryer Philco 6,5L Visor Glass 1700W PAF65A
 categoria: casa
 loja: mercadolivre
 imagem: https://http2.mlstatic.com/D_NQ_NP_761173-MLA99475995202_112025-O.webp
-preco: 327.86
+preco: 388
 preco_antigo: 485
 link_afiliado: https://meli.la/2WfawNT
 codigo: EQMTUP-70A3

@@ -3,7 +3,7 @@ titulo: Risqué Kit Com 15 Esmaltes Hipoalergênicos 8ml Cores Variadas
 categoria: beleza
 loja: mercadolivre
 imagem: https://http2.mlstatic.com/D_NQ_NP_981657-MLB95595621137_102025-O.webp
-preco: 62.44
+preco: 63.09
 preco_antigo: 77.9
 link_afiliado: https://meli.la/2MonKeu
 codigo: EQMTUP-3Z8H

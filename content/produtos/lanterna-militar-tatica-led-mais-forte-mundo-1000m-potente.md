@@ -3,7 +3,7 @@ titulo: Lanterna Militar Tatica LED Mais Forte do Mundo 1000m Potente Zoom Teles
 categoria: ferramentas
 loja: mercadolivre
 imagem: https://http2.mlstatic.com/D_NQ_NP_902282-MLA118393271021_092026-O.webp
-preco: 24.6
+preco: 27.99
 preco_antigo: 39.99
 link_afiliado: https://meli.la/1kecEEV
 codigo: EQMTUP-FZN9

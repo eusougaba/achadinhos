@@ -3,7 +3,7 @@ titulo: 'Kit 20 Itens: Elasticos Extensores + 5 Mini bands + 1 Corda de Pular + 
 categoria: esporte
 loja: mercadolivre
 imagem: https://http2.mlstatic.com/D_NQ_NP_816904-MLA109785791909_032026-O.webp
-preco: 52.96
+preco: 51
 preco_antigo: 78
 link_afiliado: https://meli.la/1HQkpGZ
 codigo: EQMTUP-VWL4

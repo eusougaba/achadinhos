@@ -3,8 +3,8 @@ titulo: Lixeira automática 16 L com sensor e recarregável USB-C
 categoria: casa
 loja: mercadolivre
 imagem: https://http2.mlstatic.com/D_NQ_NP_788890-MLA116696689609_082026-O.webp
-preco: 60.71
-preco_antigo: 78.99
+preco: 56.33
+preco_antigo: 69.99
 link_afiliado: https://meli.la/2ojZwdp
 codigo: EQMTUP-1QAE
 atualizado: '2026-10-21'

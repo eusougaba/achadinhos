@@ -8,6 +8,7 @@ preco_antigo: 189.99
 link_afiliado: https://meli.la/1EuNjuQ
 codigo: EQMTUP-BNWE
 atualizado: '2026-10-21'
+ativo: false
 data: '2026-10-17'
 resumo: Kit com 10 potes herméticos de vidro com tampa de bambu da Seiri, para a despensa.
 pros:

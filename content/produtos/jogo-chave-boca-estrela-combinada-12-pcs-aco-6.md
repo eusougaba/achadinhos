@@ -3,7 +3,7 @@ titulo: Jogo De Chave Boca E Estrela Combinada 12 Pçs Aço 6-22 Mm Cromada Prof
 categoria: ferramentas
 loja: mercadolivre
 imagem: https://http2.mlstatic.com/D_NQ_NP_610242-MLA107057310600_022026-O.webp
-preco: 55
+preco: 62.9
 preco_antigo: 109.9
 link_afiliado: https://meli.la/1aT6EzT
 codigo: EQMTUP-1M9E

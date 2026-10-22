@@ -3,7 +3,7 @@ titulo: Escova Secadora Britânia BES35 Nanocerâmica 1300W Bivolt 4 em 1
 categoria: beleza
 loja: mercadolivre
 imagem: https://http2.mlstatic.com/D_NQ_NP_777196-MLA106749115152_022026-O.webp
-preco: 100.09
+preco: 106.5
 preco_antigo: 124.32
 link_afiliado: https://meli.la/1Kn1osp
 codigo: EQMTUP-F0WU

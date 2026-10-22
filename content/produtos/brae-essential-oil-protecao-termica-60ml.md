@@ -3,7 +3,7 @@ titulo: Braé Essential Oil Blend Reparação e Proteção Térmica 60ml
 categoria: beleza
 loja: mercadolivre
 imagem: https://http2.mlstatic.com/D_NQ_NP_747071-MLA112400438167_052026-O.webp
-preco: 64.9
+preco: 67.9
 preco_antigo: 133.09
 link_afiliado: https://meli.la/1kDdqD9
 codigo: EQMTUP-SCA4
