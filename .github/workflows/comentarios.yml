@@ -37,9 +37,9 @@ jobs:
         run: |
           set -o pipefail
           if [ "${{ github.event.inputs.modo }}" = "ver" ]; then
-            python scripts/comentarios.py ver 2>&1 | tee content/analise/comentarios.log
+            python scripts/comentarios.py ver 2>&1 | tee content/analise/comentarios.log || true
           else
-            python scripts/comentarios.py 2>&1 | tee -a content/analise/comentarios.log
+            python scripts/comentarios.py 2>&1 | tee -a content/analise/comentarios.log || true
           fi
       - name: Registrar o que foi respondido
         if: always()

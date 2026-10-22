@@ -112,4 +112,8 @@ def main(ver: bool) -> None:
 
 
 if __name__ == "__main__":
-    main(ver=sys.argv[1:] == ["ver"])
+    try:
+        main(ver=sys.argv[1:] == ["ver"])
+    except BaseException as e:  # o erro vai para o log (content/analise/comentarios.log)
+        print(f"ERRO: {e}")
+        sys.exit(1)
