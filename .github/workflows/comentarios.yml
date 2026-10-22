@@ -35,17 +35,19 @@ jobs:
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
         run: |
+          set -o pipefail
           if [ "${{ github.event.inputs.modo }}" = "ver" ]; then
-            python scripts/comentarios.py ver
+            python scripts/comentarios.py ver 2>&1 | tee content/analise/comentarios.log
           else
-            python scripts/comentarios.py
+            python scripts/comentarios.py 2>&1 | tee -a content/analise/comentarios.log
           fi
       - name: Registrar o que foi respondido
+        if: always()
         run: |
-          if [ -n "$(git status --porcelain content/comentarios-respondidos.json)" ]; then
+          if [ -n "$(git status --porcelain content/comentarios-respondidos.json content/analise/comentarios.log)" ]; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add content/comentarios-respondidos.json
+            git add content/comentarios-respondidos.json content/analise/comentarios.log
             git commit -m "Registra respostas a comentários [skip ci]"
             git pull --rebase -q
             git push
