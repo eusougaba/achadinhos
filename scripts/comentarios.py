@@ -70,6 +70,10 @@ def main(ver: bool) -> None:
     estado = json.loads(ESTADO.read_text()) if ESTADO.exists() else {}
     recentes = chamar("GET", f"{ig}/media", fields="id,timestamp,comments_count", limit=30).get("data", [])
     if ver:
+        import hashlib
+        print('token:', ig_mod.descrever_token(), 'impressão', hashlib.sha256(ig_mod.token().encode()).hexdigest()[:8])
+        for m in recentes[:1]:
+            print('  bruto:', json.dumps(chamar('GET', f"{m['id']}/comments", fields='id,text,username,timestamp,from'), ensure_ascii=False)[:400])
         for m in recentes[:8]:
             print(f"mídia {m['id']} {m.get('timestamp')} comentários={m.get('comments_count')}")
             try:
