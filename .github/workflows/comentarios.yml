@@ -1,0 +1,52 @@
+name: Responder comentários do Instagram
+
+# Quem comenta pedindo o link (link, quero, preço...) recebe o link por DM e uma resposta no comentário.
+# Roda a cada ~15 minutos. Primeira execução só marca os comentários existentes, sem responder.
+
+on:
+  schedule:
+    - cron: "*/15 11-23,0-2 * * *"
+  workflow_dispatch:
+    inputs:
+      modo:
+        description: "ver (só lista, não envia) ou responder"
+        type: choice
+        options: [ver, responder]
+        default: ver
+
+permissions:
+  contents: write
+
+concurrency:
+  group: comentarios
+  cancel-in-progress: false
+
+jobs:
+  responder:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: Ler e responder comentários
+        env:
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+        run: |
+          if [ "${{ github.event.inputs.modo }}" = "ver" ]; then
+            python scripts/comentarios.py ver
+          else
+            python scripts/comentarios.py
+          fi
+      - name: Registrar o que foi respondido
+        run: |
+          if [ -n "$(git status --porcelain content/comentarios-respondidos.json)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add content/comentarios-respondidos.json
+            git commit -m "Registra respostas a comentários [skip ci]"
+            git pull --rebase -q
+            git push
+          fi
