@@ -3,7 +3,7 @@ titulo: Tênis Masculino E Feminino Delta 122 Olympikus Preto/chumbo Liso 35 Br
 categoria: moda
 loja: mercadolivre
 imagem: https://http2.mlstatic.com/D_NQ_NP_719573-MLB85642916761_062025-O.webp
-preco: 151.99
+preco: 128.24
 preco_antigo: 229.99
 link_afiliado: https://meli.la/1xC3YXf
 codigo: EQMTUP-NJM3

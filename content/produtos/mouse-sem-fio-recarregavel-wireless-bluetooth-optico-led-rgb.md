@@ -3,8 +3,8 @@ titulo: Mouse Sem Fio Recarregável Wireless Bluetooth Optico Led Rgb Ergonômic
 categoria: tecnologia
 loja: mercadolivre
 imagem: https://http2.mlstatic.com/D_NQ_NP_826958-MLA114973266685_072026-O.webp
-preco: 20.65
-preco_antigo: 29.67
+preco: 20.9
+preco_antigo: 49.9
 link_afiliado: https://meli.la/14AnHHs
 codigo: EQMTUP-0EYR
 atualizado: '2026-10-21'

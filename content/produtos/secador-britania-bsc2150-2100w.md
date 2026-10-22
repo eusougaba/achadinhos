@@ -3,8 +3,8 @@ titulo: Secador de cabelos Britânia Tourmaline Íons 2100W BSC2150 Bivolt
 categoria: beleza
 loja: mercadolivre
 imagem: https://http2.mlstatic.com/D_NQ_NP_690704-MLA99523589964_122025-O.webp
-preco: 97.92
-preco_antigo: 122.32
+preco: 105.45
+preco_antigo: 124.32
 link_afiliado: https://meli.la/14vpjDV
 codigo: EQMTUP-CQ8E
 atualizado: '2026-10-21'
