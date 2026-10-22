@@ -7,7 +7,7 @@ preco: 105.45
 preco_antigo: 124.32
 link_afiliado: https://meli.la/14vpjDV
 codigo: EQMTUP-CQ8E
-atualizado: '2026-10-21'
+atualizado: '2026-10-22'
 data: 2026-10-17
 resumo: "Secador de 2100W da Britânia, bivolt e com íons, vendido pelo próprio Mercado Livre por menos de R$ 100."
 pros:

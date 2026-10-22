@@ -7,6 +7,7 @@ preco: 78
 link_afiliado: https://meli.la/1wSjCfZ
 codigo: EQMTUP-YXQS
 atualizado: '2026-10-21'
+ativo: false
 data: '2026-10-17'
 resumo: Kit com 3 caixas sortidas de sabonete em barra Natura Tododia.
 pros:

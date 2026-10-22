@@ -7,7 +7,7 @@ preco: 48.57
 preco_antigo: 78.9
 link_afiliado: https://meli.la/2T2tU7o
 codigo: EQMTUP-YGTE
-atualizado: '2026-10-21'
+atualizado: '2026-10-22'
 data: '2026-10-21'
 resumo: Kit Miçangas Infantil 3300 Pçs P/ Montar Pulseiras Bolinhas por R$ 47,60, com nota 4.9 e mais de 5 mil vendidos.
 pros:

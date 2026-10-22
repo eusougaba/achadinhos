@@ -6,7 +6,7 @@ imagem: https://http2.mlstatic.com/D_NQ_NP_999246-MLA119116588375_102026-O.webp
 preco: 19.99
 link_afiliado: https://meli.la/2xK8Ro4
 codigo: EQMTUP-S7ZM
-atualizado: '2026-10-21'
+atualizado: '2026-10-22'
 data: '2026-10-17'
 resumo: Bomba elétrica que tira a água do galão de 20 litros sem precisar virar o galão.
 pros:

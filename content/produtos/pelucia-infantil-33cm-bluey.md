@@ -7,6 +7,7 @@ preco: 94.9
 preco_antigo: 149.99
 link_afiliado: https://meli.la/2AsMGAL
 codigo: EQMTUP-5V93
+ativo: false
 data: '2026-10-21'
 resumo: Pelúcia Infantil 33cm - Bluey por R$ 94,90, com nota 5.0 e mais de 1 mil vendidos.
 pros:

@@ -7,7 +7,7 @@ preco: 56.33
 preco_antigo: 69.99
 link_afiliado: https://meli.la/2ojZwdp
 codigo: EQMTUP-1QAE
-atualizado: '2026-10-21'
+atualizado: '2026-10-22'
 data: '2026-10-17'
 resumo: Lixeira que abre sozinha ao aproximar a mão, com bateria recarregável por USB-C, por R$ 66.
 pros:

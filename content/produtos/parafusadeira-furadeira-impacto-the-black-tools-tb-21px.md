@@ -7,7 +7,7 @@ preco: 159.9
 preco_antigo: 319.9
 link_afiliado: https://meli.la/1o48XU3
 codigo: EQMTUP-H7SG
-atualizado: '2026-10-21'
+atualizado: '2026-10-22'
 data: '2026-10-17'
 resumo: Furadeira de impacto com 2 baterias e maleta por menos de R$ 160, com mais de 250 mil vendidas.
 pros:

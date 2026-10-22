@@ -7,7 +7,7 @@ preco: 50
 preco_antigo: 99
 link_afiliado: https://meli.la/2ARRXEu
 codigo: EQMTUP-0N04
-atualizado: '2026-10-21'
+atualizado: '2026-10-22'
 data: '2026-10-17'
 resumo: Fonte de água de 1,5 L com alimentação USB e 127/220 V, para gatos e cães, por cerca de R$ 52.
 pros:

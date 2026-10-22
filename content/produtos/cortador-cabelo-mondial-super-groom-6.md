@@ -8,6 +8,7 @@ preco: 96.85
 link_afiliado: https://meli.la/2tYEwZ4
 codigo: EQMTUP-89UM
 atualizado: '2026-10-21'
+ativo: false
 data: '2026-10-17'
 resumo: Kit de cortar cabelo e aparar barba Mondial Super Groom 6, vendido pelo Mercado Livre com 54% de desconto.
 pros:

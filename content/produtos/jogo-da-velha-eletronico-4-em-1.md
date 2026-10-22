@@ -7,6 +7,7 @@ preco: 38.9
 link_afiliado: https://meli.la/1cU1fCd
 codigo: EQMTUP-RZ34
 atualizado: '2026-10-21'
+ativo: false
 data: '2026-10-17'
 resumo: Jogo da velha eletrônico 4 em 1 recarregável, para tirar a criança um pouco das telas.
 pros:

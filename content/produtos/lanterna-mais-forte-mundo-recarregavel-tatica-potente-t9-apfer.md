@@ -3,11 +3,11 @@ titulo: Lanterna Mais Forte Do Mundo Recarregável Tática Potente T9 - Apfer
 categoria: ferramentas
 loja: mercadolivre
 imagem: https://http2.mlstatic.com/D_NQ_NP_654641-MLA105556742941_012026-O.webp
-preco: 51.78
+preco: 48
 preco_antigo: 84.03
 link_afiliado: https://meli.la/2ANCg17
 codigo: EQMTUP-901R
-atualizado: '2026-10-21'
+atualizado: '2026-10-22'
 data: '2026-10-18'
 resumo: Lanterna Mais Forte Do Mundo Recarregável Tática Potente T9 - por R$ 48,50, com nota 4.8 e mais de 100 mil vendidos.
 pros:

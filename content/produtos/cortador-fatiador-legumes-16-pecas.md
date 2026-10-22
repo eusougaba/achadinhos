@@ -7,7 +7,7 @@ preco: 39.77
 preco_antigo: 59.9
 link_afiliado: https://meli.la/2majLs2
 codigo: EQMTUP-MCV3
-atualizado: '2026-10-21'
+atualizado: '2026-10-22'
 data: '2026-10-17'
 resumo: Fatiador e ralador de legumes com 16 peças em inox, para picar tudo em segundos.
 pros:

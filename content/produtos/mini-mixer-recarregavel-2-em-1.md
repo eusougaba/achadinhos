@@ -7,7 +7,7 @@ preco: 19.99
 preco_antigo: 49.99
 link_afiliado: https://meli.la/1qkvNu6
 codigo: EQMTUP-JC92
-atualizado: '2026-10-21'
+atualizado: '2026-10-22'
 data: '2026-10-17'
 resumo: Mini mixer recarregável para bater whey, café, leite e ovos, por menos de R$ 20.
 pros:

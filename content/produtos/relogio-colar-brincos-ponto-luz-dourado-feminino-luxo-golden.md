@@ -7,7 +7,7 @@ preco: 128
 preco_antigo: 286.41
 link_afiliado: https://meli.la/2onfiUh
 codigo: EQMTUP-3Y5K
-atualizado: '2026-10-21'
+atualizado: '2026-10-22'
 data: '2026-10-21'
 resumo: Kit Relógio Colar E Brincos Ponto De Luz Dourado Feminino por R$ 134,96, com nota 4.8 e mais de 10 mil vendidos.
 pros:

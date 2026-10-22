@@ -7,6 +7,7 @@ preco: 72.84
 preco_antigo: 145.68
 link_afiliado: https://meli.la/22RbTeg
 codigo: EQMTUP-UW06
+ativo: false
 data: '2026-10-21'
 resumo: Arco Móbile De Atividades Bebê Carrinho Berço Cadeirinha por R$ 72,84, com nota 4.9 e mais de 1 mil vendidos.
 pros:
