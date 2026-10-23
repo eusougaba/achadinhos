@@ -7,7 +7,7 @@ preco: 32.99
 preco_antigo: 59.9
 link_afiliado: https://meli.la/2VzFiEW
 codigo: EQMTUP-SKMH
-atualizado: '2026-10-22'
+atualizado: '2026-10-23'
 data: '2026-10-17'
 resumo: Dez potes transparentes de 750 ml com tampa de trava, para marmita, mantimentos e freezer, por menos de R$ 34.
 pros:

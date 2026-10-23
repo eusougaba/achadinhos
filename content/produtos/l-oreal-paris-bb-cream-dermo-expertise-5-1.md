@@ -7,6 +7,7 @@ preco: 43.64
 preco_antigo: 71.99
 link_afiliado: https://meli.la/2rwNfzW
 codigo: EQMTUP-QYNP
+atualizado: '2026-10-23'
 data: '2026-10-22'
 feed: false
 instagram: false

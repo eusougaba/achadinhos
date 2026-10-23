@@ -3,11 +3,11 @@ titulo: Kit Relógio Colar E Brincos Ponto De Luz Dourado Feminino Luxo Golden S
 categoria: moda
 loja: mercadolivre
 imagem: https://http2.mlstatic.com/D_NQ_NP_601349-MLA96148711367_102025-O.webp
-preco: 128
-preco_antigo: 286.41
+preco: 134.96
+preco_antigo: 316.22
 link_afiliado: https://meli.la/2onfiUh
 codigo: EQMTUP-3Y5K
-atualizado: '2026-10-22'
+atualizado: '2026-10-23'
 data: '2026-10-21'
 resumo: Kit Relógio Colar E Brincos Ponto De Luz Dourado Feminino por R$ 134,96, com nota 4.8 e mais de 10 mil vendidos.
 pros:

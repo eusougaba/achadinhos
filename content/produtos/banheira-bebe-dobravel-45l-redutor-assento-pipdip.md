@@ -7,6 +7,7 @@ preco: 164
 preco_antigo: 249.9
 link_afiliado: https://meli.la/14Pr66b
 codigo: EQMTUP-Y5EN
+ativo: false
 data: '2026-10-22'
 resumo: Banheira De Bebê Dobrável 45l Com Redutor De Assento Pipdip por R$ 164,00, com nota 4.9 e mais de 10 mil vendidos.
 pros:

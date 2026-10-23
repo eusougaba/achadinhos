@@ -7,7 +7,7 @@ preco: 96
 preco_antigo: 159.9
 link_afiliado: https://meli.la/2dDSbcM
 codigo: EQMTUP-YFTX
-atualizado: '2026-10-22'
+atualizado: '2026-10-23'
 data: '2026-10-20'
 resumo: Carregador Portátil 20000 Turbo 22.5w Power Bank Premium por R$ 96,00, com nota 4.8 e mais de 50 mil vendidos.
 pros:

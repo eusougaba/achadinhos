@@ -3,11 +3,11 @@ titulo: NIVEA Loção Hidratante Firmador Q10 + Vitamina C 400ml, Hidratação I
 categoria: beleza
 loja: mercadolivre
 imagem: https://http2.mlstatic.com/D_NQ_NP_897148-MLA118073430459_092026-O.webp
-preco: 31.23
+preco: 29.56
 preco_antigo: 43.19
 link_afiliado: https://meli.la/2rA4yUH
 codigo: EQMTUP-202U
-atualizado: '2026-10-22'
+atualizado: '2026-10-23'
 data: '2026-10-19'
 resumo: NIVEA Loção Hidratante Firmador Q10 + Vitamina C 400ml, por R$ 31,23, com nota 4.9 e mais de 50 mil vendidos.
 pros:

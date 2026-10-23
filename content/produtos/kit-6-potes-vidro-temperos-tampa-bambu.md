@@ -7,7 +7,7 @@ preco: 61.99
 preco_antigo: 119.9
 link_afiliado: https://meli.la/2SgSf3H
 codigo: EQMTUP-QP4G
-atualizado: '2026-10-22'
+atualizado: '2026-10-23'
 data: '2026-10-17'
 resumo: Seis potes de vidro herméticos com tampa de bambu para organizar os temperos, por cerca de R$ 7 cada.
 pros:

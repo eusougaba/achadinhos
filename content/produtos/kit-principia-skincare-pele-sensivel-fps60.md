@@ -7,7 +7,7 @@ preco: 102.75
 preco_antigo: 137
 link_afiliado: https://meli.la/2zAViBa
 codigo: EQMTUP-5MSN
-atualizado: '2026-10-22'
+atualizado: '2026-10-23'
 data: '2026-10-17'
 resumo: Kit de skincare da Principia para pele sensível, com protetor solar FPS 60, na loja oficial da marca.
 pros:

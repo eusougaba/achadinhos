@@ -7,7 +7,7 @@ preco: 35
 preco_antigo: 69.9
 link_afiliado: https://meli.la/2XwUHHm
 codigo: EQMTUP-SAHF
-atualizado: '2026-10-22'
+atualizado: '2026-10-23'
 data: '2026-10-19'
 resumo: Principia Sérum Antissinais 10% Peptídeos Matrixyl. por R$ 35,00, com nota 4.8 e mais de 10 mil vendidos.
 pros:

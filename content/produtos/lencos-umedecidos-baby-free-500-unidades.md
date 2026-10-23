@@ -7,7 +7,7 @@ preco: 34.87
 preco_antigo: 49.33
 link_afiliado: https://meli.la/32ArgFH
 codigo: EQMTUP-WF7D
-atualizado: '2026-10-22'
+atualizado: '2026-10-23'
 data: '2026-10-17'
 resumo: 500 lenços umedecidos hipoalergênicos em 5 pacotes, por menos de R$ 35.
 pros:

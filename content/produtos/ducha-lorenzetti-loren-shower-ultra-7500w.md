@@ -7,6 +7,7 @@ preco: 135
 link_afiliado: https://meli.la/2Z58M2e
 codigo: EQMTUP-KCTD
 atualizado: '2026-10-22'
+ativo: false
 data: '2026-10-17'
 resumo: 'Uma das duchas mais vendidas do Brasil: Lorenzetti eletrônica de 7500W, com temperatura regulável.'
 pros:

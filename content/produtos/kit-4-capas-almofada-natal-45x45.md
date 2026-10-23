@@ -6,7 +6,7 @@ imagem: https://http2.mlstatic.com/D_NQ_NP_866201-MLB113902724970_072026-O.webp
 preco: 44.9
 link_afiliado: https://meli.la/17v2q1S
 codigo: EQMTUP-QRHR
-atualizado: '2026-10-22'
+atualizado: '2026-10-23'
 data: '2026-10-17'
 resumo: Quatro capas de almofada 45x45 com estampas de Natal em vermelho, para decorar a sala gastando pouco.
 pros:

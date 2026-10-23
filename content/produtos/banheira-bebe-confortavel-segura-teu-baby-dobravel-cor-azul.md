@@ -7,6 +7,7 @@ preco: 165
 preco_antigo: 269.99
 link_afiliado: https://meli.la/1XZNfG1
 codigo: EQMTUP-24HA
+ativo: false
 data: '2026-10-22'
 resumo: Banheira Para Bebe Confortável Segura Teu Baby Dobrável Cor por R$ 165,00, com nota 4.9 e mais de 1 mil vendidos.
 pros:
