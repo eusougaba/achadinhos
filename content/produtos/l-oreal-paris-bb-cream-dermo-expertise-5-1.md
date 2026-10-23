@@ -8,6 +8,8 @@ preco_antigo: 71.99
 link_afiliado: https://meli.la/2rwNfzW
 codigo: EQMTUP-QYNP
 data: '2026-10-22'
+feed: false
+instagram: false
 resumo: L’Oréal Paris BB Cream Dermo Expertise 5 em 1 FPS 20 Cor por R$ 43,64, com nota 4.8 e mais de 10 mil vendidos.
 pros:
 - Nota 4.8 e mais de 10 mil unidades vendidas

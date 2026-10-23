@@ -27,6 +27,7 @@ RAIZ = Path(__file__).resolve().parent.parent
 FONTES = Path(__file__).resolve().parent / "fontes"
 REGISTRO = RAIZ / "content" / "instagram-postados.json"
 
+FEED_POR_DIA = 1   # o alcance vem dos Reels; feed só 1 por dia
 W, H = 1080, 1350
 TINTA = (22, 26, 39)        # grafite da marca
 FUNDO = (244, 245, 247)
@@ -375,6 +376,18 @@ def proximo_reel_avulso(registro: dict) -> dict | None:
     return None
 
 
+def _palavras(titulo: str) -> set:
+    t = unicodedata.normalize("NFD", (titulo or "").lower())
+    t = "".join(c for c in t if unicodedata.category(c) != "Mn")
+    return {w for w in re.split(r"[^a-z0-9]+", t) if len(w) > 2}
+
+
+def parecido(a: str, b: str) -> bool:
+    """Mesmo produto anunciado duas vezes (títulos muito parecidos)."""
+    pa, pb = _palavras(a), _palavras(b)
+    return bool(pa and pb) and len(pa & pb) / len(pa | pb) >= 0.5
+
+
 def publicar(modo: str = "feed") -> None:
     """modo='feed' publica no feed (poucos por dia); modo='story' publica um story."""
     sys.path.insert(0, str(RAIZ))
@@ -400,6 +413,12 @@ def publicar(modo: str = "feed") -> None:
                  if chave(p["slug"]) not in registro and p.get("instagram", True) is not False
                  and (modo == "story" or p.get("feed", True) is not False)
                  and (p.get("sem_preco") or (dt.date.today() - p["visto"]).days <= 21)]  # preço velho não vai para o Instagram  # feed só para quem pontuou bem
+    # não repete o mesmo produto (anúncios diferentes com título parecido) no mesmo tipo de post
+    por_slug = {p["slug"]: p for p in produtos}
+    ja = [por_slug[k[len(prefixo):]] for k in registro if k.startswith(prefixo) and (prefixo or ":" not in k) and k[len(prefixo):] in por_slug]
+    mesmo = lambda a, b: parecido(a["titulo"], b["titulo"]) or (
+        a.get("preco") and a.get("preco") == b.get("preco") and a.get("preco_antigo") and a.get("preco_antigo") == b.get("preco_antigo"))
+    pendentes = [p for p in pendentes if not any(mesmo(p, x) for x in ja)]
     if modo != "story" and foco and any(p.get("categoria") in foco for p in pendentes):
         pendentes = [p for p in pendentes if p.get("categoria") in foco]   # só sai produto de foco enquanto houver
     if not pendentes and not (modo == "reel" and proximo_reel_avulso(registro)):
@@ -496,8 +515,8 @@ def automatico() -> None:
             feed_hoje += 1
     if not (9 <= agora.tm_hour <= 20):
         print("Fora do horário do feed (9h às 20h).")
-    elif feed_hoje >= 3:
-        print("Já foram 3 posts no feed hoje.")
+    elif feed_hoje >= FEED_POR_DIA:
+        print(f"Já foi {FEED_POR_DIA} post no feed hoje.")
     else:
         try:
             publicar("feed")

@@ -2,7 +2,7 @@ name: Postar no Instagram
 
 # Publica no Instagram, um produto por vez:
 # - stories: no máximo um a cada 50 minutos, das 9h às 21h
-# - feed: até 3 por dia, com pelo menos 2h30 de intervalo, das 9h às 20h
+# - feed: 1 por dia, das 9h às 20h
 # O GitHub atrasa agendamentos, por isso roda a cada 20 minutos e o script decide se publica.
 # Só funciona com os segredos IG_USER_ID e IG_ACCESS_TOKEN cadastrados e com o site fora do modo protótipo.
 
