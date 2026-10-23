@@ -74,6 +74,16 @@ def main(ver: bool) -> None:
         print('token:', ig_mod.descrever_token(), 'impressão', hashlib.sha256(ig_mod.token().encode()).hexdigest()[:8])
         for m in recentes[:1]:
             print('  bruto:', json.dumps(chamar('GET', f"{m['id']}/comments", fields='id,text,username,timestamp,from'), ensure_ascii=False)[:400])
+        try:
+            r = chamar('GET', f'{ig}/conversations', platform='instagram', limit=1)
+            print('  mensagens (permissão): OK', len(r.get('data', [])), 'conversas')
+        except ErroInstagram as e:
+            print('  mensagens (permissão): ERRO', str(e)[:300])
+        try:
+            r = chamar('GET', recentes[0]['id'], fields='comments{id,text,username,from}')
+            print('  comments{} no post:', json.dumps(r, ensure_ascii=False)[:300])
+        except ErroInstagram as e:
+            print('  comments{} ERRO', str(e)[:300])
         for m in recentes[:8]:
             print(f"mídia {m['id']} {m.get('timestamp')} comentários={m.get('comments_count')}")
             try:
