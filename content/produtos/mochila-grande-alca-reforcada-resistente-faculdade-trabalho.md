@@ -7,7 +7,7 @@ preco: 46.88
 preco_antigo: 78.9
 link_afiliado: https://meli.la/1pavWk1
 codigo: EQMTUP-VYEL
-atualizado: '2026-10-23'
+atualizado: '2026-10-24'
 data: '2026-10-18'
 resumo: Mochila Grande Alça Reforçada Resistente Faculdade Trabalho por R$ 45,99, com nota 4.5 e mais de 100 mil vendidos.
 pros:

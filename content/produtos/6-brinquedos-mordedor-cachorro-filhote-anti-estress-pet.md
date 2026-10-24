@@ -3,11 +3,11 @@ titulo: Kit 6 Brinquedos Mordedor Cachorro Filhote Anti Estress Pet
 categoria: pets
 loja: mercadolivre
 imagem: https://http2.mlstatic.com/D_NQ_NP_930634-MLB98919228507_112025-O.webp
-preco: 24.68
+preco: 24.24
 preco_antigo: 30.86
 link_afiliado: https://meli.la/1mZeA8L
 codigo: EQMTUP-DEXF
-atualizado: '2026-10-23'
+atualizado: '2026-10-24'
 data: '2026-10-21'
 resumo: Kit 6 Brinquedos Mordedor Cachorro Filhote Anti Estress Pet por R$ 24,68, com nota 4.7 e mais de 5 mil vendidos.
 pros:

@@ -7,7 +7,7 @@ preco: 78.9
 preco_antigo: 149
 link_afiliado: https://meli.la/1GbPpgj
 codigo: EQMTUP-RY6W
-atualizado: '2026-10-23'
+atualizado: '2026-10-24'
 data: '2026-10-20'
 resumo: Fone De Ouvido Headphone Dapon H02d Bluetooth 5.1 Over-ear 22 por R$ 78,90, com nota 4.9 e mais de 10 mil vendidos.
 pros:

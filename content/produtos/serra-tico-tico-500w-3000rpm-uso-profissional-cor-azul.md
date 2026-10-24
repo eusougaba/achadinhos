@@ -3,11 +3,11 @@ titulo: Serra Tico Tico 500w 3000rpm Uso Profissional Cor Azul Tssaper TSSTT Mdf
 categoria: ferramentas
 loja: mercadolivre
 imagem: https://http2.mlstatic.com/D_NQ_NP_893122-MLA104481009684_012026-O.webp
-preco: 88.78
-preco_antigo: 163.35
+preco: 91.91
+preco_antigo: 162.55
 link_afiliado: https://meli.la/17e3uGs
 codigo: EQMTUP-CK04
-atualizado: '2026-10-23'
+atualizado: '2026-10-24'
 data: '2026-10-18'
 resumo: Serra Tico Tico 500w 3000rpm Uso Profissional Cor Azul por R$ 88,78, com nota 4.7 e mais de 10 mil vendidos.
 pros:

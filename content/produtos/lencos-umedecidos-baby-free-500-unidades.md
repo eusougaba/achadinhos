@@ -3,11 +3,11 @@ titulo: Lenços Umedecidos Baby Free 500un Hipoalergênico Kit 5 Pacotes
 categoria: bebes
 loja: mercadolivre
 imagem: https://http2.mlstatic.com/D_NQ_NP_918001-MLB117647277373_092026-O.webp
-preco: 34.87
+preco: 37.8
 preco_antigo: 49.33
 link_afiliado: https://meli.la/32ArgFH
 codigo: EQMTUP-WF7D
-atualizado: '2026-10-23'
+atualizado: '2026-10-24'
 data: '2026-10-17'
 resumo: 500 lenços umedecidos hipoalergênicos em 5 pacotes, por menos de R$ 35.
 pros:

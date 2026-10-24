@@ -7,7 +7,7 @@ preco: 78.9
 preco_antigo: 149
 link_afiliado: https://meli.la/1sJ9vqR
 codigo: EQMTUP-6TPH
-atualizado: '2026-10-23'
+atualizado: '2026-10-24'
 data: '2026-10-17'
 resumo: Headphone Bluetooth 5.1 over-ear com 22 horas de bateria por menos de R$ 80, nota 4,9.
 pros:

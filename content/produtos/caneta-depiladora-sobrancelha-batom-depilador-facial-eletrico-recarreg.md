@@ -7,7 +7,7 @@ preco: 31.9
 preco_antigo: 59.9
 link_afiliado: https://meli.la/21H3NsL
 codigo: EQMTUP-X7V6
-atualizado: '2026-10-23'
+atualizado: '2026-10-24'
 data: '2026-10-19'
 resumo: Kit Caneta Depiladora Sobrancelha + Batom Depilador Facial por R$ 31,90, com nota 4.7 e mais de 10 mil vendidos.
 pros:

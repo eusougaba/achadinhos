@@ -7,7 +7,7 @@ preco: 43.64
 preco_antigo: 71.99
 link_afiliado: https://meli.la/2DdUVx7
 codigo: EQMTUP-A8GP
-atualizado: '2026-10-23'
+atualizado: '2026-10-24'
 data: '2026-10-22'
 resumo: L'Oréal Paris Dermo Expertise BB Cream, Creme Milagroso 5 em por R$ 43,64, com nota 4.8 e mais de 50 mil vendidos.
 pros:

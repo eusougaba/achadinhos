@@ -7,6 +7,7 @@ preco: 36.9
 preco_antigo: 49.99
 link_afiliado: https://meli.la/1KUFXD4
 codigo: EQMTUP-43CP
+atualizado: '2026-10-24'
 data: '2026-10-23'
 resumo: Carregador Turbo 40w Para iPhone 11 12 13 14 Pro Max Usb por R$ 36,90, com nota 4.9 e mais de 10 mil vendidos.
 pros:
