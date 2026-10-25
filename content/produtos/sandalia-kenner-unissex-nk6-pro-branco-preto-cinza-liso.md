@@ -7,6 +7,7 @@ preco: 90.9
 preco_antigo: 149.9
 link_afiliado: https://meli.la/2Z4962f
 codigo: EQMTUP-RSFL
+ativo: false
 data: '2026-10-23'
 resumo: Sandália Kenner Unissex Nk6 Pro Branco/preto/cinza Liso 41 por R$ 90,90, com nota 4.9 e mais de 5 mil vendidos.
 pros:

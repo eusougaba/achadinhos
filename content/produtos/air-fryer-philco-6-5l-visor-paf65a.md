@@ -6,7 +6,7 @@ imagem: https://http2.mlstatic.com/D_NQ_NP_761173-MLA99475995202_112025-O.webp
 preco: 359
 link_afiliado: https://meli.la/2WfawNT
 codigo: EQMTUP-70A3
-atualizado: '2026-10-24'
+atualizado: '2026-10-25'
 data: '2026-10-17'
 resumo: Air fryer Philco de 6,5 litros com visor de vidro, com 47% de desconto no Pix.
 pros:

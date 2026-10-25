@@ -7,7 +7,7 @@ preco: 102.12
 preco_antigo: 192
 link_afiliado: https://meli.la/1JvNyg8
 codigo: EQMTUP-S33E
-atualizado: '2026-10-24'
+atualizado: '2026-10-25'
 data: '2026-10-22'
 resumo: Bolsas Maternidade Média E Pequena Personalizada Com Nome por R$ 111,00, com nota 4.9 e mais de 10 mil vendidos.
 pros:

@@ -8,6 +8,7 @@ preco_antigo: 120.9
 link_afiliado: https://meli.la/1WxECHV
 codigo: EQMTUP-6PJ6
 atualizado: '2026-10-24'
+ativo: false
 data: '2026-10-19'
 resumo: Protetor Solar Facial Antioleosidade FPS 80 Anthelios La por R$ 83,54, com nota 4.9 e mais de 250 mil vendidos.
 pros:

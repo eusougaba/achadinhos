@@ -7,7 +7,7 @@ preco: 80.65
 preco_antigo: 134.9
 link_afiliado: https://meli.la/1N8n3Fq
 codigo: EQMTUP-Y07T
-atualizado: '2026-10-24'
+atualizado: '2026-10-25'
 data: '2026-10-23'
 resumo: Sandalia Vizzano Feminina Salto Baixo Grosso Bloco Conforto por R$ 78,99, com nota 4.9 e mais de 10 mil vendidos.
 pros:

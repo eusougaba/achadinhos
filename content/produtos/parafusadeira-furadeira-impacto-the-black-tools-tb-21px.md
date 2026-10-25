@@ -3,11 +3,11 @@ titulo: Parafusadeira Furadeira de Impacto The Black Tools TB-21PX, 2 baterias e
 categoria: ferramentas
 loja: mercadolivre
 imagem: https://http2.mlstatic.com/D_NQ_NP_981459-MLA117136184907_092026-O.webp
-preco: 143.91
+preco: 159.9
 preco_antigo: 319.9
 link_afiliado: https://meli.la/1o48XU3
 codigo: EQMTUP-H7SG
-atualizado: '2026-10-24'
+atualizado: '2026-10-25'
 data: '2026-10-17'
 resumo: Furadeira de impacto com 2 baterias e maleta por menos de R$ 160, com mais de 250 mil vendidas.
 pros:

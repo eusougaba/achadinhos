@@ -7,6 +7,7 @@ preco: 64.9
 link_afiliado: https://meli.la/2sd5R7F
 codigo: EQMTUP-CEKX
 atualizado: '2026-10-23'
+ativo: false
 data: '2026-10-17'
 resumo: Conjunto de alfaiataria com colete regata de botões e short, em preto, que funciona para trabalho e passeio.
 pros:

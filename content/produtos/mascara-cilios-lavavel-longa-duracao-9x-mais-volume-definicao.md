@@ -8,6 +8,7 @@ preco_antigo: 71.69
 link_afiliado: https://meli.la/1B9n8aK
 codigo: EQMTUP-A6SA
 atualizado: '2026-10-24'
+ativo: false
 data: '2026-10-19'
 resumo: Máscara de Cílios Lavável, Longa Duração, 9x Mais Volume e por R$ 45,61, com nota 4.8 e mais de 50 mil vendidos.
 pros:

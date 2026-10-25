@@ -7,6 +7,7 @@ preco: 623.96
 link_afiliado: https://meli.la/2Y6Kf6q
 codigo: EQMTUP-XH9J
 atualizado: '2026-10-23'
+ativo: false
 data: '2026-10-17'
 resumo: Air fryer de 16 litros da Philco, entre as mais vendidas, em 6x sem juros.
 pros:

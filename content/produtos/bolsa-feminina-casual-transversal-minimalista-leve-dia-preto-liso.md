@@ -8,6 +8,7 @@ preco_antigo: 99.99
 link_afiliado: https://meli.la/1pcRCjM
 codigo: EQMTUP-Y3WU
 atualizado: '2026-10-23'
+ativo: false
 data: '2026-10-22'
 resumo: Bolsa Feminina Casual Transversal Minimalista Leve Para Dia por R$ 69,99, com nota 4.9 e mais de 5 mil vendidos.
 pros:

@@ -8,6 +8,7 @@ preco_antigo: 119
 link_afiliado: https://meli.la/2uijSsh
 codigo: EQMTUP-6WC4
 atualizado: '2026-10-23'
+ativo: false
 data: '2026-10-21'
 resumo: Calça Legging Trifil Lupo Feminina Fitness Academia Original por R$ 78,95, com nota 4.9 e mais de 10 mil vendidos.
 pros:
