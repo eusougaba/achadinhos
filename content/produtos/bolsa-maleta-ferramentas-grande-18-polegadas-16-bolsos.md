@@ -7,7 +7,7 @@ preco: 78.99
 preco_antigo: 159.9
 link_afiliado: https://meli.la/2dq3yiQ
 codigo: EQMTUP-ES1C
-atualizado: '2026-10-25'
+atualizado: '2026-10-26'
 data: '2026-10-17'
 resumo: Bolsa de ferramentas reforçada de 18 polegadas com 16 bolsos, nota 4,9.
 pros:

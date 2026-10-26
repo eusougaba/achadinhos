@@ -6,7 +6,7 @@ imagem: https://http2.mlstatic.com/D_NQ_NP_756953-MLA79432505733_092024-O.webp
 preco: 19.17
 link_afiliado: https://meli.la/2noybwE
 codigo: EQMTUP-JTRY
-atualizado: '2026-10-25'
+atualizado: '2026-10-26'
 data: '2026-10-17'
 resumo: Kit com 13 pincéis de maquiagem para sombra e blush, por menos de R$ 20.
 pros:

@@ -7,6 +7,7 @@ preco: 76.23
 preco_antigo: 109.9
 link_afiliado: https://meli.la/32pehoh
 codigo: EQMTUP-XNKF
+ativo: false
 data: '2026-10-25'
 resumo: Sandália Feminina Rasteira De Dedo por R$ 76,23, com nota 4.9 e mais de 5 mil vendidos.
 pros:

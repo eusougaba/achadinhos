@@ -3,11 +3,10 @@ titulo: Cafeteira Elétrica Electrolux Inox 600ml 15 Xícaras ECM10
 categoria: casa
 loja: mercadolivre
 imagem: https://http2.mlstatic.com/D_NQ_NP_923263-MLA99474168604_112025-O.webp
-preco: 111.25
-preco_antigo: 167.79
+preco: 105
 link_afiliado: https://meli.la/2maXEdi
 codigo: EQMTUP-8YW6
-atualizado: '2026-10-25'
+atualizado: '2026-10-26'
 data: '2026-10-17'
 resumo: Cafeteira elétrica Electrolux em inox, para 15 xícaras, vendida pelo Mercado Livre.
 pros:

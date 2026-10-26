@@ -7,7 +7,7 @@ preco: 47.8
 preco_antigo: 100.58
 link_afiliado: https://meli.la/2FGVULk
 codigo: EQMTUP-C5DL
-atualizado: '2026-10-25'
+atualizado: '2026-10-26'
 data: '2026-10-22'
 resumo: Vittak Organizador Maquiagem Cosméticos Batom Acrílico por R$ 47,80, com nota 4.8 e mais de 10 mil vendidos.
 pros:

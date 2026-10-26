@@ -7,7 +7,7 @@ preco: 196.07
 preco_antigo: 311.25
 link_afiliado: https://meli.la/28T7rZN
 codigo: EQMTUP-26ZJ
-atualizado: '2026-10-25'
+atualizado: '2026-10-26'
 data: '2026-10-20'
 resumo: Carregador Portátil Power Bank Basike 20000mAh 22.5W Rápido por R$ 190,19, com nota 4.9 e mais de 10 mil vendidos.
 pros:

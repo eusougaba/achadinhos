@@ -7,7 +7,7 @@ preco: 87.69
 preco_antigo: 119
 link_afiliado: https://meli.la/2SyMpkR
 codigo: EQMTUP-MTZL
-atualizado: '2026-10-25'
+atualizado: '2026-10-26'
 data: '2026-10-17'
 resumo: Seis potes herméticos empilháveis da Electrolux, somando 12,4 litros, vendidos pelo Mercado Livre.
 pros:
