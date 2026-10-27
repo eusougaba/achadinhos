@@ -6,7 +6,7 @@ imagem: https://http2.mlstatic.com/D_NQ_NP_792646-MLA100029915779_122025-O.webp
 preco: 67.66
 link_afiliado: https://meli.la/12LhDda
 codigo: EQMTUP-1CMF
-atualizado: '2026-10-26'
+atualizado: '2026-10-27'
 preco_antigo: 108.99
 data: '2026-10-17'
 resumo: Faqueiro Tramontina Búzios em inox com 24 peças, pela metade do preço.

@@ -7,6 +7,7 @@ preco: 96.9
 preco_antigo: 219.9
 link_afiliado: https://meli.la/2ScAFBa
 codigo: EQMTUP-86NM
+atualizado: '2026-10-27'
 data: '2026-10-26'
 resumo: Bebe Reborn Boneca Realista Com Olhos Fechados Molde Menina por R$ 96,90, com nota 4.7 e mais de 10 mil vendidos.
 pros:

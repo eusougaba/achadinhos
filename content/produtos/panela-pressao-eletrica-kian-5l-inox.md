@@ -6,7 +6,7 @@ imagem: https://http2.mlstatic.com/D_NQ_NP_851133-MLA99475264230_112025-O.webp
 preco: 310.11
 link_afiliado: https://meli.la/2anYkds
 codigo: EQMTUP-NT07
-atualizado: '2026-10-26'
+atualizado: '2026-10-27'
 preco_antigo: 499.99
 data: '2026-10-17'
 resumo: Panela de pressão elétrica de 5 litros em inox com 33% de desconto no Pix.

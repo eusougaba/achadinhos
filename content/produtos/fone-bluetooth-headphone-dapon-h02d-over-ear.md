@@ -3,11 +3,11 @@ titulo: Fone de Ouvido Headphone Dapon H02D Bluetooth 5.1 Over-ear 22h
 categoria: tecnologia
 loja: mercadolivre
 imagem: https://http2.mlstatic.com/D_NQ_NP_673950-MLA99394598783_112025-O.webp
-preco: 78.9
+preco: 76.53
 preco_antigo: 149
 link_afiliado: https://meli.la/1sJ9vqR
 codigo: EQMTUP-6TPH
-atualizado: '2026-10-26'
+atualizado: '2026-10-27'
 data: '2026-10-17'
 resumo: Headphone Bluetooth 5.1 over-ear com 22 horas de bateria por menos de R$ 80, nota 4,9.
 pros:

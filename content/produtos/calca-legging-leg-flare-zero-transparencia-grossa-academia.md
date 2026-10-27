@@ -8,6 +8,7 @@ preco_antigo: 59.9
 link_afiliado: https://meli.la/1BQv5Wg
 codigo: EQMTUP-JKW0
 atualizado: '2026-10-26'
+ativo: false
 data: '2026-10-21'
 resumo: Calça Legging Leg Flare Zero Transparência Grossa Academia por R$ 35,90, com nota 4.7 e mais de 100 mil vendidos.
 pros:

@@ -7,7 +7,7 @@ preco: 34.42
 preco_antigo: 59.9
 link_afiliado: https://meli.la/2nsUZRk
 codigo: EQMTUP-7ABD
-atualizado: '2026-10-26'
+atualizado: '2026-10-27'
 data: '2026-10-25'
 resumo: Máscara de Cílios Boca Rosa Preto Efeito Volume Longa Duração por R$ 34,42, com nota 4.7 e mais de 5 mil vendidos.
 pros:

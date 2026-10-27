@@ -7,6 +7,7 @@ preco: 219.9
 preco_antigo: 399
 link_afiliado: https://meli.la/1xVuXDK
 codigo: EQMTUP-7A48
+ativo: false
 data: '2026-10-26'
 resumo: Relógio Casio Feminino La670 Cinza Vintage Tamanho Mini por R$ 219,90, com nota 4.8 e mais de 10 mil vendidos.
 pros:

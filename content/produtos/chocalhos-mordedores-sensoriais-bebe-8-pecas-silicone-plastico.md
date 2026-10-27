@@ -3,11 +3,11 @@ titulo: Kit Chocalhos e Mordedores Sensoriais para Bebê com 8 Peças de Silicon
 categoria: bebes
 loja: mercadolivre
 imagem: https://http2.mlstatic.com/D_NQ_NP_730821-MLA116010973966_092026-O.webp
-preco: 27.9
+preco: 25.99
 link_afiliado: https://meli.la/163mwkW
 codigo: EQMTUP-HZD9
-atualizado: '2026-10-26'
-preco_antigo: 39
+atualizado: '2026-10-27'
+preco_antigo: 49.9
 data: '2026-10-18'
 resumo: Kit Chocalhos e Mordedores Sensoriais para Bebê com 8 Peças por R$ 27,00, com nota 4.9 e mais de 1 mil vendidos.
 pros:

@@ -3,11 +3,11 @@ titulo: Jogo de Panelas 10 Peças Antiaderente com Tampa de Vidro Marfim
 categoria: casa
 loja: mercadolivre
 imagem: https://http2.mlstatic.com/D_NQ_NP_759563-MLA110194384086_052026-O.webp
-preco: 212
-preco_antigo: 296.93
+preco: 174
+preco_antigo: 264.9
 link_afiliado: https://meli.la/2fwYFm2
 codigo: EQMTUP-6WZN
-atualizado: '2026-10-26'
+atualizado: '2026-10-27'
 data: '2026-10-17'
 resumo: Jogo de panelas antiaderente de 10 peças, cor marfim, com tampas de vidro.
 pros:

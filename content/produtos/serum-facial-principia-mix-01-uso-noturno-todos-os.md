@@ -6,7 +6,7 @@ imagem: https://http2.mlstatic.com/D_NQ_NP_661969-MLA96768245047_102025-O.webp
 preco: 30.38
 link_afiliado: https://meli.la/1YwMaFr
 codigo: EQMTUP-WS3A
-atualizado: '2026-10-26'
+atualizado: '2026-10-27'
 data: '2026-10-25'
 resumo: Sérum Facial Principia Mix-01 Uso Noturno Para Todos os Tipos por R$ 35,00, com nota 4.8 e mais de 100 mil vendidos.
 pros:

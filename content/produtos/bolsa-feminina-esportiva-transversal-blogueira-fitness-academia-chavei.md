@@ -7,7 +7,7 @@ preco: 54
 preco_antigo: 89.99
 link_afiliado: https://meli.la/2Vcxmqp
 codigo: EQMTUP-JZSN
-atualizado: '2026-10-26'
+atualizado: '2026-10-27'
 data: '2026-10-22'
 resumo: Bolsa Feminina Esportiva Transversal Blogueira Fitness Para por R$ 53,62, com nota 4.8 e mais de 10 mil vendidos.
 pros:
