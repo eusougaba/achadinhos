@@ -7,6 +7,7 @@ preco: 27.9
 preco_antigo: 39.69
 link_afiliado: https://meli.la/2pUGDp4
 codigo: EQMTUP-WH37
+atualizado: '2026-10-28'
 data: '2026-10-27'
 resumo: Coqueteleira Shaker Academia Compartimento 600ml Creatina por R$ 27,90, com nota 4.9 e mais de 10 mil vendidos.
 pros:

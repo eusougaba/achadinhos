@@ -7,7 +7,7 @@ preco: 88.52
 preco_antigo: 161.91
 link_afiliado: https://meli.la/17e3uGs
 codigo: EQMTUP-CK04
-atualizado: '2026-10-27'
+atualizado: '2026-10-28'
 data: '2026-10-18'
 resumo: Serra Tico Tico 500w 3000rpm Uso Profissional Cor Azul por R$ 88,78, com nota 4.7 e mais de 10 mil vendidos.
 pros:

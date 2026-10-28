@@ -3,11 +3,11 @@ titulo: Kit Mordedor para Bebê brinquedo Sensorial Silicone com Chocalho 8 Peç
 categoria: bebes
 loja: mercadolivre
 imagem: https://http2.mlstatic.com/D_NQ_NP_636014-MLA114307309560_082026-O.webp
-preco: 27.49
+preco: 27.9
 preco_antigo: 40
 link_afiliado: https://meli.la/2GnPtMx
 codigo: EQMTUP-28J6
-atualizado: '2026-10-27'
+atualizado: '2026-10-28'
 data: '2026-10-18'
 resumo: Kit Mordedor para Bebê brinquedo Sensorial Silicone com por R$ 27,49, com nota 4.9 e mais de 5 mil vendidos.
 pros:

@@ -6,7 +6,7 @@ imagem: https://http2.mlstatic.com/D_NQ_NP_905976-MLA116941277356_092026-O.webp
 preco: 69.9
 link_afiliado: https://meli.la/2nQehYP
 codigo: EQMTUP-5XMT
-atualizado: '2026-10-27'
+atualizado: '2026-10-28'
 data: '2026-10-17'
 resumo: Outra opção de espelho orgânico 90x40, agora com moldura, da loja oficial da Lopazzi.
 pros:

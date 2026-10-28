@@ -7,7 +7,7 @@ preco: 224.57
 preco_antigo: 379
 link_afiliado: https://meli.la/1mbWjZu
 codigo: EQMTUP-PV9A
-atualizado: '2026-10-27'
+atualizado: '2026-10-28'
 data: '2026-10-25'
 resumo: Baba Eletrônica Baby Monitor Vb603 Visão Noturna Dual Audio por R$ 224,57, com nota 4.9 e mais de 10 mil vendidos.
 pros:

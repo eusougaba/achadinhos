@@ -3,11 +3,11 @@ titulo: Hidrabene Protetor facial Solar FPS 70 Toque Seco Antissinais Clareia a 
 categoria: beleza
 loja: mercadolivre
 imagem: https://http2.mlstatic.com/D_NQ_NP_655805-MLA116956226142_092026-O.webp
-preco: 30.62
-preco_antigo: 59.9
+preco: 37
+preco_antigo: 99.9
 link_afiliado: https://meli.la/2etT5XG
 codigo: EQMTUP-366X
-atualizado: '2026-10-27'
+atualizado: '2026-10-28'
 data: '2026-10-26'
 resumo: Hidrabene Protetor facial Solar FPS 70 Toque Seco Antissinais por R$ 30,62, com nota 4.8 e mais de 10 mil vendidos.
 pros:

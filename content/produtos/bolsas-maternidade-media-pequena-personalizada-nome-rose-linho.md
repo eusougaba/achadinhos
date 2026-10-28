@@ -3,11 +3,11 @@ titulo: Bolsas Maternidade Média E Pequena Personalizada Com Nome Rose Linho
 categoria: bebes
 loja: mercadolivre
 imagem: https://http2.mlstatic.com/D_NQ_NP_664245-MLB109637015218_042026-O.webp
-preco: 102.12
+preco: 99.9
 preco_antigo: 192
 link_afiliado: https://meli.la/1JvNyg8
 codigo: EQMTUP-S33E
-atualizado: '2026-10-27'
+atualizado: '2026-10-28'
 data: '2026-10-22'
 resumo: Bolsas Maternidade Média E Pequena Personalizada Com Nome por R$ 111,00, com nota 4.9 e mais de 10 mil vendidos.
 pros:

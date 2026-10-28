@@ -3,11 +3,11 @@ titulo: Depilador Elétrico Feminino e Masculino Indolor 4 Em 1 Corporal Recarre
 categoria: pets
 loja: mercadolivre
 imagem: https://http2.mlstatic.com/D_NQ_NP_740093-MLA115548829984_082026-O.webp
-preco: 39.9
+preco: 39.99
 preco_antigo: 65.9
 link_afiliado: https://meli.la/1qCvCCP
 codigo: EQMTUP-KHDH
-atualizado: '2026-10-27'
+atualizado: '2026-10-28'
 data: '2026-10-26'
 resumo: Depilador Elétrico Feminino e Masculino Indolor 4 Em 1 por R$ 39,90, com nota 4.6 e mais de 5 mil vendidos.
 pros:

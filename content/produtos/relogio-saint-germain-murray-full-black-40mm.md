@@ -8,6 +8,7 @@ preco_antigo: 246.79
 link_afiliado: https://meli.la/2PiKe6J
 codigo: EQMTUP-D4DZ
 atualizado: '2026-10-27'
+ativo: false
 data: '2026-10-26'
 resumo: Relógio Saint Germain Murray Full Black 40mm por R$ 122,45, com nota 4.8 e mais de 10 mil vendidos.
 pros:

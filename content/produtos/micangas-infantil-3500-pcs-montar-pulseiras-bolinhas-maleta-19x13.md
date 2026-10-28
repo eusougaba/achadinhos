@@ -7,6 +7,7 @@ preco: 45.49
 preco_antigo: 74.9
 link_afiliado: https://meli.la/25Afeop
 codigo: EQMTUP-7XC7
+ativo: false
 data: '2026-10-27'
 resumo: Kit Miçangas Infantil 3500 Pçs para Montar Pulseiras Bolinhas por R$ 45,49, com nota 4.9 e mais de 50 mil vendidos.
 pros:

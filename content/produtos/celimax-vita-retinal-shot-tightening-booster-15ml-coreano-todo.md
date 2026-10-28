@@ -8,6 +8,7 @@ preco_antigo: 149.9
 link_afiliado: https://meli.la/2XLdkLs
 codigo: EQMTUP-Y7A0
 atualizado: '2026-10-27'
+ativo: false
 data: '2026-10-26'
 resumo: Celimax Vita A Retinal Shot Tightening Booster 15ml Coreano por R$ 89,90, com nota 4.8 e mais de 1 mil vendidos.
 pros:

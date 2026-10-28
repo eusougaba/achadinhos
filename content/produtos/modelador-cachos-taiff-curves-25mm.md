@@ -7,6 +7,7 @@ preco: 182
 link_afiliado: https://meli.la/2eMmgrV
 codigo: EQMTUP-6T1G
 atualizado: '2026-10-27'
+ativo: false
 data: '2026-10-17'
 resumo: Modelador de barril da Taiff com 2,5 cm, para cachos médios, com 26% de desconto no Pix.
 pros:
