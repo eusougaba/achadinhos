@@ -7,7 +7,7 @@ preco: 78.99
 preco_antigo: 129
 link_afiliado: https://meli.la/23V7joQ
 codigo: EQMTUP-1TEN
-atualizado: '2026-10-28'
+atualizado: '2026-10-29'
 data: '2026-10-17'
 resumo: Espelho de formato orgânico, aquele que aparece em todo quarto do Pinterest, por menos de R$ 80.
 pros:

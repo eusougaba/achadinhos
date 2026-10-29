@@ -7,7 +7,7 @@ preco: 94.6
 preco_antigo: 182.86
 link_afiliado: https://meli.la/34nZdJs
 codigo: EQMTUP-J31Y
-atualizado: '2026-10-28'
+atualizado: '2026-10-29'
 data: '2026-10-25'
 resumo: Banheira Dobrável Spa Adulto Ofurô Ou Gelo 254 L Premium Azul por R$ 100,00, com nota 4.8 e mais de 1 mil vendidos.
 pros:

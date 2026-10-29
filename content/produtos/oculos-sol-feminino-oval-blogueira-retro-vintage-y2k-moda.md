@@ -7,7 +7,7 @@ preco: 28.03
 preco_antigo: 49.9
 link_afiliado: https://meli.la/2DBRUii
 codigo: EQMTUP-4TRT
-atualizado: '2026-10-28'
+atualizado: '2026-10-29'
 data: '2026-10-26'
 resumo: Óculos De Sol Feminino Oval Blogueira Retro Vintage Y2k Moda por R$ 32,49, com nota 4.8 e mais de 5 mil vendidos.
 pros:

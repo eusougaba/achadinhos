@@ -7,7 +7,7 @@ preco: 38.7
 preco_antigo: 68.5
 link_afiliado: https://meli.la/1bcfvf3
 codigo: EQMTUP-CHVB
-atualizado: '2026-10-28'
+atualizado: '2026-10-29'
 data: '2026-10-17'
 resumo: Caixa Caixinha De Som Bluetooth Pendrive Fm Sd Portátil 20w por R$ 37,82, com nota 4.6 e mais de 50 mil vendidos.
 pros:

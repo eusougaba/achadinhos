@@ -3,11 +3,11 @@ titulo: Coqueteleira Shaker Academia Compartimento 600ml Creatina Shaikeira Supl
 categoria: esporte
 loja: mercadolivre
 imagem: https://http2.mlstatic.com/D_NQ_NP_613689-MLA113073468806_072026-O.webp
-preco: 27.9
+preco: 26.9
 preco_antigo: 39.69
 link_afiliado: https://meli.la/2pUGDp4
 codigo: EQMTUP-WH37
-atualizado: '2026-10-28'
+atualizado: '2026-10-29'
 data: '2026-10-27'
 resumo: Coqueteleira Shaker Academia Compartimento 600ml Creatina por R$ 27,90, com nota 4.9 e mais de 10 mil vendidos.
 pros:

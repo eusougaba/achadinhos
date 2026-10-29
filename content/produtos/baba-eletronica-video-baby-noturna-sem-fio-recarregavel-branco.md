@@ -7,6 +7,7 @@ preco: 221
 preco_antigo: 459
 link_afiliado: https://meli.la/2BmCQkU
 codigo: EQMTUP-N98N
+atualizado: '2026-10-29'
 data: '2026-10-28'
 resumo: Babá Eletrônica Video Baby Noturna Sem Fio Recarregável por R$ 221,00, com nota 4.9 e mais de 10 mil vendidos.
 pros:

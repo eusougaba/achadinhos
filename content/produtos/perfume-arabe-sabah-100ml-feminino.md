@@ -7,7 +7,7 @@ preco: 144
 preco_antigo: 230
 link_afiliado: https://meli.la/28nDwDF
 codigo: EQMTUP-LYRJ
-atualizado: '2026-10-28'
+atualizado: '2026-10-29'
 data: '2026-10-17'
 resumo: Perfume árabe Sabah de 100 ml, feminino, com 46% de desconto no Pix.
 pros:

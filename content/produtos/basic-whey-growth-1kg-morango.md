@@ -7,7 +7,7 @@ preco: 72.9
 preco_antigo: 104.9
 link_afiliado: https://meli.la/2JnozGN
 codigo: EQMTUP-FHXL
-atualizado: '2026-10-28'
+atualizado: '2026-10-29'
 data: '2026-10-17'
 resumo: Whey de 1 kg da Growth por menos de R$ 73, vendido pela loja oficial da marca.
 pros:

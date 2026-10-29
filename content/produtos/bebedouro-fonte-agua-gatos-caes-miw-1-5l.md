@@ -3,11 +3,11 @@ titulo: Bebedouro Fonte de Água para Gatos e Cães Miw 1,5 L USB 127/220V
 categoria: pets
 loja: mercadolivre
 imagem: https://http2.mlstatic.com/D_NQ_NP_978802-MLB117061702135_092026-O.webp
-preco: 51.41
+preco: 50
 preco_antigo: 99
 link_afiliado: https://meli.la/2ARRXEu
 codigo: EQMTUP-0N04
-atualizado: '2026-10-28'
+atualizado: '2026-10-29'
 data: '2026-10-17'
 resumo: Fonte de água de 1,5 L com alimentação USB e 127/220 V, para gatos e cães, por cerca de R$ 52.
 pros:

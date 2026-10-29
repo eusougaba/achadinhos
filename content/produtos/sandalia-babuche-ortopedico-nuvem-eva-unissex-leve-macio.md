@@ -7,6 +7,7 @@ preco: 44.9
 preco_antigo: 78.9
 link_afiliado: https://meli.la/1YKPF5P
 codigo: EQMTUP-KSPC
+ativo: false
 data: '2026-10-28'
 resumo: Sandália Babuche Ortopédico Nuvem Eva Unissex - Leve E Macio por R$ 44,90, com nota 4.8 e mais de 10 mil vendidos.
 pros:

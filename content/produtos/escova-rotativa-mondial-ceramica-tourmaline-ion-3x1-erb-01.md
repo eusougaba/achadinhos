@@ -7,6 +7,7 @@ preco: 133.41
 preco_antigo: 299
 link_afiliado: https://meli.la/2FwQs7S
 codigo: EQMTUP-HE4V
+atualizado: '2026-10-29'
 data: '2026-10-28'
 resumo: Escova Rotativa Mondial Ceramica Tourmaline Ion 3x1 Erb-01 por R$ 133,41, com nota 4.7 e mais de 100 mil vendidos.
 pros:

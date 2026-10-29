@@ -7,7 +7,7 @@ preco: 151.48
 preco_antigo: 216.71
 link_afiliado: https://meli.la/1iZHhYN
 codigo: EQMTUP-8E7A
-atualizado: '2026-10-28'
+atualizado: '2026-10-29'
 data: '2026-10-27'
 resumo: Depilador Philco Aqua Deluxe Plus Pdp02r Cor Branco/Rosa por R$ 151,48, com nota 4.8 e mais de 10 mil vendidos.
 pros:

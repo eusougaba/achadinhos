@@ -8,6 +8,7 @@ preco_antigo: 39.9
 link_afiliado: https://meli.la/2ZxukWV
 codigo: EQMTUP-6ZRB
 atualizado: '2026-10-28'
+ativo: false
 data: '2026-10-21'
 resumo: Cordão Segurança Neoprene Óculos Sol Mormaii Jet Sky Lancha por R$ 25,99, com nota 4.7 e mais de 5 mil vendidos.
 pros:

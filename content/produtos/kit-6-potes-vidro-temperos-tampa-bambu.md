@@ -3,10 +3,11 @@ titulo: Kit 6 potes de vidro para temperos com tampa de bambu
 categoria: casa
 loja: mercadolivre
 imagem: https://http2.mlstatic.com/D_NQ_NP_679824-MLB114327556861_072026-O.webp
-preco: 43.9
+preco: 40.9
 link_afiliado: https://meli.la/2SgSf3H
 codigo: EQMTUP-QP4G
-atualizado: '2026-10-28'
+atualizado: '2026-10-29'
+preco_antigo: 69.9
 data: '2026-10-17'
 resumo: Seis potes de vidro herméticos com tampa de bambu para organizar os temperos, por cerca de R$ 7 cada.
 pros:

@@ -6,7 +6,7 @@ imagem: https://http2.mlstatic.com/D_NQ_NP_923263-MLA99474168604_112025-O.webp
 preco: 111.25
 link_afiliado: https://meli.la/2maXEdi
 codigo: EQMTUP-8YW6
-atualizado: '2026-10-28'
+atualizado: '2026-10-29'
 preco_antigo: 177.14
 data: '2026-10-17'
 resumo: Cafeteira elétrica Electrolux em inox, para 15 xícaras, vendida pelo Mercado Livre.

@@ -8,6 +8,7 @@ preco_antigo: 64.99
 link_afiliado: https://meli.la/32Gz5Tv
 codigo: EQMTUP-3V0H
 atualizado: '2026-10-28'
+ativo: false
 data: '2026-10-23'
 resumo: Carregador Turbo 55w USB-C Com Cabo Tipo C 1 Metro Fonte por R$ 32,99, com nota 4.7 e mais de 50 mil vendidos.
 pros:

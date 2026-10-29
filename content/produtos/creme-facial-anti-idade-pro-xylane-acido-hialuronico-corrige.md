@@ -7,7 +7,7 @@ preco: 87.46
 preco_antigo: 154.99
 link_afiliado: https://meli.la/26FD2zK
 codigo: EQMTUP-WFKZ
-atualizado: '2026-10-28'
+atualizado: '2026-10-29'
 data: '2026-10-27'
 resumo: Creme Facial Anti-idade, com PRO-XYLANE e Ácido Hialurônico, por R$ 87,46, com nota 4.8 e mais de 50 mil vendidos.
 pros:
